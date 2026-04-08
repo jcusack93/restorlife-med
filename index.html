@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RestorLife Med — Science-Backed Longevity & Weight Loss</title>
+<meta name="description" content="Physician-guided GLP-1 and peptide therapies for sustainable weight loss and longevity. Licensed U.S. physicians, FDA-regulated pharmacies, delivered to your door.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --sage: #6B8F71;
+  --sage-dark: #5A7D60;
+  --sage-light: #E8F0E9;
+  --sage-muted: #A3C4A8;
+  --navy: #1B2A4A;
+  --navy-light: #2D4066;
+  --warm-white: #FAFAF7;
+  --cream: #F5F3EE;
+  --sand: #E8E2D8;
+  --gold: #C4A35A;
+  --gold-light: #D4BA7A;
+  --text-primary: #1B2A4A;
+  --text-secondary: #5A6478;
+  --text-light: #8892A4;
+  --white: #FFFFFF;
+  --border: #E2DFD8;
+  --red: #C0392B;
+  --red-light: #FDEDEC;
+  --green: #27AE60;
+  --font-display: 'DM Serif Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--warm-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ══════════════════════════════════
+   NAV
+   ══════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(250,250,247,0.92);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 32px; height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+  font-family: var(--font-display); font-size: 22px;
+  color: var(--navy); text-decoration: none; letter-spacing: -0.3px;
+  z-index: 1001;
+}
+.logo span { color: var(--sage); }
+.nav-links {
+  display: flex; align-items: center; gap: 36px;
+}
+.nav-links a {
+  font-size: 14px; font-weight: 500; color: var(--text-secondary);
+  text-decoration: none; letter-spacing: 0.2px; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--navy); }
+.nav-cta {
+  background: var(--navy) !important; color: var(--white) !important;
+  padding: 10px 24px !important; border-radius: 8px;
+  font-weight: 600 !important; font-size: 13px !important;
+  letter-spacing: 0.3px; transition: all 0.25s !important;
+}
+.nav-cta:hover { background: var(--navy-light) !important; transform: translateY(-1px); }
+
+/* Hamburger */
+.hamburger {
+  display: none; background: none; border: none; cursor: pointer;
+  width: 32px; height: 32px; position: relative; z-index: 1001;
+  flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+}
+.hamburger span {
+  display: block; width: 22px; height: 2px; background: var(--navy);
+  transition: all 0.3s ease; border-radius: 2px;
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile menu overlay */
+.mobile-overlay {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(27,42,74,0.4); z-index: 999; opacity: 0;
+  transition: opacity 0.3s;
+}
+.mobile-overlay.active { opacity: 1; }
+
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links {
+    position: fixed; top: 0; right: -300px; width: 280px; height: 100vh;
+    background: var(--white); flex-direction: column; align-items: stretch;
+    padding: 100px 32px 40px; gap: 0; z-index: 1000;
+    box-shadow: -4px 0 32px rgba(27,42,74,0.1);
+    transition: right 0.35s ease;
+  }
+  .nav-links.open { right: 0; }
+  .nav-links a {
+    font-size: 16px; padding: 16px 0;
+    border-bottom: 1px solid var(--cream);
+  }
+  .nav-cta {
+    margin-top: 16px; text-align: center;
+    padding: 14px 24px !important; font-size: 15px !important;
+  }
+  .mobile-overlay { display: block; pointer-events: none; }
+  .mobile-overlay.active { pointer-events: all; }
+}
+
+/* ══════════════════════════════════
+   HERO
+   ══════════════════════════════════ */
+.hero {
+  padding: 160px 32px 100px;
+  background: linear-gradient(170deg, var(--warm-white) 0%, var(--cream) 40%, var(--sage-light) 100%);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -200px; right: -200px;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(107,143,113,0.08) 0%, transparent 70%);
+}
+.hero::after {
+  content: ''; position: absolute; bottom: -100px; left: -100px;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,163,90,0.06) 0%, transparent 70%);
+}
+.hero-inner {
+  max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--white); border: 1px solid var(--border);
+  padding: 6px 16px 6px 8px; border-radius: 50px;
+  font-size: 12px; font-weight: 600; color: var(--sage);
+  letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 24px;
+}
+.hero-badge .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--sage); animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.hero h1 {
+  font-family: var(--font-display); font-size: 52px; line-height: 1.12;
+  color: var(--navy); margin-bottom: 24px; letter-spacing: -0.5px;
+}
+.hero h1 em { font-style: italic; color: var(--sage); }
+.hero-text {
+  font-size: 18px; color: var(--text-secondary); line-height: 1.7;
+  margin-bottom: 36px; max-width: 480px;
+}
+.hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--navy); color: var(--white);
+  padding: 16px 36px; border-radius: 10px; border: none;
+  font-family: var(--font-body); font-size: 15px; font-weight: 600;
+  cursor: pointer; transition: all 0.3s; letter-spacing: 0.2px;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { background: var(--navy-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(27,42,74,0.18); }
+.btn-secondary {
+  background: transparent; color: var(--navy); border: 1.5px solid var(--border);
+  padding: 15px 32px; border-radius: 10px;
+  font-family: var(--font-body); font-size: 15px; font-weight: 500;
+  cursor: pointer; transition: all 0.3s; text-decoration: none;
+}
+.btn-secondary:hover { border-color: var(--navy); background: var(--white); }
+.btn-sage {
+  background: var(--sage); color: var(--white);
+  padding: 16px 36px; border-radius: 10px; border: none;
+  font-family: var(--font-body); font-size: 15px; font-weight: 600;
+  cursor: pointer; transition: all 0.3s; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-sage:hover { background: var(--sage-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(107,143,113,0.25); }
+
+.hero-visual { display: flex; flex-direction: column; gap: 16px; }
+.trust-card {
+  background: var(--white); border-radius: 16px; padding: 28px 32px;
+  border: 1px solid var(--border); box-shadow: 0 4px 24px rgba(27,42,74,0.04);
+}
+.trust-card h4 { font-family: var(--font-display); font-size: 18px; margin-bottom: 4px; color: var(--navy); }
+.trust-card p { font-size: 14px; color: var(--text-secondary); }
+.trust-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.stat-card {
+  background: var(--white); border-radius: 16px; padding: 24px;
+  border: 1px solid var(--border); text-align: center;
+  box-shadow: 0 4px 24px rgba(27,42,74,0.04);
+}
+.stat-card .number {
+  font-family: var(--font-display); font-size: 32px; color: var(--sage);
+  display: block; margin-bottom: 4px;
+}
+.stat-card .label { font-size: 12px; color: var(--text-light); font-weight: 500; letter-spacing: 0.3px; }
+
+/* ══════════════════════════════════
+   TRUST BAR
+   ══════════════════════════════════ */
+.trust-bar { padding: 40px 32px; border-bottom: 1px solid var(--border); background: var(--white); }
+.trust-bar-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap;
+}
+.trust-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; font-weight: 500; color: var(--text-secondary); letter-spacing: 0.2px;
+}
+.trust-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--sage-light); display: flex; align-items: center; justify-content: center; font-size: 16px;
+}
+
+/* ══════════════════════════════════
+   SECTIONS (shared)
+   ══════════════════════════════════ */
+section { padding: 100px 32px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--sage); margin-bottom: 12px;
+}
+.section-title {
+  font-family: var(--font-display); font-size: 38px;
+  color: var(--navy); margin-bottom: 16px; letter-spacing: -0.3px;
+}
+.section-subtitle {
+  font-size: 17px; color: var(--text-secondary); max-width: 560px;
+  line-height: 1.7; margin-bottom: 56px;
+}
+.center { text-align: center; }
+.center .section-subtitle { margin-left: auto; margin-right: auto; }
+
+/* ══════════════════════════════════
+   LEARN MORE (ABOUT SECTION)
+   ══════════════════════════════════ */
+#learn-more { background: var(--white); }
+.learn-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+}
+.learn-content .section-subtitle { margin-bottom: 28px; }
+.learn-points { list-style: none; margin-bottom: 32px; }
+.learn-points li {
+  padding: 12px 0; font-size: 15px; color: var(--text-secondary);
+  display: flex; align-items: flex-start; gap: 14px; line-height: 1.6;
+}
+.learn-points li .check {
+  width: 24px; height: 24px; border-radius: 50%; background: var(--sage-light);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--sage); font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+}
+.learn-visual {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+.learn-stat-card {
+  background: var(--cream); border-radius: 16px; padding: 28px 24px;
+  border: 1px solid var(--border); text-align: center;
+}
+.learn-stat-card .icon { font-size: 28px; margin-bottom: 12px; display: block; }
+.learn-stat-card h4 {
+  font-family: var(--font-display); font-size: 28px; color: var(--navy); margin-bottom: 4px;
+}
+.learn-stat-card p { font-size: 12px; color: var(--text-light); font-weight: 500; }
+.learn-stat-card.full { grid-column: 1 / -1; }
+
+/* ══════════════════════════════════
+   HOW IT WORKS
+   ══════════════════════════════════ */
+.how-it-works { background: var(--cream); }
+.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.step {
+  background: var(--white); border-radius: 16px; padding: 36px 28px;
+  border: 1px solid var(--border); position: relative; transition: transform 0.3s, box-shadow 0.3s;
+}
+.step:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(27,42,74,0.06); }
+.step-number {
+  font-family: var(--font-display); font-size: 40px;
+  color: var(--sage-light); margin-bottom: 16px; line-height: 1;
+}
+.step h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
+.step p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+/* ══════════════════════════════════
+   TREATMENTS
+   ══════════════════════════════════ */
+.treatments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.treatment-card {
+  border-radius: 20px; padding: 40px 32px;
+  border: 1px solid var(--border); background: var(--white);
+  transition: all 0.35s; position: relative; overflow: hidden;
+}
+.treatment-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 4px; background: var(--sage); opacity: 0; transition: opacity 0.35s;
+}
+.treatment-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(27,42,74,0.07); }
+.treatment-card:hover::before { opacity: 1; }
+.treatment-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: var(--sage-light); display: flex; align-items: center; justify-content: center;
+  font-size: 22px; margin-bottom: 24px;
+}
+.treatment-card h3 {
+  font-family: var(--font-display); font-size: 22px;
+  color: var(--navy); margin-bottom: 12px;
+}
+.treatment-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+.treatment-tag {
+  display: inline-block; padding: 4px 12px; border-radius: 6px;
+  background: var(--sage-light); color: var(--sage);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+  margin-right: 6px; margin-bottom: 6px;
+}
+
+/* ══════════════════════════════════
+   WHY US
+   ══════════════════════════════════ */
+.why-us { background: var(--navy); color: var(--white); }
+.why-us .section-label { color: var(--gold); }
+.why-us .section-title { color: var(--white); }
+.why-us .section-subtitle { color: rgba(255,255,255,0.65); }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.why-card {
+  background: rgba(255,255,255,0.06); border-radius: 16px;
+  padding: 36px 28px; border: 1px solid rgba(255,255,255,0.08); transition: all 0.3s;
+}
+.why-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+.why-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: rgba(196,163,90,0.15); display: flex; align-items: center; justify-content: center;
+  font-size: 18px; margin-bottom: 20px;
+}
+.why-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--white); }
+.why-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+/* ══════════════════════════════════
+   TESTIMONIALS
+   ══════════════════════════════════ */
+.testimonials { background: var(--cream); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.testimonial {
+  background: var(--white); border-radius: 16px; padding: 36px;
+  border: 1px solid var(--border);
+}
+.stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 16px; }
+.testimonial blockquote {
+  font-size: 15px; color: var(--text-secondary); line-height: 1.7;
+  margin-bottom: 20px; font-style: italic;
+}
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.author-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--sage-light); display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 14px; color: var(--sage);
+}
+.author-info .name { font-size: 14px; font-weight: 600; color: var(--navy); }
+.author-info .detail { font-size: 12px; color: var(--text-light); }
+
+/* ══════════════════════════════════
+   PRICING
+   ══════════════════════════════════ */
+.pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 800px; margin: 0 auto; }
+.price-card {
+  background: var(--white); border-radius: 20px; padding: 44px 36px;
+  border: 1px solid var(--border); text-align: center; transition: all 0.3s; position: relative;
+}
+.price-card.featured { border-color: var(--sage); box-shadow: 0 8px 40px rgba(107,143,113,0.12); }
+.price-card.featured::before {
+  content: 'Most Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--sage); color: var(--white); padding: 4px 16px; border-radius: 6px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+}
+.price-card h3 { font-family: var(--font-display); font-size: 22px; color: var(--navy); margin-bottom: 8px; }
+.price-card .desc { font-size: 13px; color: var(--text-light); margin-bottom: 24px; }
+.price { font-family: var(--font-display); font-size: 48px; color: var(--navy); }
+.price sub { font-size: 16px; color: var(--text-light); font-family: var(--font-body); }
+.price-period { font-size: 13px; color: var(--text-light); margin-bottom: 28px; }
+.price-features { list-style: none; text-align: left; margin-bottom: 32px; }
+.price-features li {
+  padding: 10px 0; border-bottom: 1px solid var(--cream);
+  font-size: 14px; color: var(--text-secondary);
+  display: flex; align-items: center; gap: 10px;
+}
+.price-features li::before { content: '✓'; color: var(--sage); font-weight: 700; font-size: 13px; }
+.price-card .btn-primary, .price-card .btn-sage { width: 100%; justify-content: center; }
+
+/* ══════════════════════════════════
+   FAQ
+   ══════════════════════════════════ */
+.faq-section { background: var(--cream); }
+.faq-list { max-width: 720px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border); padding: 24px 0; }
+.faq-question {
+  font-size: 16px; font-weight: 600; color: var(--navy);
+  cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+  background: none; border: none; width: 100%; text-align: left;
+  font-family: var(--font-body); padding: 0;
+}
+.faq-question .icon {
+  font-size: 20px; color: var(--sage); transition: transform 0.3s;
+  flex-shrink: 0; margin-left: 16px;
+}
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.faq-answer p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; padding-top: 16px; }
+.faq-item.open .faq-answer { max-height: 300px; }
+.faq-item.open .faq-question .icon { transform: rotate(45deg); }
+
+/* ══════════════════════════════════
+   CTA BANNER
+   ══════════════════════════════════ */
+.cta-banner {
+  background: linear-gradient(135deg, var(--sage) 0%, #5A7F60 100%);
+  padding: 80px 32px; text-align: center;
+}
+.cta-banner h2 { font-family: var(--font-display); font-size: 36px; color: var(--white); margin-bottom: 16px; }
+.cta-banner p { font-size: 17px; color: rgba(255,255,255,0.8); margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+.btn-white {
+  background: var(--white); color: var(--navy);
+  padding: 16px 40px; border-radius: 10px; border: none;
+  font-family: var(--font-body); font-size: 15px; font-weight: 600;
+  cursor: pointer; transition: all 0.3s; text-decoration: none;
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+/* ══════════════════════════════════
+   ASSESSMENT MODAL
+   ══════════════════════════════════ */
+.modal-overlay {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(27,42,74,0.55); z-index: 2000;
+  justify-content: center; align-items: center;
+  padding: 20px; backdrop-filter: blur(4px);
+}
+.modal-overlay.active { display: flex; }
+.modal {
+  background: var(--white); border-radius: 20px; width: 100%; max-width: 580px;
+  max-height: 90vh; overflow-y: auto; position: relative;
+  box-shadow: 0 24px 64px rgba(27,42,74,0.2);
+  animation: modalIn 0.3s ease;
+}
+@keyframes modalIn { from { opacity: 0; transform: translateY(20px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.modal-close {
+  position: absolute; top: 20px; right: 20px;
+  background: var(--cream); border: none; width: 36px; height: 36px;
+  border-radius: 50%; font-size: 18px; cursor: pointer; color: var(--text-secondary);
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s; z-index: 1;
+}
+.modal-close:hover { background: var(--sand); color: var(--navy); }
+.modal-header {
+  padding: 40px 40px 0;
+}
+.modal-header h2 {
+  font-family: var(--font-display); font-size: 26px; color: var(--navy); margin-bottom: 8px;
+}
+.modal-header p { font-size: 14px; color: var(--text-light); }
+.modal-body { padding: 32px 40px 40px; }
+
+/* Progress bar */
+.progress-bar {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 32px;
+}
+.progress-segment {
+  flex: 1; height: 4px; border-radius: 4px;
+  background: var(--cream); transition: background 0.4s;
+}
+.progress-segment.active { background: var(--sage); }
+.progress-segment.completed { background: var(--sage); }
+.progress-text {
+  font-size: 12px; color: var(--text-light); font-weight: 500;
+  white-space: nowrap; margin-left: 8px;
+}
+
+/* Form steps */
+.form-step { display: none; }
+.form-step.active { display: block; }
+.form-step h3 {
+  font-family: var(--font-display); font-size: 20px; color: var(--navy);
+  margin-bottom: 6px;
+}
+.form-step .step-desc {
+  font-size: 14px; color: var(--text-light); margin-bottom: 24px;
+}
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block; font-size: 13px; font-weight: 600; color: var(--navy);
+  margin-bottom: 6px;
+}
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 12px 16px; border: 1.5px solid var(--border);
+  border-radius: 10px; font-family: var(--font-body); font-size: 14px;
+  color: var(--text-primary); background: var(--white);
+  transition: border-color 0.2s; outline: none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--sage);
+}
+.form-group input.error, .form-group select.error { border-color: var(--red); }
+.form-error { font-size: 12px; color: var(--red); margin-top: 4px; display: none; }
+.form-error.show { display: block; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group textarea { resize: vertical; min-height: 80px; }
+
+/* Option cards for selections */
+.option-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.option-card {
+  border: 1.5px solid var(--border); border-radius: 12px;
+  padding: 16px; cursor: pointer; transition: all 0.2s; text-align: center;
+}
+.option-card:hover { border-color: var(--sage-muted); background: var(--sage-light); }
+.option-card.selected { border-color: var(--sage); background: var(--sage-light); }
+.option-card .opt-icon { font-size: 24px; margin-bottom: 8px; display: block; }
+.option-card .opt-label { font-size: 13px; font-weight: 600; color: var(--navy); display: block; }
+.option-card .opt-desc { font-size: 11px; color: var(--text-light); display: block; margin-top: 2px; }
+.option-cards.single-col { grid-template-columns: 1fr; }
+.option-card.wide { text-align: left; display: flex; align-items: center; gap: 14px; }
+.option-card.wide .opt-icon { margin-bottom: 0; font-size: 20px; }
+.option-card.wide .opt-text { text-align: left; }
+
+/* Checkbox style */
+.checkbox-group { display: flex; flex-direction: column; gap: 10px; }
+.checkbox-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; color: var(--text-secondary); cursor: pointer;
+}
+.checkbox-item input[type="checkbox"] {
+  width: 18px; height: 18px; accent-color: var(--sage); cursor: pointer;
+}
+
+/* Form nav buttons */
+.form-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 32px; gap: 16px;
+}
+.btn-back {
+  background: none; border: 1.5px solid var(--border); color: var(--text-secondary);
+  padding: 12px 28px; border-radius: 10px; font-family: var(--font-body);
+  font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s;
+}
+.btn-back:hover { border-color: var(--navy); color: var(--navy); }
+.btn-next {
+  background: var(--sage); color: var(--white);
+  padding: 12px 32px; border-radius: 10px; border: none;
+  font-family: var(--font-body); font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s; margin-left: auto;
+}
+.btn-next:hover { background: var(--sage-dark); }
+.btn-next:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-submit {
+  background: var(--navy); color: var(--white);
+  padding: 14px 40px; border-radius: 10px; border: none;
+  font-family: var(--font-body); font-size: 15px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s; width: 100%;
+}
+.btn-submit:hover { background: var(--navy-light); }
+
+/* Success state */
+.assessment-success { text-align: center; padding: 20px 0; }
+.success-icon {
+  width: 72px; height: 72px; border-radius: 50%; background: var(--sage-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px; margin: 0 auto 24px;
+}
+.assessment-success h3 {
+  font-family: var(--font-display); font-size: 24px; color: var(--navy); margin-bottom: 12px;
+}
+.assessment-success p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; max-width: 380px; margin: 0 auto; }
+.success-details {
+  background: var(--cream); border-radius: 12px; padding: 20px 24px;
+  margin: 24px 0; text-align: left;
+}
+.success-details h4 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+.success-details li {
+  font-size: 14px; color: var(--text-secondary); padding: 4px 0;
+  display: flex; align-items: center; gap: 8px; list-style: none;
+}
+.success-details li::before { content: '✓'; color: var(--sage); font-weight: 700; }
+
+/* ══════════════════════════════════
+   FOOTER
+   ══════════════════════════════════ */
+footer {
+  background: var(--navy); color: rgba(255,255,255,0.5); padding: 64px 32px 32px;
+}
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-brand .logo { font-size: 20px; color: var(--white); display: block; margin-bottom: 12px; }
+.footer-brand .logo span { color: var(--sage-muted); }
+.footer-brand p { font-size: 13px; line-height: 1.7; max-width: 280px; }
+.footer-col h4 { color: var(--white); font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; padding: 4px 0; transition: color 0.2s; }
+.footer-col a:hover { color: var(--white); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px; display: flex; justify-content: space-between;
+  align-items: center; font-size: 12px; flex-wrap: wrap; gap: 12px;
+}
+.footer-legal a { color: rgba(255,255,255,0.4); text-decoration: none; margin-left: 20px; }
+.footer-legal a:hover { color: var(--white); }
+
+/* ══════════════════════════════════
+   DISCLAIMER
+   ══════════════════════════════════ */
+.disclaimer { background: var(--cream); padding: 32px; border-top: 1px solid var(--border); }
+.disclaimer p { max-width: 1200px; margin: 0 auto; font-size: 11px; color: var(--text-light); line-height: 1.8; }
+
+/* ══════════════════════════════════
+   ANIMATIONS
+   ══════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate { opacity: 0; }
+.animate.visible { animation: fadeUp 0.6s ease forwards; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+/* ══════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════ */
+@media (max-width: 960px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  .hero h1 { font-size: 38px; }
+  .steps-grid { grid-template-columns: repeat(2, 1fr); }
+  .treatments-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .learn-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .hero { padding: 130px 20px 60px; }
+  .hero h1 { font-size: 32px; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .btn-primary, .btn-secondary, .btn-sage { text-align: center; justify-content: center; }
+  section { padding: 64px 20px; }
+  .section-title { font-size: 28px; }
+  .steps-grid, .treatments-grid, .why-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .trust-bar-inner { gap: 20px; justify-content: flex-start; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .modal-header, .modal-body { padding-left: 24px; padding-right: 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .option-cards { grid-template-columns: 1fr; }
+  .learn-visual { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">Restor<span>Life</span> Med</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#learn-more" onclick="closeMenu()">About</a>
+      <a href="#how" onclick="closeMenu()">How It Works</a>
+      <a href="#treatments" onclick="closeMenu()">Treatments</a>
+      <a href="#pricing" onclick="closeMenu()">Pricing</a>
+      <a href="#faq" onclick="closeMenu()">FAQ</a>
+      <a href="javascript:void(0)" class="nav-cta" onclick="closeMenu(); openAssessment()">Get Started</a>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-overlay" id="mobileOverlay" onclick="closeMenu()"></div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="animate">
+      <div class="hero-badge"><span class="dot"></span> Now Accepting Patients</div>
+      <h1>Your body deserves <em>better</em> than aging on autopilot.</h1>
+      <p class="hero-text">Physician-guided GLP-1 and peptide therapies designed to help you lose weight, restore energy, and optimize your healthspan — delivered to your door.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="openAssessment()">Take Your Free Assessment →</button>
+        <a href="#learn-more" class="btn-secondary">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-visual animate delay-2">
+      <div class="trust-card">
+        <h4>🩺 Licensed Physician Care</h4>
+        <p>Every treatment plan is reviewed and prescribed by a board-certified physician licensed in your state.</p>
+      </div>
+      <div class="trust-row">
+        <div class="stat-card">
+          <span class="number">15–20%</span>
+          <span class="label">Avg. Body Weight Lost</span>
+        </div>
+        <div class="stat-card">
+          <span class="number">48hrs</span>
+          <span class="label">Avg. Ship Time</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TRUST BAR ═══════════ -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><div class="trust-icon">🔬</div> FDA-Regulated Pharmacies</div>
+    <div class="trust-item"><div class="trust-icon">🛡️</div> HIPAA Compliant</div>
+    <div class="trust-item"><div class="trust-icon">👨‍⚕️</div> U.S. Licensed Physicians</div>
+    <div class="trust-item"><div class="trust-icon">📦</div> Free Discreet Shipping</div>
+    <div class="trust-item"><div class="trust-icon">✓</div> Cancel Anytime</div>
+  </div>
+</div>
+
+<!-- ═══════════ LEARN MORE / ABOUT ═══════════ -->
+<section id="learn-more">
+  <div class="section-inner">
+    <div class="learn-grid">
+      <div class="learn-content animate">
+        <div class="section-label">About RestorLife Med</div>
+        <h2 class="section-title">Medicine That Meets You Where You Are</h2>
+        <p class="section-subtitle">We believe that advanced, physician-guided therapies shouldn't require waiting rooms, insurance battles, or guesswork. RestorLife Med brings clinically proven GLP-1 and peptide protocols directly to your door — backed by real physicians, real science, and real support.</p>
+        <ul class="learn-points">
+          <li><span class="check">✓</span> Every patient is evaluated by a board-certified physician — not an algorithm, not a chatbot</li>
+          <li><span class="check">✓</span> Medications sourced exclusively from FDA-regulated, state-licensed compounding pharmacies</li>
+          <li><span class="check">✓</span> Ongoing clinical support with dosage adjustments as your body responds to treatment</li>
+          <li><span class="check">✓</span> Transparent pricing with no hidden fees — your membership covers everything</li>
+        </ul>
+        <button class="btn-sage" onclick="openAssessment()">See If You Qualify →</button>
+      </div>
+      <div class="learn-visual animate delay-2">
+        <div class="learn-stat-card">
+          <span class="icon">👨‍⚕️</span>
+          <h4>100%</h4>
+          <p>Physician-Reviewed Plans</p>
+        </div>
+        <div class="learn-stat-card">
+          <span class="icon">📋</span>
+          <h4>50</h4>
+          <p>States Covered</p>
+        </div>
+        <div class="learn-stat-card">
+          <span class="icon">⏱️</span>
+          <h4>5 min</h4>
+          <p>Assessment Time</p>
+        </div>
+        <div class="learn-stat-card">
+          <span class="icon">💊</span>
+          <h4>48hr</h4>
+          <p>Avg. Delivery</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOW IT WORKS ═══════════ -->
+<section class="how-it-works" id="how">
+  <div class="section-inner center">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Simple. Clinical. Personal.</h2>
+    <p class="section-subtitle">From assessment to treatment in as little as 48 hours — no waiting rooms, no insurance headaches.</p>
+    <div class="steps-grid">
+      <div class="step animate">
+        <div class="step-number">01</div>
+        <h3>Complete Your Assessment</h3>
+        <p>Answer a brief medical questionnaire about your health history, goals, and lifestyle. Takes under 5 minutes.</p>
+      </div>
+      <div class="step animate delay-1">
+        <div class="step-number">02</div>
+        <h3>Physician Review</h3>
+        <p>A board-certified physician reviews your profile and determines the right treatment plan for your body and goals.</p>
+      </div>
+      <div class="step animate delay-2">
+        <div class="step-number">03</div>
+        <h3>Medication Shipped</h3>
+        <p>Your prescription is filled by a licensed U.S. pharmacy and shipped directly to your door in discreet packaging.</p>
+      </div>
+      <div class="step animate delay-3">
+        <div class="step-number">04</div>
+        <h3>Ongoing Support</h3>
+        <p>Unlimited messaging with your care team. Regular check-ins. Dosage adjustments as you progress.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TREATMENTS ═══════════ -->
+<section id="treatments">
+  <div class="section-inner center">
+    <div class="section-label">Our Treatments</div>
+    <h2 class="section-title">Clinically Proven Therapies</h2>
+    <p class="section-subtitle">Every protocol is physician-designed, backed by research, and personalized to your biology.</p>
+    <div class="treatments-grid">
+      <div class="treatment-card animate">
+        <div class="treatment-icon">⚖️</div>
+        <h3>GLP-1 Weight Loss</h3>
+        <p>Semaglutide and tirzepatide therapies that work with your body's natural hunger signals to achieve sustainable weight loss — without extreme dieting.</p>
+        <span class="treatment-tag">Semaglutide</span>
+        <span class="treatment-tag">Tirzepatide</span>
+      </div>
+      <div class="treatment-card animate delay-1">
+        <div class="treatment-icon">🧬</div>
+        <h3>Peptide Therapy</h3>
+        <p>Targeted peptide protocols for recovery, cellular repair, sleep optimization, and anti-aging — the building blocks your body needs to perform at its best.</p>
+        <span class="treatment-tag">BPC-157</span>
+        <span class="treatment-tag">CJC/Ipamorelin</span>
+      </div>
+      <div class="treatment-card animate delay-2">
+        <div class="treatment-icon">⚡</div>
+        <h3>Longevity & Vitality</h3>
+        <p>Comprehensive protocols combining metabolic optimization, hormone support, and regenerative therapies to help you feel and function younger.</p>
+        <span class="treatment-tag">NAD+</span>
+        <span class="treatment-tag">Optimization</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHY US ═══════════ -->
+<section class="why-us">
+  <div class="section-inner center">
+    <div class="section-label">Why RestorLife Med</div>
+    <h2 class="section-title">Healthcare That Respects Your Time</h2>
+    <p class="section-subtitle">We built RestorLife Med for people who want real clinical care without the friction of the traditional system.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <h3>Transparent Pricing</h3>
+        <p>No hidden fees, no surprise charges. Your membership includes medication, physician access, and ongoing care.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔒</div>
+        <h3>Privacy First</h3>
+        <p>HIPAA-compliant platform with encrypted communications. Discreet packaging on every shipment.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📋</div>
+        <h3>Real Physicians</h3>
+        <p>Not chatbots. Not algorithms. Every prescription is reviewed by a licensed, board-certified physician.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📊</div>
+        <h3>Personalized Protocols</h3>
+        <p>Your treatment is tailored to your labs, history, and goals — and adjusted as you progress.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏥</div>
+        <h3>Licensed Pharmacies</h3>
+        <p>All medications sourced from FDA-regulated, state-licensed compounding pharmacies.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <h3>Unlimited Support</h3>
+        <p>Message your care team anytime. Schedule check-ins when you need them. We're with you for the long haul.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TESTIMONIALS ═══════════ -->
+<section class="testimonials">
+  <div class="section-inner center">
+    <div class="section-label">Patient Stories</div>
+    <h2 class="section-title">Real Results, Real People</h2>
+    <p class="section-subtitle">Hear from patients who took the first step toward a healthier, more energized life.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial animate">
+        <div class="stars">★★★★★</div>
+        <blockquote>"I've tried every diet out there. Within 8 weeks on the GLP-1 program, I lost 22 lbs and my energy is through the roof. The doctor actually listened to me."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">S</div>
+          <div class="author-info"><div class="name">Sarah M.</div><div class="detail">Lost 22 lbs in 8 weeks</div></div>
+        </div>
+      </div>
+      <div class="testimonial animate delay-1">
+        <div class="stars">★★★★★</div>
+        <blockquote>"The peptide therapy has been a game changer for my recovery. I'm 48 and training harder than I was at 30. The whole process was seamless."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">D</div>
+          <div class="author-info"><div class="name">David R.</div><div class="detail">Peptide therapy patient</div></div>
+        </div>
+      </div>
+      <div class="testimonial animate delay-2">
+        <div class="stars">★★★★★</div>
+        <blockquote>"I was skeptical of online healthcare, but the physician consultation felt just as thorough as in-person. Medication arrived in two days."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">J</div>
+          <div class="author-info"><div class="name">Jennifer L.</div><div class="detail">GLP-1 program, month 4</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PRICING ═══════════ -->
+<section id="pricing">
+  <div class="section-inner center">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Simple, Honest Pricing</h2>
+    <p class="section-subtitle">Everything included — medication, physician visits, and unlimited support. No insurance needed.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>GLP-1 Weight Loss</h3>
+        <p class="desc">Semaglutide or Tirzepatide</p>
+        <div class="price">$179<sub>/mo</sub></div>
+        <p class="price-period">First month · $299/mo thereafter</p>
+        <ul class="price-features">
+          <li>Physician consultation & review</li>
+          <li>Compounded GLP-1 medication</li>
+          <li>Free priority shipping</li>
+          <li>Unlimited messaging with care team</li>
+          <li>Monthly check-ins & dosage adjustments</li>
+          <li>Cancel anytime — no contracts</li>
+        </ul>
+        <button class="btn-primary" onclick="openAssessment()">Get Started</button>
+      </div>
+      <div class="price-card featured">
+        <h3>Longevity Program</h3>
+        <p class="desc">GLP-1 + Peptide Therapy</p>
+        <div class="price">$349<sub>/mo</sub></div>
+        <p class="price-period">First month · $449/mo thereafter</p>
+        <ul class="price-features">
+          <li>Everything in GLP-1 Weight Loss</li>
+          <li>Custom peptide protocol</li>
+          <li>Quarterly lab review</li>
+          <li>Dedicated longevity physician</li>
+          <li>Priority scheduling & support</li>
+          <li>Personalized supplement guidance</li>
+        </ul>
+        <button class="btn-sage" onclick="openAssessment()">Get Started</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section id="faq" class="faq-section">
+  <div class="section-inner center">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Common Questions</h2>
+    <p class="section-subtitle">Everything you need to know before getting started.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">How do GLP-1 medications work?<span class="icon">+</span></button>
+        <div class="faq-answer"><p>GLP-1 receptor agonists mimic a natural hormone that regulates appetite and blood sugar. They slow digestion, reduce hunger, and help your body achieve sustainable weight loss — typically 15–20% of body weight over several months when combined with healthy habits.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Are compounded medications safe?<span class="icon">+</span></button>
+        <div class="faq-answer"><p>Our medications are prepared by FDA-regulated, state-licensed compounding pharmacies that follow strict quality and safety standards. While compounded drugs are not individually FDA-approved, they contain the same active ingredients as branded medications and are prescribed by licensed physicians.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Do I need to see a doctor in person?<span class="icon">+</span></button>
+        <div class="faq-answer"><p>No. Our entire process is conducted through our secure telehealth platform. A board-certified physician licensed in your state will review your information and determine the right treatment plan. Some states may require a video consultation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Can I cancel anytime?<span class="icon">+</span></button>
+        <div class="faq-answer"><p>Yes. There are no long-term contracts or commitments. You can pause or cancel your membership at any time through your patient portal or by contacting our support team.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">What peptide therapies do you offer?<span class="icon">+</span></button>
+        <div class="faq-answer"><p>We offer research-backed peptide protocols including BPC-157 for recovery, CJC-1295/Ipamorelin for growth hormone optimization, and NAD+ for cellular energy and longevity. Your physician will recommend the right protocol based on your goals and health profile.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">How quickly will I receive my medication?<span class="icon">+</span></button>
+        <div class="faq-answer"><p>Most patients receive their medication within 48 hours of physician approval. Prescriptions are filled and shipped from our licensed pharmacy partners with priority shipping included at no extra cost.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Which states do you serve?<span class="icon">+</span></button>
+        <div class="faq-answer"><p>RestorLife Med is available in all 50 states. Some states may require a synchronous video consultation before a prescription can be issued. You'll be informed of your state's requirements during the assessment process.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA BANNER ═══════════ -->
+<section class="cta-banner" id="start">
+  <h2>Ready to Feel Like Yourself Again?</h2>
+  <p>Take your free 5-minute assessment and a physician will review your eligibility within 24 hours.</p>
+  <button class="btn-white" onclick="openAssessment()">Start Your Free Assessment →</button>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="logo">Restor<span>Life</span> Med</a>
+        <p>Physician-guided longevity and weight loss therapies. Science-backed. Personally delivered.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Treatments</h4>
+        <a href="#treatments">GLP-1 Weight Loss</a>
+        <a href="#treatments">Peptide Therapy</a>
+        <a href="#treatments">Longevity Program</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#learn-more">About Us</a>
+        <a href="#how">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="/cdn-cgi/l/email-protection#3c4f494c4c534e487c4e594f48534e50555a59515958125f5351">Contact Us</a>
+        <a href="#">Patient Portal</a>
+        <a href="#">Help Center</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 RestorLife Med. All rights reserved.</span>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Telehealth Consent</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ DISCLAIMER ═══════════ -->
+<div class="disclaimer">
+  <p>RestorLife Med provides access to physician-prescribed telehealth services. Prescriptions are issued only after consultation with an independent licensed provider. Compounded medications are dispensed by state-licensed pharmacies but are not FDA-approved as finished products. Results may vary. Medication prescriptions are at the sole discretion of the treating physician and may not be suitable for everyone. RestorLife Med does not manufacture or compound medications. This website does not provide medical advice. Always consult a qualified healthcare provider before starting any treatment. Testimonials reflect individual experiences and are not guarantees of results.</p>
+</div>
+
+<!-- ═══════════ ASSESSMENT MODAL ═══════════ -->
+<div class="modal-overlay" id="assessmentModal">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeAssessment()">✕</button>
+    
+    <div class="modal-header">
+      <h2>Free Health Assessment</h2>
+      <p>Takes under 5 minutes · 100% confidential</p>
+    </div>
+
+    <div class="modal-body">
+      <!-- Progress -->
+      <div class="progress-bar">
+        <div class="progress-segment active" id="prog1"></div>
+        <div class="progress-segment" id="prog2"></div>
+        <div class="progress-segment" id="prog3"></div>
+        <div class="progress-segment" id="prog4"></div>
+        <div class="progress-segment" id="prog5"></div>
+        <span class="progress-text" id="progText">Step 1 of 5</span>
+      </div>
+
+      <!-- STEP 1: Goals -->
+      <div class="form-step active" id="step1">
+        <h3>What are your health goals?</h3>
+        <p class="step-desc">Select the option that best describes what you're looking for.</p>
+        <div class="option-cards single-col" id="goalCards">
+          <div class="option-card wide" onclick="selectOption(this, 'goalCards', 'goal')">
+            <span class="opt-icon">⚖️</span>
+            <div class="opt-text">
+              <span class="opt-label">Weight Loss</span>
+              <span class="opt-desc">Lose weight sustainably with GLP-1 therapy</span>
+            </div>
+          </div>
+          <div class="option-card wide" onclick="selectOption(this, 'goalCards', 'goal')">
+            <span class="opt-icon">🧬</span>
+            <div class="opt-text">
+              <span class="opt-label">Peptide Therapy</span>
+              <span class="opt-desc">Recovery, cellular repair, anti-aging protocols</span>
+            </div>
+          </div>
+          <div class="option-card wide" onclick="selectOption(this, 'goalCards', 'goal')">
+            <span class="opt-icon">⚡</span>
+            <div class="opt-text">
+              <span class="opt-label">Longevity & Vitality</span>
+              <span class="opt-desc">Comprehensive optimization for healthspan</span>
+            </div>
+          </div>
+          <div class="option-card wide" onclick="selectOption(this, 'goalCards', 'goal')">
+            <span class="opt-icon">🤔</span>
+            <div class="opt-text">
+              <span class="opt-label">Not Sure Yet</span>
+              <span class="opt-desc">I'd like to discuss options with a physician</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-nav">
+          <div></div>
+          <button class="btn-next" id="btn1" disabled onclick="goToStep(2)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Basic Info -->
+      <div class="form-step" id="step2">
+        <h3>Tell us about yourself</h3>
+        <p class="step-desc">This information helps our physicians personalize your treatment.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name *</label>
+            <input type="text" id="firstName" placeholder="First name" required>
+            <div class="form-error" id="firstNameErr">Please enter your first name</div>
+          </div>
+          <div class="form-group">
+            <label>Last Name *</label>
+            <input type="text" id="lastName" placeholder="Last name" required>
+            <div class="form-error" id="lastNameErr">Please enter your last name</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date of Birth *</label>
+            <input type="date" id="dob" required>
+            <div class="form-error" id="dobErr">Please enter your date of birth</div>
+          </div>
+          <div class="form-group">
+            <label>Biological Sex *</label>
+            <select id="sex">
+              <option value="">Select...</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+            <div class="form-error" id="sexErr">Please select your biological sex</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Height *</label>
+            <select id="height">
+              <option value="">Select...</option>
+              <option>4'10" (147 cm)</option><option>4'11" (150 cm)</option>
+              <option>5'0" (152 cm)</option><option>5'1" (155 cm)</option>
+              <option>5'2" (157 cm)</option><option>5'3" (160 cm)</option>
+              <option>5'4" (163 cm)</option><option>5'5" (165 cm)</option>
+              <option>5'6" (168 cm)</option><option>5'7" (170 cm)</option>
+              <option>5'8" (173 cm)</option><option>5'9" (175 cm)</option>
+              <option>5'10" (178 cm)</option><option>5'11" (180 cm)</option>
+              <option>6'0" (183 cm)</option><option>6'1" (185 cm)</option>
+              <option>6'2" (188 cm)</option><option>6'3" (191 cm)</option>
+              <option>6'4" (193 cm)</option><option>6'5" (196 cm)</option>
+              <option>6'6"+ (198+ cm)</option>
+            </select>
+            <div class="form-error" id="heightErr">Please select your height</div>
+          </div>
+          <div class="form-group">
+            <label>Current Weight (lbs) *</label>
+            <input type="number" id="weight" placeholder="e.g. 185" min="80" max="600">
+            <div class="form-error" id="weightErr">Please enter a valid weight</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>State of Residence *</label>
+          <select id="state">
+            <option value="">Select your state...</option>
+            <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
+            <option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option>
+            <option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+            <option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option>
+            <option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option>
+            <option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+            <option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option>
+            <option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option>
+            <option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+            <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option>
+            <option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option>
+            <option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option>
+            <option>Wisconsin</option><option>Wyoming</option><option>Washington D.C.</option>
+          </select>
+          <div class="form-error" id="stateErr">Please select your state</div>
+        </div>
+        <div class="form-nav">
+          <button class="btn-back" onclick="goToStep(1)">← Back</button>
+          <button class="btn-next" onclick="validateStep2()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Medical History -->
+      <div class="form-step" id="step3">
+        <h3>Medical History</h3>
+        <p class="step-desc">Help our physicians understand your health background. All information is kept strictly confidential.</p>
+        <div class="form-group">
+          <label>Have you been diagnosed with any of the following? (Select all that apply)</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" value="type2diabetes"> Type 2 Diabetes</label>
+            <label class="checkbox-item"><input type="checkbox" value="hypertension"> High Blood Pressure</label>
+            <label class="checkbox-item"><input type="checkbox" value="highcholesterol"> High Cholesterol</label>
+            <label class="checkbox-item"><input type="checkbox" value="thyroid"> Thyroid Disorder</label>
+            <label class="checkbox-item"><input type="checkbox" value="heartdisease"> Heart Disease</label>
+            <label class="checkbox-item"><input type="checkbox" value="kidneydisease"> Kidney Disease</label>
+            <label class="checkbox-item"><input type="checkbox" value="pancreatitis"> Pancreatitis</label>
+            <label class="checkbox-item"><input type="checkbox" value="none"> None of the above</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Are you currently taking any medications?</label>
+          <textarea id="medications" placeholder="List current medications, or type 'None'"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Do you have any known drug allergies?</label>
+          <textarea id="allergies" placeholder="List known allergies, or type 'None'"></textarea>
+        </div>
+        <div class="form-nav">
+          <button class="btn-back" onclick="goToStep(2)">← Back</button>
+          <button class="btn-next" onclick="goToStep(4)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: Lifestyle -->
+      <div class="form-step" id="step4">
+        <h3>Lifestyle & Background</h3>
+        <p class="step-desc">This helps us tailor recommendations to your daily life.</p>
+        <div class="form-group">
+          <label>How would you describe your current activity level?</label>
+          <div class="option-cards" id="activityCards">
+            <div class="option-card" onclick="selectOption(this, 'activityCards', 'activity')">
+              <span class="opt-label">Sedentary</span>
+              <span class="opt-desc">Little to no exercise</span>
+            </div>
+            <div class="option-card" onclick="selectOption(this, 'activityCards', 'activity')">
+              <span class="opt-label">Light</span>
+              <span class="opt-desc">1–2 days/week</span>
+            </div>
+            <div class="option-card" onclick="selectOption(this, 'activityCards', 'activity')">
+              <span class="opt-label">Moderate</span>
+              <span class="opt-desc">3–4 days/week</span>
+            </div>
+            <div class="option-card" onclick="selectOption(this, 'activityCards', 'activity')">
+              <span class="opt-label">Active</span>
+              <span class="opt-desc">5+ days/week</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Have you tried weight loss medications before?</label>
+          <div class="option-cards" id="priorCards">
+            <div class="option-card" onclick="selectOption(this, 'priorCards', 'prior')">
+              <span class="opt-label">Yes</span>
+            </div>
+            <div class="option-card" onclick="selectOption(this, 'priorCards', 'prior')">
+              <span class="opt-label">No</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Anything else you'd like our physician to know?</label>
+          <textarea id="additionalInfo" placeholder="Optional — share anything relevant to your health goals"></textarea>
+        </div>
+        <div class="form-nav">
+          <button class="btn-back" onclick="goToStep(3)">← Back</button>
+          <button class="btn-next" onclick="goToStep(5)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 5: Contact & Submit -->
+      <div class="form-step" id="step5">
+        <h3>Almost Done!</h3>
+        <p class="step-desc">Enter your contact information so our physician can reach you with your treatment plan.</p>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" id="email" placeholder="you@email.com">
+          <div class="form-error" id="emailErr">Please enter a valid email address</div>
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" id="phone" placeholder="(555) 123-4567">
+          <div class="form-error" id="phoneErr">Please enter your phone number</div>
+        </div>
+        <div class="form-group">
+          <label class="checkbox-item" style="margin-top: 8px;">
+            <input type="checkbox" id="consent">
+            I agree to the <a href="#" style="color: var(--sage);">Terms of Service</a> and <a href="#" style="color: var(--sage);">Privacy Policy</a>, and consent to receiving telehealth services. *
+          </label>
+          <div class="form-error" id="consentErr">You must agree to continue</div>
+        </div>
+        <div class="form-nav" style="flex-direction: column; gap: 12px;">
+          <button class="btn-submit" onclick="submitAssessment()">Submit Assessment →</button>
+          <button class="btn-back" style="width: 100%;" onclick="goToStep(4)">← Back</button>
+        </div>
+      </div>
+
+      <!-- SUCCESS -->
+      <div class="form-step" id="stepSuccess">
+        <div class="assessment-success">
+          <div class="success-icon">✓</div>
+          <h3>Assessment Submitted!</h3>
+          <p>Thank you. A board-certified physician will review your information and reach out within 24 hours with your personalized treatment plan.</p>
+          <div class="success-details">
+            <h4>What Happens Next</h4>
+            <ul>
+              <li>A physician reviews your assessment</li>
+              <li>You'll receive your treatment plan via email</li>
+              <li>Once approved, medication ships within 48 hours</li>
+              <li>Ongoing support begins immediately</li>
+            </ul>
+          </div>
+          <button class="btn-sage" onclick="closeAssessment()" style="width: 100%; justify-content: center;">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── Mobile Menu ──
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('active');
+  document.getElementById('mobileOverlay').classList.toggle('active');
+  document.body.style.overflow = document.getElementById('navLinks').classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu() {
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('active');
+  document.getElementById('mobileOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ── Nav scroll effect ──
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// ── Scroll animations ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+
+// ── FAQ Toggle ──
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ── Assessment Modal ──
+let formData = {};
+
+function openAssessment() {
+  document.getElementById('assessmentModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  resetAssessment();
+}
+
+function closeAssessment() {
+  document.getElementById('assessmentModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Close on overlay click
+document.getElementById('assessmentModal').addEventListener('click', function(e) {
+  if (e.target === this) closeAssessment();
+});
+
+// Close on Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeAssessment();
+    closeMenu();
+  }
+});
+
+function resetAssessment() {
+  formData = {};
+  for (let i = 1; i <= 5; i++) {
+    document.getElementById('step' + i).classList.remove('active');
+  }
+  document.getElementById('stepSuccess').classList.remove('active');
+  document.getElementById('step1').classList.add('active');
+  updateProgress(1);
+  // Reset selections
+  document.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('.modal input, .modal select, .modal textarea').forEach(el => {
+    if (el.type === 'checkbox') el.checked = false;
+    else el.value = '';
+    el.classList.remove('error');
+  });
+  document.querySelectorAll('.form-error').forEach(e => e.classList.remove('show'));
+  document.getElementById('btn1').disabled = true;
+}
+
+function goToStep(n) {
+  document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+  document.getElementById(n === 6 ? 'stepSuccess' : 'step' + n).classList.add('active');
+  updateProgress(n);
+  // Scroll modal to top
+  document.querySelector('.modal').scrollTop = 0;
+}
+
+function updateProgress(step) {
+  for (let i = 1; i <= 5; i++) {
+    const seg = document.getElementById('prog' + i);
+    seg.classList.toggle('completed', i < step);
+    seg.classList.toggle('active', i === step);
+  }
+  document.getElementById('progText').textContent = step <= 5 ? `Step ${step} of 5` : 'Complete';
+}
+
+// ── Option card selection ──
+function selectOption(card, groupId, key) {
+  document.querySelectorAll('#' + groupId + ' .option-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  formData[key] = card.querySelector('.opt-label').textContent;
+  // Enable continue button for step 1
+  if (key === 'goal') document.getElementById('btn1').disabled = false;
+}
+
+// ── Validation ──
+function showError(id) {
+  document.getElementById(id).classList.add('error');
+  document.getElementById(id + 'Err').classList.add('show');
+}
+function clearError(id) {
+  document.getElementById(id).classList.remove('error');
+  document.getElementById(id + 'Err').classList.remove('show');
+}
+
+function validateStep2() {
+  let valid = true;
+  ['firstName', 'lastName', 'dob', 'sex', 'height', 'weight', 'state'].forEach(id => clearError(id));
+
+  if (!document.getElementById('firstName').value.trim()) { showError('firstName'); valid = false; }
+  if (!document.getElementById('lastName').value.trim()) { showError('lastName'); valid = false; }
+  if (!document.getElementById('dob').value) { showError('dob'); valid = false; }
+  if (!document.getElementById('sex').value) { showError('sex'); valid = false; }
+  if (!document.getElementById('height').value) { showError('height'); valid = false; }
+  const w = document.getElementById('weight').value;
+  if (!w || w < 80 || w > 600) { showError('weight'); valid = false; }
+  if (!document.getElementById('state').value) { showError('state'); valid = false; }
+
+  // Age check (must be 18+)
+  if (document.getElementById('dob').value) {
+    const dob = new Date(document.getElementById('dob').value);
+    const age = (new Date() - dob) / (365.25 * 24 * 60 * 60 * 1000);
+    if (age < 18) { showError('dob'); valid = false; }
+  }
+
+  if (valid) goToStep(3);
+}
+
+function submitAssessment() {
+  let valid = true;
+  ['email', 'phone'].forEach(id => clearError(id));
+  clearError('consent');
+
+  const email = document.getElementById('email').value.trim();
+  if (!email || !email.includes('@') || !email.includes('.')) { showError('email'); valid = false; }
+  if (!document.getElementById('phone').value.trim()) { showError('phone'); valid = false; }
+  if (!document.getElementById('consent').checked) {
+    document.getElementById('consentErr').classList.add('show');
+    valid = false;
+  }
+
+  if (valid) {
+    // Collect all form data
+    formData.firstName = document.getElementById('firstName').value;
+    formData.lastName = document.getElementById('lastName').value;
+    formData.email = email;
+    formData.phone = document.getElementById('phone').value;
+    formData.dob = document.getElementById('dob').value;
+    formData.sex = document.getElementById('sex').value;
+    formData.height = document.getElementById('height').value;
+    formData.weight = document.getElementById('weight').value;
+    formData.state = document.getElementById('state').value;
+    formData.medications = document.getElementById('medications').value;
+    formData.allergies = document.getElementById('allergies').value;
+    formData.additionalInfo = document.getElementById('additionalInfo').value;
+
+    // In production, you would POST formData to your backend / CareValidate API here
+    console.log('Assessment submitted:', formData);
+
+    goToStep(6);
+  }
+}
+
+// ── Phone formatting ──
+document.getElementById('phone').addEventListener('input', function(e) {
+  let x = e.target.value.replace(/\D/g, '').substring(0, 10);
+  if (x.length > 6) x = '(' + x.substring(0,3) + ') ' + x.substring(3,6) + '-' + x.substring(6);
+  else if (x.length > 3) x = '(' + x.substring(0,3) + ') ' + x.substring(3);
+  else if (x.length > 0) x = '(' + x;
+  e.target.value = x;
+});
+</script>
+
+</body>
+</html>
