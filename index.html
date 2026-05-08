@@ -3,35 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RestorLife Med — Science-Backed Longevity & Weight Loss</title>
-<meta name="description" content="Physician-guided GLP-1 and peptide therapies for sustainable weight loss and longevity. Licensed U.S. physicians, FDA-regulated pharmacies, delivered to your door.">
+<title>RestorLife Med — Restorative GLP-1 Therapy for Sustainable Weight Loss</title>
+<meta name="description" content="Physician-guided GLP-1 therapy for sustainable weight loss. Licensed U.S. physicians, FDA-regulated pharmacies, delivered to your door.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --sage: #6B8F71;
-  --sage-dark: #5A7D60;
-  --sage-light: #E8F0E9;
-  --sage-muted: #A3C4A8;
-  --navy: #1B2A4A;
-  --navy-light: #2D4066;
-  --warm-white: #FAFAF7;
-  --cream: #F5F3EE;
-  --sand: #E8E2D8;
-  --gold: #C4A35A;
-  --gold-light: #D4BA7A;
-  --text-primary: #1B2A4A;
-  --text-secondary: #5A6478;
-  --text-light: #8892A4;
+  /* ── Brand Palette ── */
+  --paper: #F0EFE7;
+  --cream: #F5F2E8;
+  --wash:  #C9D4B8;
+  --sage:  #A9B89A;
+  --moss:  #7E8C72;
+  --moss-deep: #6B8F71;
+  --ink:   #3F4A38;
+  --ink-soft: #5C6855;
+  --ink-mute: #8A9582;
+
+  /* ── Legacy variable aliases (mapped to brand tokens) ── */
+  --sage-dark: #6B8F71;
+  --sage-light: #C9D4B8;
+  --sage-muted: #A9B89A;
+  --navy: #3F4A38;
+  --navy-light: #5C6855;
+  --warm-white: #F0EFE7;
+  --sand: #C9D4B8;
+  --gold: #7E8C72;
+  --gold-light: #A9B89A;
+  --text-primary: #3F4A38;
+  --text-secondary: #5C6855;
+  --text-light: #8A9582;
   --white: #FFFFFF;
-  --border: #E2DFD8;
-  --red: #C0392B;
-  --red-light: #FDEDEC;
-  --green: #27AE60;
-  --font-display: 'DM Serif Display', serif;
-  --font-body: 'DM Sans', sans-serif;
+  --border: rgba(126, 140, 114, 0.18);
+  --red: #B6594A;
+  --red-light: #F5E8E5;
+  --green: #7E8C72;
+
+  /* ── Brand Typography ── */
+  --font-script: 'Yellowtail', cursive;
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -40,9 +55,16 @@ body {
   font-family: var(--font-body);
   color: var(--text-primary);
   background: var(--warm-white);
-  line-height: 1.6;
+  line-height: 1.65;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+::selection { background: var(--wash); color: var(--ink); }
+
+/* Italics through Cormorant feel best in editorial display */
+em { font-style: italic; }
 
 /* ══════════════════════════════════
    NAV
@@ -61,11 +83,29 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
   display: flex; align-items: center; justify-content: space-between;
 }
 .logo {
-  font-family: var(--font-display); font-size: 22px;
-  color: var(--navy); text-decoration: none; letter-spacing: -0.3px;
+  display: inline-flex; align-items: center; gap: 12px;
+  text-decoration: none; color: var(--ink);
+  font-family: var(--font-script);
+  font-size: 30px;
+  letter-spacing: 0; line-height: 1;
   z-index: 1001;
 }
-.logo span { color: var(--sage); }
+.logo .logo-mark {
+  width: 44px; height: 44px; flex-shrink: 0;
+  display: block;
+}
+.logo .logo-mark svg { width: 100%; height: 100%; display: block; }
+.logo .logo-text { display: inline-flex; flex-direction: column; line-height: 1; }
+.logo .logo-text .script {
+  font-family: var(--font-script);
+  font-size: 26px; color: var(--ink); line-height: 1;
+}
+.logo .logo-text .tagline {
+  font-family: var(--font-body);
+  font-size: 8px; letter-spacing: 3.5px; text-transform: uppercase;
+  color: var(--moss); margin-top: 4px; font-weight: 500;
+}
+.logo span { color: var(--moss); }
 .nav-links {
   display: flex; align-items: center; gap: 36px;
 }
@@ -73,14 +113,15 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
   font-size: 14px; font-weight: 500; color: var(--text-secondary);
   text-decoration: none; letter-spacing: 0.2px; transition: color 0.2s;
 }
-.nav-links a:hover { color: var(--navy); }
+.nav-links a:hover { color: var(--ink); }
 .nav-cta {
-  background: var(--navy) !important; color: var(--white) !important;
-  padding: 10px 24px !important; border-radius: 8px;
-  font-weight: 600 !important; font-size: 13px !important;
-  letter-spacing: 0.3px; transition: all 0.25s !important;
+  background: var(--ink) !important; color: var(--paper) !important;
+  padding: 11px 24px !important; border-radius: 2px;
+  font-weight: 500 !important; font-size: 12px !important;
+  letter-spacing: 1.2px !important; text-transform: uppercase;
+  transition: all 0.3s !important;
 }
-.nav-cta:hover { background: var(--navy-light) !important; transform: translateY(-1px); }
+.nav-cta:hover { background: var(--moss) !important; transform: translateY(-1px); }
 
 /* Hamburger */
 .hamburger {
@@ -130,125 +171,145 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
    HERO
    ══════════════════════════════════ */
 .hero {
-  padding: 160px 32px 100px;
-  background: linear-gradient(170deg, var(--warm-white) 0%, var(--cream) 40%, var(--sage-light) 100%);
+  padding: 170px 32px 110px;
+  background: linear-gradient(170deg, var(--paper) 0%, var(--cream) 50%, rgba(201,212,184,0.45) 100%);
   position: relative; overflow: hidden;
 }
 .hero::before {
-  content: ''; position: absolute; top: -200px; right: -200px;
-  width: 600px; height: 600px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(107,143,113,0.08) 0%, transparent 70%);
+  content: ''; position: absolute; top: -150px; right: -180px;
+  width: 640px; height: 640px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(169,184,154,0.28) 0%, transparent 70%);
+  filter: blur(8px);
+  pointer-events: none;
 }
 .hero::after {
-  content: ''; position: absolute; bottom: -100px; left: -100px;
-  width: 400px; height: 400px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(196,163,90,0.06) 0%, transparent 70%);
+  content: ''; position: absolute; bottom: -120px; left: -120px;
+  width: 440px; height: 440px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(126,140,114,0.10) 0%, transparent 70%);
+  pointer-events: none;
 }
 .hero-inner {
   max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;
   display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
 }
 .hero-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--white); border: 1px solid var(--border);
-  padding: 6px 16px 6px 8px; border-radius: 50px;
-  font-size: 12px; font-weight: 600; color: var(--sage);
-  letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 24px;
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 0; margin-bottom: 28px;
+  font-size: 11px; font-weight: 500; color: var(--moss);
+  letter-spacing: 3px; text-transform: uppercase;
+}
+.hero-badge::before {
+  content: ''; width: 28px; height: 1px; background: var(--moss);
 }
 .hero-badge .dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--sage); animation: pulse 2s infinite;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--moss); animation: pulse 2s infinite;
 }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 .hero h1 {
-  font-family: var(--font-display); font-size: 52px; line-height: 1.12;
-  color: var(--navy); margin-bottom: 24px; letter-spacing: -0.5px;
+  font-family: var(--font-display); font-size: 60px; line-height: 1.08;
+  font-weight: 400;
+  color: var(--ink); margin-bottom: 24px; letter-spacing: -0.5px;
 }
-.hero h1 em { font-style: italic; color: var(--sage); }
+.hero h1 em { font-style: italic; color: var(--moss); font-weight: 300; }
 .hero-text {
   font-size: 18px; color: var(--text-secondary); line-height: 1.7;
   margin-bottom: 36px; max-width: 480px;
 }
 .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
 .btn-primary {
-  background: var(--navy); color: var(--white);
-  padding: 16px 36px; border-radius: 10px; border: none;
-  font-family: var(--font-body); font-size: 15px; font-weight: 600;
-  cursor: pointer; transition: all 0.3s; letter-spacing: 0.2px;
-  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  background: var(--ink); color: var(--paper);
+  padding: 17px 36px; border-radius: 2px; border: none;
+  font-family: var(--font-body); font-size: 12px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; transition: all 0.35s;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
 }
-.btn-primary:hover { background: var(--navy-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(27,42,74,0.18); }
+.btn-primary:hover { background: var(--moss); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(63,74,56,0.18); }
 .btn-secondary {
-  background: transparent; color: var(--navy); border: 1.5px solid var(--border);
-  padding: 15px 32px; border-radius: 10px;
-  font-family: var(--font-body); font-size: 15px; font-weight: 500;
+  background: transparent; color: var(--ink); border: 1px solid var(--moss);
+  padding: 16px 32px; border-radius: 2px;
+  font-family: var(--font-body); font-size: 12px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
   cursor: pointer; transition: all 0.3s; text-decoration: none;
 }
-.btn-secondary:hover { border-color: var(--navy); background: var(--white); }
+.btn-secondary:hover { border-color: var(--ink); background: var(--cream); }
 .btn-sage {
-  background: var(--sage); color: var(--white);
-  padding: 16px 36px; border-radius: 10px; border: none;
-  font-family: var(--font-body); font-size: 15px; font-weight: 600;
-  cursor: pointer; transition: all 0.3s; text-decoration: none;
-  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--moss); color: var(--paper);
+  padding: 17px 36px; border-radius: 2px; border: none;
+  font-family: var(--font-body); font-size: 12px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; transition: all 0.35s; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 10px;
 }
-.btn-sage:hover { background: var(--sage-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(107,143,113,0.25); }
+.btn-sage:hover { background: var(--ink); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(63,74,56,0.18); }
 
 .hero-visual { display: flex; flex-direction: column; gap: 16px; }
 .trust-card {
-  background: var(--white); border-radius: 16px; padding: 28px 32px;
-  border: 1px solid var(--border); box-shadow: 0 4px 24px rgba(27,42,74,0.04);
+  background: var(--cream); border-radius: 16px; padding: 28px 32px;
+  border: 1px solid var(--border); box-shadow: 0 4px 24px rgba(63,74,56,0.05);
 }
-.trust-card h4 { font-family: var(--font-display); font-size: 18px; margin-bottom: 4px; color: var(--navy); }
-.trust-card p { font-size: 14px; color: var(--text-secondary); }
+.trust-card h4 { font-family: var(--font-display); font-style: italic; font-size: 22px; font-weight: 400; margin-bottom: 6px; color: var(--ink); }
+.trust-card p { font-size: 14px; color: var(--ink-soft); }
 .trust-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .stat-card {
   background: var(--white); border-radius: 16px; padding: 24px;
   border: 1px solid var(--border); text-align: center;
-  box-shadow: 0 4px 24px rgba(27,42,74,0.04);
+  box-shadow: 0 4px 24px rgba(63,74,56,0.04);
 }
 .stat-card .number {
-  font-family: var(--font-display); font-size: 32px; color: var(--sage);
-  display: block; margin-bottom: 4px;
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 36px; color: var(--moss);
+  display: block; margin-bottom: 4px; line-height: 1;
 }
-.stat-card .label { font-size: 12px; color: var(--text-light); font-weight: 500; letter-spacing: 0.3px; }
+.stat-card .label { font-size: 11px; color: var(--ink-mute); font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; }
 
 /* ══════════════════════════════════
    TRUST BAR
    ══════════════════════════════════ */
-.trust-bar { padding: 40px 32px; border-bottom: 1px solid var(--border); background: var(--white); }
+.trust-bar { padding: 36px 32px; border-bottom: 1px solid var(--border); background: var(--cream); }
 .trust-bar-inner {
   max-width: 1200px; margin: 0 auto;
   display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap;
 }
 .trust-item {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 13px; font-weight: 500; color: var(--text-secondary); letter-spacing: 0.2px;
+  display: flex; align-items: center; gap: 12px;
+  font-size: 11px; font-weight: 500; color: var(--moss);
+  letter-spacing: 2px; text-transform: uppercase;
 }
 .trust-icon {
-  width: 36px; height: 36px; border-radius: 10px;
-  background: var(--sage-light); display: flex; align-items: center; justify-content: center; font-size: 16px;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--wash); display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
 }
 
 /* ══════════════════════════════════
    SECTIONS (shared)
    ══════════════════════════════════ */
-section { padding: 100px 32px; }
+section { padding: 110px 32px; }
 .section-inner { max-width: 1200px; margin: 0 auto; }
 .section-label {
-  font-size: 11px; font-weight: 700; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--sage); margin-bottom: 12px;
+  font-size: 11px; font-weight: 500; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--moss); margin-bottom: 16px;
+  display: inline-flex; align-items: center; gap: 14px;
+}
+.section-label::before {
+  content: ''; width: 28px; height: 1px; background: var(--moss);
 }
 .section-title {
-  font-family: var(--font-display); font-size: 38px;
-  color: var(--navy); margin-bottom: 16px; letter-spacing: -0.3px;
+  font-family: var(--font-display); font-size: 46px;
+  font-weight: 400;
+  color: var(--ink); margin-bottom: 18px; letter-spacing: -0.4px;
+  line-height: 1.12;
 }
+.section-title em { font-style: italic; color: var(--moss); font-weight: 300; }
 .section-subtitle {
-  font-size: 17px; color: var(--text-secondary); max-width: 560px;
-  line-height: 1.7; margin-bottom: 56px;
+  font-size: 17px; color: var(--ink-soft); max-width: 600px;
+  line-height: 1.75; margin-bottom: 56px;
 }
 .center { text-align: center; }
 .center .section-subtitle { margin-left: auto; margin-right: auto; }
+.center .section-label { display: inline-flex; }
 
 /* ══════════════════════════════════
    LEARN MORE (ABOUT SECTION)
@@ -257,100 +318,153 @@ section { padding: 100px 32px; }
 .learn-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
 }
-.learn-content .section-subtitle { margin-bottom: 28px; }
-.learn-points { list-style: none; margin-bottom: 32px; }
+.learn-content .section-subtitle { margin-bottom: 32px; }
+.learn-points { list-style: none; margin-bottom: 36px; }
 .learn-points li {
-  padding: 12px 0; font-size: 15px; color: var(--text-secondary);
-  display: flex; align-items: flex-start; gap: 14px; line-height: 1.6;
+  padding: 16px 0; font-size: 15px; color: var(--ink-soft);
+  display: flex; align-items: flex-start; gap: 18px; line-height: 1.65;
+  border-top: 1px solid var(--border);
 }
+.learn-points li:last-child { border-bottom: 1px solid var(--border); }
 .learn-points li .check {
-  width: 24px; height: 24px; border-radius: 50%; background: var(--sage-light);
+  width: 24px; height: 24px; border-radius: 50%; background: var(--wash);
   display: flex; align-items: center; justify-content: center;
-  color: var(--sage); font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  color: var(--ink); font-size: 11px; font-weight: 600; flex-shrink: 0; margin-top: 2px;
 }
 .learn-visual {
   display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 }
 .learn-stat-card {
-  background: var(--cream); border-radius: 16px; padding: 28px 24px;
+  background: var(--cream); border-radius: 16px; padding: 32px 24px;
   border: 1px solid var(--border); text-align: center;
 }
-.learn-stat-card .icon { font-size: 28px; margin-bottom: 12px; display: block; }
+.learn-stat-card .icon { font-size: 24px; margin-bottom: 14px; display: block; }
 .learn-stat-card h4 {
-  font-family: var(--font-display); font-size: 28px; color: var(--navy); margin-bottom: 4px;
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 36px; color: var(--ink); margin-bottom: 6px; line-height: 1;
 }
-.learn-stat-card p { font-size: 12px; color: var(--text-light); font-weight: 500; }
+.learn-stat-card p { font-size: 11px; color: var(--moss); font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; }
 .learn-stat-card.full { grid-column: 1 / -1; }
 
 /* ══════════════════════════════════
    HOW IT WORKS
    ══════════════════════════════════ */
 .how-it-works { background: var(--cream); }
-.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .step {
-  background: var(--white); border-radius: 16px; padding: 36px 28px;
+  background: var(--white); border-radius: 16px; padding: 40px 28px;
   border: 1px solid var(--border); position: relative; transition: transform 0.3s, box-shadow 0.3s;
 }
-.step:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(27,42,74,0.06); }
+.step:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(63,74,56,0.06); }
 .step-number {
-  font-family: var(--font-display); font-size: 40px;
-  color: var(--sage-light); margin-bottom: 16px; line-height: 1;
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 44px; color: var(--wash);
+  margin-bottom: 18px; line-height: 1;
 }
-.step h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
-.step p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.step h3 {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 22px; margin-bottom: 10px; color: var(--ink); line-height: 1.2;
+}
+.step p { font-size: 14px; color: var(--ink-soft); line-height: 1.7; }
 
 /* ══════════════════════════════════
    TREATMENTS
    ══════════════════════════════════ */
 .treatments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .treatment-card {
-  border-radius: 20px; padding: 40px 32px;
-  border: 1px solid var(--border); background: var(--white);
+  border-radius: 16px; padding: 44px 32px;
+  border: 1px solid var(--border); background: var(--cream);
   transition: all 0.35s; position: relative; overflow: hidden;
 }
 .treatment-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0;
-  height: 4px; background: var(--sage); opacity: 0; transition: opacity 0.35s;
+  height: 2px; background: var(--moss); opacity: 0; transition: opacity 0.35s;
 }
-.treatment-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(27,42,74,0.07); }
+.treatment-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(63,74,56,0.07); background: var(--white); }
 .treatment-card:hover::before { opacity: 1; }
 .treatment-icon {
-  width: 52px; height: 52px; border-radius: 14px;
-  background: var(--sage-light); display: flex; align-items: center; justify-content: center;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--wash); display: flex; align-items: center; justify-content: center;
   font-size: 22px; margin-bottom: 24px;
 }
 .treatment-card h3 {
-  font-family: var(--font-display); font-size: 22px;
-  color: var(--navy); margin-bottom: 12px;
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 26px; color: var(--ink); margin-bottom: 12px; line-height: 1.2;
 }
-.treatment-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+.treatment-card p { font-size: 14px; color: var(--ink-soft); line-height: 1.75; margin-bottom: 20px; }
 .treatment-tag {
-  display: inline-block; padding: 4px 12px; border-radius: 6px;
-  background: var(--sage-light); color: var(--sage);
-  font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+  display: inline-block; padding: 5px 12px; border-radius: 2px;
+  background: var(--paper); color: var(--moss); border: 1px solid var(--border);
+  font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
   margin-right: 6px; margin-bottom: 6px;
 }
+
+/* GLP-1 single-feature block */
+.treatment-feature {
+  max-width: 920px; margin: 0 auto;
+  background: var(--cream); border: 1px solid var(--border);
+  padding: 64px 56px; text-align: left; position: relative; overflow: hidden;
+  border-radius: 4px;
+}
+.treatment-feature .tf-corner {
+  position: absolute; top: 24px; right: 36px;
+  font-family: var(--font-script); font-size: 96px;
+  color: var(--wash); line-height: 1; pointer-events: none;
+}
+.treatment-feature .tf-eyebrow {
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--moss); margin-bottom: 16px; font-weight: 500;
+  position: relative;
+}
+.treatment-feature h3 {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 38px; color: var(--ink); margin-bottom: 22px;
+  line-height: 1.15; max-width: 600px;
+}
+.treatment-feature .tf-desc {
+  font-size: 16px; color: var(--ink-soft); line-height: 1.75;
+  margin-bottom: 8px; max-width: 640px;
+}
+.tf-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin: 36px 0 28px; padding: 28px 0;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.tf-stat .num {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 32px; color: var(--moss); line-height: 1; margin-bottom: 8px;
+}
+.tf-stat .lbl {
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.tf-tags { display: flex; gap: 8px; flex-wrap: wrap; }
 
 /* ══════════════════════════════════
    WHY US
    ══════════════════════════════════ */
-.why-us { background: var(--navy); color: var(--white); }
-.why-us .section-label { color: var(--gold); }
-.why-us .section-title { color: var(--white); }
-.why-us .section-subtitle { color: rgba(255,255,255,0.65); }
+.why-us { background: var(--ink); color: var(--paper); }
+.why-us .section-label { color: var(--wash); }
+.why-us .section-label::before { background: var(--wash); }
+.why-us .section-title { color: var(--paper); }
+.why-us .section-title em { color: var(--wash); }
+.why-us .section-subtitle { color: rgba(240,239,231,0.65); }
 .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .why-card {
-  background: rgba(255,255,255,0.06); border-radius: 16px;
-  padding: 36px 28px; border: 1px solid rgba(255,255,255,0.08); transition: all 0.3s;
+  background: rgba(240,239,231,0.05); border-radius: 16px;
+  padding: 36px 28px; border: 1px solid rgba(240,239,231,0.10); transition: all 0.3s;
 }
-.why-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+.why-card:hover { background: rgba(240,239,231,0.08); transform: translateY(-2px); }
 .why-icon {
   width: 44px; height: 44px; border-radius: 12px;
-  background: rgba(196,163,90,0.15); display: flex; align-items: center; justify-content: center;
+  background: rgba(201,212,184,0.15); display: flex; align-items: center; justify-content: center;
   font-size: 18px; margin-bottom: 20px;
 }
-.why-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--white); }
-.why-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+.why-card h3 {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 22px; margin-bottom: 10px; color: var(--paper);
+}
+.why-card p { font-size: 14px; color: rgba(240,239,231,0.60); line-height: 1.7; }
 
 /* ══════════════════════════════════
    TESTIMONIALS
@@ -361,46 +475,52 @@ section { padding: 100px 32px; }
   background: var(--white); border-radius: 16px; padding: 36px;
   border: 1px solid var(--border);
 }
-.stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 16px; }
+.stars { color: var(--moss); font-size: 14px; letter-spacing: 2px; margin-bottom: 16px; }
 .testimonial blockquote {
-  font-size: 15px; color: var(--text-secondary); line-height: 1.7;
-  margin-bottom: 20px; font-style: italic;
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 19px; color: var(--ink); line-height: 1.55;
+  margin-bottom: 20px;
 }
-.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.testimonial-author { display: flex; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--border); }
 .author-avatar {
-  width: 40px; height: 40px; border-radius: 50%;
-  background: var(--sage-light); display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 14px; color: var(--sage);
+  width: 40px; height: 40px; flex-shrink: 0;
 }
-.author-info .name { font-size: 14px; font-weight: 600; color: var(--navy); }
-.author-info .detail { font-size: 12px; color: var(--text-light); }
+.author-avatar svg { width: 100%; height: 100%; display: block; }
+.author-info .name { font-size: 13px; font-weight: 500; color: var(--ink); }
+.author-info .detail { font-size: 11px; color: var(--moss); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
 
 /* ══════════════════════════════════
    PRICING
    ══════════════════════════════════ */
 .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 800px; margin: 0 auto; }
 .price-card {
-  background: var(--white); border-radius: 20px; padding: 44px 36px;
+  background: var(--white); border-radius: 16px; padding: 48px 40px;
   border: 1px solid var(--border); text-align: center; transition: all 0.3s; position: relative;
 }
-.price-card.featured { border-color: var(--sage); box-shadow: 0 8px 40px rgba(107,143,113,0.12); }
+.price-card.featured { border-color: var(--moss); box-shadow: 0 8px 40px rgba(126,140,114,0.12); }
 .price-card.featured::before {
   content: 'Most Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-  background: var(--sage); color: var(--white); padding: 4px 16px; border-radius: 6px;
-  font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+  background: var(--moss); color: var(--paper); padding: 5px 16px; border-radius: 2px;
+  font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
 }
-.price-card h3 { font-family: var(--font-display); font-size: 22px; color: var(--navy); margin-bottom: 8px; }
-.price-card .desc { font-size: 13px; color: var(--text-light); margin-bottom: 24px; }
-.price { font-family: var(--font-display); font-size: 48px; color: var(--navy); }
-.price sub { font-size: 16px; color: var(--text-light); font-family: var(--font-body); }
-.price-period { font-size: 13px; color: var(--text-light); margin-bottom: 28px; }
+.price-card h3 {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 28px; color: var(--ink); margin-bottom: 8px;
+}
+.price-card .desc { font-size: 13px; color: var(--moss); margin-bottom: 28px; letter-spacing: 0.5px; }
+.price {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 56px; color: var(--ink); line-height: 1;
+}
+.price sub { font-size: 16px; color: var(--moss); font-family: var(--font-body); font-style: normal; vertical-align: baseline; }
+.price-period { font-size: 12px; color: var(--moss); margin-top: 8px; margin-bottom: 28px; letter-spacing: 0.3px; }
 .price-features { list-style: none; text-align: left; margin-bottom: 32px; }
 .price-features li {
-  padding: 10px 0; border-bottom: 1px solid var(--cream);
-  font-size: 14px; color: var(--text-secondary);
-  display: flex; align-items: center; gap: 10px;
+  padding: 12px 0; border-bottom: 1px solid var(--border);
+  font-size: 14px; color: var(--ink-soft);
+  display: flex; align-items: center; gap: 12px;
 }
-.price-features li::before { content: '✓'; color: var(--sage); font-weight: 700; font-size: 13px; }
+.price-features li::before { content: '—'; color: var(--moss); font-weight: 500; }
 .price-card .btn-primary, .price-card .btn-sage { width: 100%; justify-content: center; }
 
 /* ══════════════════════════════════
@@ -408,112 +528,131 @@ section { padding: 100px 32px; }
    ══════════════════════════════════ */
 .faq-section { background: var(--cream); }
 .faq-list { max-width: 720px; margin: 0 auto; }
-.faq-item { border-bottom: 1px solid var(--border); padding: 24px 0; }
+.faq-item { border-bottom: 1px solid var(--border); padding: 28px 0; }
 .faq-question {
-  font-size: 16px; font-weight: 600; color: var(--navy);
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 21px; color: var(--ink);
   cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-  background: none; border: none; width: 100%; text-align: left;
-  font-family: var(--font-body); padding: 0;
+  background: none; border: none; width: 100%; text-align: left; padding: 0;
 }
 .faq-question .icon {
-  font-size: 20px; color: var(--sage); transition: transform 0.3s;
-  flex-shrink: 0; margin-left: 16px;
+  font-family: var(--font-script);
+  font-size: 28px; color: var(--moss); transition: transform 0.4s;
+  flex-shrink: 0; margin-left: 16px; line-height: 1;
 }
-.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-.faq-answer p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; padding-top: 16px; }
-.faq-item.open .faq-answer { max-height: 300px; }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+.faq-answer p { font-size: 15px; color: var(--ink-soft); line-height: 1.75; padding-top: 16px; }
+.faq-item.open .faq-answer { max-height: 360px; }
 .faq-item.open .faq-question .icon { transform: rotate(45deg); }
 
 /* ══════════════════════════════════
    CTA BANNER
    ══════════════════════════════════ */
 .cta-banner {
-  background: linear-gradient(135deg, var(--sage) 0%, #5A7F60 100%);
-  padding: 80px 32px; text-align: center;
+  background: var(--wash);
+  padding: 96px 32px; text-align: center; position: relative; overflow: hidden;
 }
-.cta-banner h2 { font-family: var(--font-display); font-size: 36px; color: var(--white); margin-bottom: 16px; }
-.cta-banner p { font-size: 17px; color: rgba(255,255,255,0.8); margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+.cta-banner::before {
+  content: 'restorlife'; position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  font-family: var(--font-script); font-size: 240px;
+  color: rgba(63, 74, 56, 0.04); white-space: nowrap;
+  pointer-events: none; z-index: 0; line-height: 1;
+}
+.cta-banner > * { position: relative; z-index: 1; }
+.cta-banner h2 {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 44px; color: var(--ink); margin-bottom: 18px; letter-spacing: -0.3px;
+}
+.cta-banner p { font-size: 17px; color: var(--ink-soft); margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 .btn-white {
-  background: var(--white); color: var(--navy);
-  padding: 16px 40px; border-radius: 10px; border: none;
-  font-family: var(--font-body); font-size: 15px; font-weight: 600;
+  background: var(--ink); color: var(--paper);
+  padding: 17px 40px; border-radius: 2px; border: none;
+  font-family: var(--font-body); font-size: 12px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
   cursor: pointer; transition: all 0.3s; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 10px;
 }
-.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+.btn-white:hover { background: var(--moss); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(63,74,56,0.18); }
+/* Modal CTA-banner spacing */
 
 /* ══════════════════════════════════
    ASSESSMENT MODAL
    ══════════════════════════════════ */
 .modal-overlay {
   display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(27,42,74,0.55); z-index: 2000;
+  background: rgba(63,74,56,0.55); z-index: 2000;
   justify-content: center; align-items: center;
-  padding: 20px; backdrop-filter: blur(4px);
+  padding: 20px; backdrop-filter: blur(6px);
 }
 .modal-overlay.active { display: flex; }
 .modal {
-  background: var(--white); border-radius: 20px; width: 100%; max-width: 580px;
+  background: var(--paper); border-radius: 8px; width: 100%; max-width: 580px;
   max-height: 90vh; overflow-y: auto; position: relative;
-  box-shadow: 0 24px 64px rgba(27,42,74,0.2);
-  animation: modalIn 0.3s ease;
+  box-shadow: 0 24px 64px rgba(63,74,56,0.25);
+  animation: modalIn 0.35s ease;
+  border: 1px solid var(--border);
 }
 @keyframes modalIn { from { opacity: 0; transform: translateY(20px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
 .modal-close {
-  position: absolute; top: 20px; right: 20px;
-  background: var(--cream); border: none; width: 36px; height: 36px;
-  border-radius: 50%; font-size: 18px; cursor: pointer; color: var(--text-secondary);
+  position: absolute; top: 22px; right: 22px;
+  background: var(--cream); border: 1px solid var(--border);
+  width: 36px; height: 36px;
+  border-radius: 50%; font-size: 14px; cursor: pointer; color: var(--ink-soft);
   display: flex; align-items: center; justify-content: center;
   transition: all 0.2s; z-index: 1;
 }
-.modal-close:hover { background: var(--sand); color: var(--navy); }
+.modal-close:hover { background: var(--wash); color: var(--ink); }
 .modal-header {
-  padding: 40px 40px 0;
+  padding: 44px 44px 0;
 }
 .modal-header h2 {
-  font-family: var(--font-display); font-size: 26px; color: var(--navy); margin-bottom: 8px;
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 30px; color: var(--ink); margin-bottom: 8px; letter-spacing: -0.3px;
 }
-.modal-header p { font-size: 14px; color: var(--text-light); }
-.modal-body { padding: 32px 40px 40px; }
+.modal-header p { font-size: 13px; color: var(--moss); letter-spacing: 0.3px; }
+.modal-body { padding: 32px 44px 44px; }
 
 /* Progress bar */
 .progress-bar {
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; gap: 6px;
   margin-bottom: 32px;
 }
 .progress-segment {
-  flex: 1; height: 4px; border-radius: 4px;
-  background: var(--cream); transition: background 0.4s;
+  flex: 1; height: 2px; border-radius: 0;
+  background: var(--border); transition: background 0.4s;
 }
-.progress-segment.active { background: var(--sage); }
-.progress-segment.completed { background: var(--sage); }
+.progress-segment.active { background: var(--moss); }
+.progress-segment.completed { background: var(--moss); }
 .progress-text {
-  font-size: 12px; color: var(--text-light); font-weight: 500;
-  white-space: nowrap; margin-left: 8px;
+  font-size: 11px; color: var(--moss); font-weight: 500;
+  white-space: nowrap; margin-left: 12px;
+  letter-spacing: 1.5px; text-transform: uppercase;
 }
 
 /* Form steps */
 .form-step { display: none; }
 .form-step.active { display: block; }
 .form-step h3 {
-  font-family: var(--font-display); font-size: 20px; color: var(--navy);
-  margin-bottom: 6px;
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 22px; color: var(--ink); margin-bottom: 6px;
 }
 .form-step .step-desc {
-  font-size: 14px; color: var(--text-light); margin-bottom: 24px;
+  font-size: 14px; color: var(--moss); margin-bottom: 26px; line-height: 1.6;
 }
 .form-group { margin-bottom: 20px; }
 .form-group label {
-  display: block; font-size: 13px; font-weight: 600; color: var(--navy);
-  margin-bottom: 6px;
+  display: block; font-size: 11px; font-weight: 500; color: var(--moss);
+  margin-bottom: 8px; letter-spacing: 1.5px; text-transform: uppercase;
 }
 .form-group input, .form-group select, .form-group textarea {
-  width: 100%; padding: 12px 16px; border: 1.5px solid var(--border);
-  border-radius: 10px; font-family: var(--font-body); font-size: 14px;
-  color: var(--text-primary); background: var(--white);
-  transition: border-color 0.2s; outline: none;
+  width: 100%; padding: 13px 16px; border: 1px solid var(--border);
+  border-radius: 4px; font-family: var(--font-body); font-size: 14px;
+  color: var(--ink); background: var(--white);
+  transition: border-color 0.2s, background 0.2s; outline: none;
 }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-  border-color: var(--sage);
+  border-color: var(--moss); background: var(--cream);
 }
 .form-group input.error, .form-group select.error { border-color: var(--red); }
 .form-error { font-size: 12px; color: var(--red); margin-top: 4px; display: none; }
@@ -524,14 +663,14 @@ section { padding: 100px 32px; }
 /* Option cards for selections */
 .option-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .option-card {
-  border: 1.5px solid var(--border); border-radius: 12px;
-  padding: 16px; cursor: pointer; transition: all 0.2s; text-align: center;
+  border: 1px solid var(--border); border-radius: 4px;
+  padding: 18px; cursor: pointer; transition: all 0.25s; text-align: center; background: var(--white);
 }
-.option-card:hover { border-color: var(--sage-muted); background: var(--sage-light); }
-.option-card.selected { border-color: var(--sage); background: var(--sage-light); }
+.option-card:hover { border-color: var(--moss); background: var(--cream); }
+.option-card.selected { border-color: var(--moss); background: var(--wash); }
 .option-card .opt-icon { font-size: 24px; margin-bottom: 8px; display: block; }
-.option-card .opt-label { font-size: 13px; font-weight: 600; color: var(--navy); display: block; }
-.option-card .opt-desc { font-size: 11px; color: var(--text-light); display: block; margin-top: 2px; }
+.option-card .opt-label { font-size: 14px; font-weight: 500; color: var(--ink); display: block; }
+.option-card .opt-desc { font-size: 12px; color: var(--moss); display: block; margin-top: 4px; }
 .option-cards.single-col { grid-template-columns: 1fr; }
 .option-card.wide { text-align: left; display: flex; align-items: center; gap: 14px; }
 .option-card.wide .opt-icon { margin-bottom: 0; font-size: 20px; }
@@ -540,89 +679,362 @@ section { padding: 100px 32px; }
 /* Checkbox style */
 .checkbox-group { display: flex; flex-direction: column; gap: 10px; }
 .checkbox-item {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 14px; color: var(--text-secondary); cursor: pointer;
+  display: flex; align-items: center; gap: 12px;
+  font-size: 14px; color: var(--ink-soft); cursor: pointer;
 }
 .checkbox-item input[type="checkbox"] {
-  width: 18px; height: 18px; accent-color: var(--sage); cursor: pointer;
+  width: 16px; height: 16px; accent-color: var(--moss); cursor: pointer;
 }
 
 /* Form nav buttons */
 .form-nav {
   display: flex; justify-content: space-between; align-items: center;
-  margin-top: 32px; gap: 16px;
+  margin-top: 36px; gap: 16px;
 }
 .btn-back {
-  background: none; border: 1.5px solid var(--border); color: var(--text-secondary);
-  padding: 12px 28px; border-radius: 10px; font-family: var(--font-body);
-  font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s;
+  background: none; border: none; color: var(--moss);
+  padding: 12px 0; font-family: var(--font-body);
+  font-size: 12px; font-weight: 500; cursor: pointer; transition: color 0.2s;
+  letter-spacing: 1.5px; text-transform: uppercase;
 }
-.btn-back:hover { border-color: var(--navy); color: var(--navy); }
+.btn-back:hover { color: var(--ink); }
 .btn-next {
-  background: var(--sage); color: var(--white);
-  padding: 12px 32px; border-radius: 10px; border: none;
-  font-family: var(--font-body); font-size: 14px; font-weight: 600;
-  cursor: pointer; transition: all 0.2s; margin-left: auto;
+  background: var(--moss); color: var(--paper);
+  padding: 13px 32px; border-radius: 2px; border: none;
+  font-family: var(--font-body); font-size: 12px; font-weight: 500;
+  cursor: pointer; transition: all 0.25s; margin-left: auto;
+  letter-spacing: 1.5px; text-transform: uppercase;
 }
-.btn-next:hover { background: var(--sage-dark); }
-.btn-next:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-next:hover { background: var(--ink); }
+.btn-next:disabled { opacity: 0.4; cursor: not-allowed; }
 .btn-submit {
-  background: var(--navy); color: var(--white);
-  padding: 14px 40px; border-radius: 10px; border: none;
-  font-family: var(--font-body); font-size: 15px; font-weight: 600;
-  cursor: pointer; transition: all 0.2s; width: 100%;
+  background: var(--ink); color: var(--paper);
+  padding: 16px 40px; border-radius: 2px; border: none;
+  font-family: var(--font-body); font-size: 12px; font-weight: 500;
+  cursor: pointer; transition: all 0.25s; width: 100%;
+  letter-spacing: 1.5px; text-transform: uppercase;
 }
-.btn-submit:hover { background: var(--navy-light); }
+.btn-submit:hover { background: var(--moss); }
 
 /* Success state */
 .assessment-success { text-align: center; padding: 20px 0; }
 .success-icon {
-  width: 72px; height: 72px; border-radius: 50%; background: var(--sage-light);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 32px; margin: 0 auto 24px;
+  width: 72px; height: 72px; margin: 0 auto 24px;
 }
+.success-icon svg { width: 100%; height: 100%; display: block; }
 .assessment-success h3 {
-  font-family: var(--font-display); font-size: 24px; color: var(--navy); margin-bottom: 12px;
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 28px; color: var(--ink); margin-bottom: 12px;
 }
-.assessment-success p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; max-width: 380px; margin: 0 auto; }
+.assessment-success p { font-size: 15px; color: var(--ink-soft); line-height: 1.7; max-width: 380px; margin: 0 auto; }
 .success-details {
-  background: var(--cream); border-radius: 12px; padding: 20px 24px;
-  margin: 24px 0; text-align: left;
+  background: var(--cream); border-radius: 4px; padding: 24px 28px;
+  margin: 28px 0; text-align: left; border-left: 2px solid var(--moss);
 }
-.success-details h4 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+.success-details h4 { font-size: 11px; font-weight: 500; color: var(--moss); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 2px; }
 .success-details li {
-  font-size: 14px; color: var(--text-secondary); padding: 4px 0;
-  display: flex; align-items: center; gap: 8px; list-style: none;
+  font-size: 14px; color: var(--ink-soft); padding: 5px 0;
+  display: flex; align-items: flex-start; gap: 10px; list-style: none; line-height: 1.5;
 }
-.success-details li::before { content: '✓'; color: var(--sage); font-weight: 700; }
+.success-details li::before { content: '—'; color: var(--moss); font-weight: 500; flex-shrink: 0; }
+
+/* ══════════════════════════════════
+   CONTACT MODAL
+   ══════════════════════════════════ */
+.contact-modal {
+  background: var(--paper); width: 100%; max-width: 480px;
+  position: relative; box-shadow: 0 24px 64px rgba(63,74,56,0.25);
+  animation: modalIn 0.35s ease;
+  border: 1px solid var(--border); border-radius: 8px;
+  overflow: hidden;
+}
+.contact-modal-art {
+  background: linear-gradient(135deg, var(--wash) 0%, var(--sage) 100%);
+  padding: 56px 40px 44px; text-align: center; position: relative; overflow: hidden;
+}
+.contact-modal-art::before {
+  content: 'R'; position: absolute;
+  top: -32px; right: -16px; font-family: var(--font-script);
+  font-size: 240px; color: rgba(63,74,56,0.10); line-height: 1; pointer-events: none;
+}
+.contact-modal-art .contact-ribbon {
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--ink); margin-bottom: 10px; font-weight: 500; position: relative; z-index: 1;
+}
+.contact-modal-art h2 {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 36px; color: var(--ink); position: relative; z-index: 1;
+  letter-spacing: -0.3px;
+}
+.contact-modal-body { padding: 36px 40px 40px; }
+.contact-modal-body > p {
+  font-size: 14px; color: var(--ink-soft); line-height: 1.7;
+  margin-bottom: 24px; text-align: center;
+}
+.contact-email-display {
+  background: var(--cream); border: 1px solid var(--border);
+  padding: 16px 18px; margin-bottom: 24px; border-radius: 4px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.contact-email-display a {
+  font-family: var(--font-display); font-style: italic;
+  font-size: 17px; color: var(--ink); text-decoration: none;
+  word-break: break-all;
+}
+.copy-btn {
+  background: none; border: 1px solid var(--moss); color: var(--moss);
+  padding: 8px 14px; border-radius: 2px;
+  font-family: var(--font-body); font-size: 10px;
+  font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; transition: all 0.25s; flex-shrink: 0;
+}
+.copy-btn:hover { background: var(--moss); color: var(--paper); }
+.copy-btn.copied { background: var(--moss); color: var(--paper); border-color: var(--moss); }
+
+.contact-form { display: flex; flex-direction: column; gap: 12px; }
+.contact-form input, .contact-form textarea {
+  width: 100%; padding: 13px 16px;
+  border: 1px solid var(--border); border-radius: 4px;
+  font-family: var(--font-body); font-size: 14px;
+  color: var(--ink); background: var(--white);
+  transition: border-color 0.2s, background 0.2s; outline: none;
+}
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--moss); background: var(--cream); }
+.contact-form textarea { resize: vertical; min-height: 100px; }
+.contact-divider {
+  display: flex; align-items: center; gap: 14px;
+  margin: 4px 0 8px;
+}
+.contact-divider::before, .contact-divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+.contact-divider span {
+  font-size: 10px; color: var(--moss); letter-spacing: 2px; text-transform: uppercase;
+}
+.contact-send-btn {
+  background: var(--ink); color: var(--paper);
+  padding: 16px 32px; border: none; border-radius: 2px;
+  font-family: var(--font-body); font-size: 12px; font-weight: 500;
+  cursor: pointer; transition: all 0.25s;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  margin-top: 6px;
+}
+.contact-send-btn:hover { background: var(--moss); }
+.contact-send-btn .arr { transition: transform 0.3s; }
+.contact-send-btn:hover .arr { transform: translateX(4px); }
+
+/* ══════════════════════════════════
+   COOKIE BANNER
+   ══════════════════════════════════ */
+.cookie-banner {
+  position: fixed; bottom: 24px; left: 24px; right: 24px;
+  max-width: 720px; margin: 0 auto;
+  background: var(--ink); color: var(--paper);
+  padding: 22px 26px; z-index: 1500;
+  display: none; align-items: center; gap: 28px;
+  box-shadow: 0 16px 48px rgba(63,74,56,0.30);
+  border: 1px solid var(--moss); border-radius: 4px;
+}
+.cookie-banner.show { display: flex; animation: cookieSlide 0.5s ease-out; }
+@keyframes cookieSlide {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.cookie-banner.hiding { animation: cookieSlideOut 0.4s ease-in forwards; }
+@keyframes cookieSlideOut {
+  to { opacity: 0; transform: translateY(40px); }
+}
+.cookie-content { flex: 1; }
+.cookie-content .cookie-title {
+  font-family: var(--font-display); font-style: italic;
+  font-size: 17px; color: var(--paper); margin-bottom: 4px; font-weight: 400;
+}
+.cookie-content p { font-size: 12px; color: rgba(240,239,231,0.72); line-height: 1.6; }
+.cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+.cookie-btn {
+  padding: 11px 22px; border: none; border-radius: 2px;
+  font-family: var(--font-body); font-size: 11px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; transition: all 0.25s; white-space: nowrap;
+}
+.cookie-btn.reject {
+  background: transparent; color: rgba(240,239,231,0.85);
+  border: 1px solid rgba(240,239,231,0.30);
+}
+.cookie-btn.reject:hover { color: var(--paper); border-color: var(--paper); }
+.cookie-btn.accept { background: var(--wash); color: var(--ink); }
+.cookie-btn.accept:hover { background: var(--paper); }
+
+@media (max-width: 640px) {
+  .cookie-banner {
+    flex-direction: column; align-items: stretch; gap: 16px;
+    padding: 18px; left: 16px; right: 16px; bottom: 16px;
+  }
+  .cookie-actions { flex-direction: row; }
+  .cookie-btn { flex: 1; padding: 12px 16px; }
+}
+
+/* ══════════════════════════════════
+   TOAST
+   ══════════════════════════════════ */
+.toast {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--ink); color: var(--paper);
+  padding: 14px 24px; font-size: 13px; letter-spacing: 0.5px;
+  z-index: 3000; opacity: 0; transition: all 0.4s ease;
+  border-left: 2px solid var(--wash); border-radius: 2px;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ══════════════════════════════════
+   POLICY MODAL
+   ══════════════════════════════════ */
+.policy-modal {
+  background: var(--paper); width: 100%; max-width: 760px;
+  max-height: 90vh; position: relative; display: flex; flex-direction: column;
+  box-shadow: 0 24px 64px rgba(63,74,56,0.25);
+  animation: modalIn 0.35s ease;
+  border: 1px solid var(--border); border-radius: 8px;
+  overflow: hidden;
+}
+.policy-modal-header {
+  padding: 28px 40px 22px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+  position: relative; flex-shrink: 0;
+}
+.policy-modal-header .pol-eyebrow {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--moss); font-weight: 500; margin-bottom: 6px;
+}
+.policy-modal-header h2 {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 30px; color: var(--ink); letter-spacing: -0.3px; line-height: 1.15;
+}
+.policy-modal-body {
+  padding: 36px 48px 40px;
+  overflow-y: auto;
+  flex: 1;
+  /* Readable typography for legal/policy text */
+  color: var(--ink-soft);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+.policy-modal-body::-webkit-scrollbar { width: 8px; }
+.policy-modal-body::-webkit-scrollbar-track { background: transparent; }
+.policy-modal-body::-webkit-scrollbar-thumb { background: var(--sage); border-radius: 4px; }
+.policy-modal-body::-webkit-scrollbar-thumb:hover { background: var(--moss); }
+
+/* Policy content typography */
+.policy-modal-body .pol-h2 {
+  font-family: var(--font-body); font-size: 11px; font-weight: 500;
+  color: var(--moss); letter-spacing: 2.5px; text-transform: uppercase;
+  margin: 36px 0 14px; padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+.policy-modal-body .pol-h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.policy-modal-body .pol-h3 {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 21px; color: var(--ink); margin: 24px 0 10px;
+  line-height: 1.25; letter-spacing: -0.2px;
+}
+.policy-modal-body .pol-h3:first-child { margin-top: 0; }
+.policy-modal-body p {
+  margin-bottom: 14px;
+  color: var(--ink-soft);
+}
+.policy-modal-body p:last-child { margin-bottom: 0; }
+.policy-modal-body .pol-list {
+  margin: 0 0 16px 4px; padding-left: 18px;
+  list-style: none;
+}
+.policy-modal-body .pol-list li {
+  position: relative; padding-left: 20px; margin-bottom: 8px;
+  line-height: 1.7;
+}
+.policy-modal-body .pol-list li::before {
+  content: '—'; position: absolute; left: 0; color: var(--moss); font-weight: 500;
+}
+.policy-modal-body a { color: var(--moss); text-decoration: underline; }
+.policy-modal-body a:hover { color: var(--ink); }
+
+/* Section nav (jump links) — only visible when policy has multiple h2s */
+.policy-toc {
+  background: var(--paper); border: 1px solid var(--border);
+  padding: 16px 20px; margin-bottom: 28px; border-radius: 4px;
+}
+.policy-toc-title {
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--moss); font-weight: 500; margin-bottom: 10px;
+}
+.policy-toc ol {
+  list-style: none; counter-reset: toc;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px;
+}
+.policy-toc li {
+  counter-increment: toc;
+  font-size: 12.5px; color: var(--ink-soft); padding: 4px 0;
+  display: flex; gap: 8px;
+}
+.policy-toc li::before {
+  content: counter(toc, lower-roman) ".";
+  color: var(--moss); font-style: italic; font-family: var(--font-display);
+  flex-shrink: 0; min-width: 22px;
+}
+.policy-toc a {
+  color: var(--ink-soft); text-decoration: none;
+  transition: color 0.2s;
+}
+.policy-toc a:hover { color: var(--moss); }
+
+@media (max-width: 640px) {
+  .policy-modal-header { padding: 22px 24px 18px; }
+  .policy-modal-header h2 { font-size: 24px; }
+  .policy-modal-body { padding: 28px 24px; font-size: 14px; }
+  .policy-modal-body .pol-h3 { font-size: 19px; }
+  .policy-toc ol { grid-template-columns: 1fr; }
+}
 
 /* ══════════════════════════════════
    FOOTER
    ══════════════════════════════════ */
 footer {
-  background: var(--navy); color: rgba(255,255,255,0.5); padding: 64px 32px 32px;
+  background: var(--ink); color: rgba(240,239,231,0.55); padding: 72px 32px 32px;
 }
 .footer-inner { max-width: 1200px; margin: 0 auto; }
-.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-.footer-brand .logo { font-size: 20px; color: var(--white); display: block; margin-bottom: 12px; }
-.footer-brand .logo span { color: var(--sage-muted); }
-.footer-brand p { font-size: 13px; line-height: 1.7; max-width: 280px; }
-.footer-col h4 { color: var(--white); font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 16px; }
-.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; padding: 4px 0; transition: color 0.2s; }
-.footer-col a:hover { color: var(--white); }
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: 24px; display: flex; justify-content: space-between;
-  align-items: center; font-size: 12px; flex-wrap: wrap; gap: 12px;
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 56px; margin-bottom: 48px; }
+.footer-brand .logo { color: var(--paper); display: inline-flex; margin-bottom: 18px; }
+.footer-brand .logo .logo-text .script { color: var(--paper); }
+.footer-brand .logo .logo-text .tagline { color: var(--wash); }
+.footer-brand .logo span { color: var(--wash); }
+.footer-brand p {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 16px; line-height: 1.7; max-width: 300px;
+  color: rgba(240,239,231,0.65);
 }
-.footer-legal a { color: rgba(255,255,255,0.4); text-decoration: none; margin-left: 20px; }
-.footer-legal a:hover { color: var(--white); }
+.footer-col h4 {
+  color: var(--wash); font-size: 11px; font-weight: 500;
+  letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 18px;
+}
+.footer-col a { display: block; font-size: 13px; color: rgba(240,239,231,0.55); text-decoration: none; padding: 5px 0; transition: color 0.2s; letter-spacing: 0.2px; }
+.footer-col a:hover { color: var(--paper); }
+.footer-bottom {
+  border-top: 1px solid rgba(240,239,231,0.10);
+  padding-top: 28px; display: flex; justify-content: space-between;
+  align-items: center; font-size: 11px; flex-wrap: wrap; gap: 12px;
+  letter-spacing: 0.5px;
+}
+.footer-legal a { color: rgba(240,239,231,0.4); text-decoration: none; margin-left: 24px; }
+.footer-legal a:hover { color: var(--paper); }
 
 /* ══════════════════════════════════
    DISCLAIMER
    ══════════════════════════════════ */
-.disclaimer { background: var(--cream); padding: 32px; border-top: 1px solid var(--border); }
-.disclaimer p { max-width: 1200px; margin: 0 auto; font-size: 11px; color: var(--text-light); line-height: 1.8; }
+.disclaimer { background: var(--cream); padding: 36px 32px; border-top: 1px solid var(--border); }
+.disclaimer p { max-width: 1200px; margin: 0 auto; font-size: 11px; color: var(--moss); line-height: 1.85; letter-spacing: 0.2px; }
 
 /* ══════════════════════════════════
    ANIMATIONS
@@ -643,21 +1055,30 @@ footer {
    ══════════════════════════════════ */
 @media (max-width: 960px) {
   .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-  .hero h1 { font-size: 38px; }
+  .hero h1 { font-size: 44px; }
+  .section-title { font-size: 36px; }
+  .cta-banner h2 { font-size: 34px; }
+  .cta-banner::before { font-size: 160px; }
   .steps-grid { grid-template-columns: repeat(2, 1fr); }
   .treatments-grid { grid-template-columns: 1fr 1fr; }
   .why-grid { grid-template-columns: 1fr 1fr; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr 1fr; }
   .learn-grid { grid-template-columns: 1fr; }
+  .treatment-feature { padding: 48px 36px; }
+  .treatment-feature h3 { font-size: 30px; }
+  .tf-stats { grid-template-columns: 1fr; gap: 18px; padding: 22px 0; margin: 28px 0 22px; }
+  .treatment-feature .tf-corner { font-size: 64px; top: 16px; right: 24px; }
 }
 @media (max-width: 640px) {
   .hero { padding: 130px 20px 60px; }
-  .hero h1 { font-size: 32px; }
+  .hero h1 { font-size: 34px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .btn-primary, .btn-secondary, .btn-sage { text-align: center; justify-content: center; }
-  section { padding: 64px 20px; }
-  .section-title { font-size: 28px; }
+  section { padding: 70px 20px; }
+  .section-title { font-size: 30px; }
+  .cta-banner h2 { font-size: 28px; }
+  .cta-banner::before { font-size: 110px; }
   .steps-grid, .treatments-grid, .why-grid, .pricing-grid { grid-template-columns: 1fr; }
   .trust-bar-inner { gap: 20px; justify-content: flex-start; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
@@ -665,6 +1086,9 @@ footer {
   .form-row { grid-template-columns: 1fr; }
   .option-cards { grid-template-columns: 1fr; }
   .learn-visual { grid-template-columns: 1fr; }
+  .treatment-feature { padding: 36px 24px; }
+  .treatment-feature h3 { font-size: 24px; }
+  .treatment-feature .tf-corner { font-size: 48px; }
 }
 </style>
 </head>
@@ -673,7 +1097,19 @@ footer {
 <!-- ═══════════ NAV ═══════════ -->
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#" class="logo">Restor<span>Life</span> Med</a>
+    <a href="#" class="logo" aria-label="RestorLife — Restorative Medicine">
+      <span class="logo-mark">
+        <svg class="center-glyph-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" fill="#A9B89A" class="target"/>
+          <text class="glyph" x="32" y="32" text-anchor="middle" dominant-baseline="central"
+                font-family="Yellowtail, cursive" font-size="42" fill="#F0EFE7">R</text>
+        </svg>
+      </span>
+      <span class="logo-text">
+        <span class="script">restorlife</span>
+        <span class="tagline">Restorative Medicine</span>
+      </span>
+    </a>
     <div class="nav-links" id="navLinks">
       <a href="#learn-more" onclick="closeMenu()">About</a>
       <a href="#how" onclick="closeMenu()">How It Works</a>
@@ -695,7 +1131,7 @@ footer {
     <div class="animate">
       <div class="hero-badge"><span class="dot"></span> Now Accepting Patients</div>
       <h1>Your body deserves <em>better</em> than aging on autopilot.</h1>
-      <p class="hero-text">Physician-guided GLP-1 and peptide therapies designed to help you lose weight, restore energy, and optimize your healthspan — delivered to your door.</p>
+      <p class="hero-text">Physician-guided GLP-1 therapy designed to help you lose weight sustainably — prescribed by board-certified doctors, delivered quietly to your door.</p>
       <div class="hero-actions">
         <button class="btn-primary" onclick="openAssessment()">Take Your Free Assessment →</button>
         <a href="#learn-more" class="btn-secondary">Learn More</a>
@@ -738,7 +1174,7 @@ footer {
       <div class="learn-content animate">
         <div class="section-label">About RestorLife Med</div>
         <h2 class="section-title">Medicine That Meets You Where You Are</h2>
-        <p class="section-subtitle">We believe that advanced, physician-guided therapies shouldn't require waiting rooms, insurance battles, or guesswork. RestorLife Med brings clinically proven GLP-1 and peptide protocols directly to your door — backed by real physicians, real science, and real support.</p>
+        <p class="section-subtitle">We believe that advanced, physician-guided therapy shouldn't require waiting rooms, insurance battles, or guesswork. RestorLife Med brings clinically proven GLP-1 protocols directly to your door — backed by real physicians, real science, and real support.</p>
         <ul class="learn-points">
           <li><span class="check">✓</span> Every patient is evaluated by a board-certified physician — not an algorithm, not a chatbot</li>
           <li><span class="check">✓</span> Medications sourced exclusively from FDA-regulated, state-licensed compounding pharmacies</li>
@@ -804,33 +1240,39 @@ footer {
   </div>
 </section>
 
-<!-- ═══════════ TREATMENTS ═══════════ -->
+<!-- ═══════════ TREATMENT ═══════════ -->
 <section id="treatments">
   <div class="section-inner center">
-    <div class="section-label">Our Treatments</div>
-    <h2 class="section-title">Clinically Proven Therapies</h2>
-    <p class="section-subtitle">Every protocol is physician-designed, backed by research, and personalized to your biology.</p>
-    <div class="treatments-grid">
-      <div class="treatment-card animate">
-        <div class="treatment-icon">⚖️</div>
-        <h3>GLP-1 Weight Loss</h3>
-        <p>Semaglutide and tirzepatide therapies that work with your body's natural hunger signals to achieve sustainable weight loss — without extreme dieting.</p>
+    <div class="section-label">Our Treatment</div>
+    <h2 class="section-title">A clinically proven approach to <em>weight loss.</em></h2>
+    <p class="section-subtitle">GLP-1 receptor agonists work with your body's own appetite-regulating hormones — gently, consistently, and under physician supervision.</p>
+
+    <div class="treatment-feature animate">
+      <div class="tf-corner">R</div>
+      <div class="tf-eyebrow">— GLP-1 Therapy</div>
+      <h3>Semaglutide and tirzepatide, prescribed for your body.</h3>
+      <p class="tf-desc">GLP-1 receptor agonists mimic a hormone your body already produces — slowing digestion, reducing appetite, and helping you achieve sustainable weight loss without extreme dieting. Most patients lose 15–20% of their body weight over several months.</p>
+
+      <div class="tf-stats">
+        <div class="tf-stat">
+          <div class="num">15-20%</div>
+          <div class="lbl">Avg. weight loss</div>
+        </div>
+        <div class="tf-stat">
+          <div class="num">Weekly</div>
+          <div class="lbl">Self-administered</div>
+        </div>
+        <div class="tf-stat">
+          <div class="num">Titrated</div>
+          <div class="lbl">To your response</div>
+        </div>
+      </div>
+
+      <div class="tf-tags">
         <span class="treatment-tag">Semaglutide</span>
         <span class="treatment-tag">Tirzepatide</span>
-      </div>
-      <div class="treatment-card animate delay-1">
-        <div class="treatment-icon">🧬</div>
-        <h3>Peptide Therapy</h3>
-        <p>Targeted peptide protocols for recovery, cellular repair, sleep optimization, and anti-aging — the building blocks your body needs to perform at its best.</p>
-        <span class="treatment-tag">BPC-157</span>
-        <span class="treatment-tag">CJC/Ipamorelin</span>
-      </div>
-      <div class="treatment-card animate delay-2">
-        <div class="treatment-icon">⚡</div>
-        <h3>Longevity & Vitality</h3>
-        <p>Comprehensive protocols combining metabolic optimization, hormone support, and regenerative therapies to help you feel and function younger.</p>
-        <span class="treatment-tag">NAD+</span>
-        <span class="treatment-tag">Optimization</span>
+        <span class="treatment-tag">Compounded</span>
+        <span class="treatment-tag">Physician-Prescribed</span>
       </div>
     </div>
   </div>
@@ -888,23 +1330,41 @@ footer {
         <div class="stars">★★★★★</div>
         <blockquote>"I've tried every diet out there. Within 8 weeks on the GLP-1 program, I lost 22 lbs and my energy is through the roof. The doctor actually listened to me."</blockquote>
         <div class="testimonial-author">
-          <div class="author-avatar">S</div>
+          <div class="author-avatar">
+            <svg class="center-glyph-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="20" cy="20" r="20" fill="#C9D4B8" class="target"/>
+              <text class="glyph" x="20" y="20" text-anchor="middle" dominant-baseline="central"
+                    font-family="Yellowtail, cursive" font-size="22" fill="#3F4A38">S</text>
+            </svg>
+          </div>
           <div class="author-info"><div class="name">Sarah M.</div><div class="detail">Lost 22 lbs in 8 weeks</div></div>
         </div>
       </div>
       <div class="testimonial animate delay-1">
         <div class="stars">★★★★★</div>
-        <blockquote>"The peptide therapy has been a game changer for my recovery. I'm 48 and training harder than I was at 30. The whole process was seamless."</blockquote>
+        <blockquote>"The support team has been remarkable. Every question answered within hours, dosage adjusted when I needed it. This is what care should feel like."</blockquote>
         <div class="testimonial-author">
-          <div class="author-avatar">D</div>
-          <div class="author-info"><div class="name">David R.</div><div class="detail">Peptide therapy patient</div></div>
+          <div class="author-avatar">
+            <svg class="center-glyph-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="20" cy="20" r="20" fill="#C9D4B8" class="target"/>
+              <text class="glyph" x="20" y="20" text-anchor="middle" dominant-baseline="central"
+                    font-family="Yellowtail, cursive" font-size="22" fill="#3F4A38">M</text>
+            </svg>
+          </div>
+          <div class="author-info"><div class="name">Marcus T.</div><div class="detail">Lost 31 lbs in 5 months</div></div>
         </div>
       </div>
       <div class="testimonial animate delay-2">
         <div class="stars">★★★★★</div>
         <blockquote>"I was skeptical of online healthcare, but the physician consultation felt just as thorough as in-person. Medication arrived in two days."</blockquote>
         <div class="testimonial-author">
-          <div class="author-avatar">J</div>
+          <div class="author-avatar">
+            <svg class="center-glyph-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="20" cy="20" r="20" fill="#C9D4B8" class="target"/>
+              <text class="glyph" x="20" y="20" text-anchor="middle" dominant-baseline="central"
+                    font-family="Yellowtail, cursive" font-size="22" fill="#3F4A38">J</text>
+            </svg>
+          </div>
           <div class="author-info"><div class="name">Jennifer L.</div><div class="detail">GLP-1 program, month 4</div></div>
         </div>
       </div>
@@ -920,32 +1380,30 @@ footer {
     <p class="section-subtitle">Everything included — medication, physician visits, and unlimited support. No insurance needed.</p>
     <div class="pricing-grid">
       <div class="price-card">
-        <h3>GLP-1 Weight Loss</h3>
-        <p class="desc">Semaglutide or Tirzepatide</p>
+        <h3>Semaglutide</h3>
+        <p class="desc">Compounded GLP-1, monthly</p>
         <div class="price">$179<sub>/mo</sub></div>
         <p class="price-period">First month · $299/mo thereafter</p>
         <ul class="price-features">
-          <li>Physician consultation & review</li>
-          <li>Compounded GLP-1 medication</li>
+          <li>Physician consultation &amp; review</li>
           <li>Free priority shipping</li>
-          <li>Unlimited messaging with care team</li>
-          <li>Monthly check-ins & dosage adjustments</li>
-          <li>Cancel anytime — no contracts</li>
+          <li>Monthly check-ins &amp; dosage adjustments</li>
+          <li>Compounded with Vitamin B12 to reduce common side effects</li>
+          <li>1 free blood test per quarter</li>
         </ul>
         <button class="btn-primary" onclick="openAssessment()">Get Started</button>
       </div>
       <div class="price-card featured">
-        <h3>Longevity Program</h3>
-        <p class="desc">GLP-1 + Peptide Therapy</p>
-        <div class="price">$349<sub>/mo</sub></div>
-        <p class="price-period">First month · $449/mo thereafter</p>
+        <h3>Tirzepatide</h3>
+        <p class="desc">Dual GIP/GLP-1, monthly</p>
+        <div class="price">$249<sub>/mo</sub></div>
+        <p class="price-period">First month · $399/mo thereafter</p>
         <ul class="price-features">
-          <li>Everything in GLP-1 Weight Loss</li>
-          <li>Custom peptide protocol</li>
-          <li>Quarterly lab review</li>
-          <li>Dedicated longevity physician</li>
-          <li>Priority scheduling & support</li>
-          <li>Personalized supplement guidance</li>
+          <li>Physician consultation &amp; review</li>
+          <li>Free priority shipping</li>
+          <li>Monthly check-ins &amp; dosage adjustments</li>
+          <li>Compounded with Vitamin B12 to reduce common side effects</li>
+          <li>1 free blood test per quarter</li>
         </ul>
         <button class="btn-sage" onclick="openAssessment()">Get Started</button>
       </div>
@@ -977,8 +1435,8 @@ footer {
         <div class="faq-answer"><p>Yes. There are no long-term contracts or commitments. You can pause or cancel your membership at any time through your patient portal or by contacting our support team.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">What peptide therapies do you offer?<span class="icon">+</span></button>
-        <div class="faq-answer"><p>We offer research-backed peptide protocols including BPC-157 for recovery, CJC-1295/Ipamorelin for growth hormone optimization, and NAD+ for cellular energy and longevity. Your physician will recommend the right protocol based on your goals and health profile.</p></div>
+        <button class="faq-question" onclick="toggleFaq(this)">What's the difference between semaglutide and tirzepatide?<span class="icon">+</span></button>
+        <div class="faq-answer"><p>Both are GLP-1 receptor agonists, but tirzepatide also activates the GIP receptor — which can lead to slightly greater weight loss in clinical studies. Your physician will recommend the right option based on your health profile, goals, and how your body responds to treatment.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">How quickly will I receive my medication?<span class="icon">+</span></button>
@@ -1004,14 +1462,26 @@ footer {
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="#" class="logo">Restor<span>Life</span> Med</a>
-        <p>Physician-guided longevity and weight loss therapies. Science-backed. Personally delivered.</p>
+        <a href="#" class="logo" aria-label="RestorLife — Restorative Medicine">
+          <span class="logo-mark">
+            <svg class="center-glyph-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="32" cy="32" r="30" fill="#A9B89A" class="target"/>
+              <text class="glyph" x="32" y="32" text-anchor="middle" dominant-baseline="central"
+                    font-family="Yellowtail, cursive" font-size="42" fill="#F0EFE7">R</text>
+            </svg>
+          </span>
+          <span class="logo-text">
+            <span class="script">restorlife</span>
+            <span class="tagline">Restorative Medicine</span>
+          </span>
+        </a>
+        <p>Physician-guided GLP-1 therapy. Quietly delivered.</p>
       </div>
       <div class="footer-col">
-        <h4>Treatments</h4>
-        <a href="#treatments">GLP-1 Weight Loss</a>
-        <a href="#treatments">Peptide Therapy</a>
-        <a href="#treatments">Longevity Program</a>
+        <h4>Treatment</h4>
+        <a href="#treatments">GLP-1 Therapy</a>
+        <a href="#treatments">Semaglutide</a>
+        <a href="#treatments">Tirzepatide</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
@@ -1022,17 +1492,18 @@ footer {
       </div>
       <div class="footer-col">
         <h4>Support</h4>
-        <a href="/cdn-cgi/l/email-protection#3c4f494c4c534e487c4e594f48534e50555a59515958125f5351">Contact Us</a>
+        <a href="javascript:void(0)" onclick="openContact()">Contact Us</a>
         <a href="#">Patient Portal</a>
-        <a href="#">Help Center</a>
+        <a href="javascript:void(0)" onclick="openPolicy('shipping')">Shipping Policy</a>
+        <a href="javascript:void(0)" onclick="openPolicy('returns')">Return Policy</a>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 RestorLife Med. All rights reserved.</span>
       <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Telehealth Consent</a>
+        <a href="javascript:void(0)" onclick="openPolicy('privacy')">Privacy Policy</a>
+        <a href="javascript:void(0)" onclick="openPolicy('terms')">Terms of Service</a>
+        <a href="javascript:void(0)" onclick="openPolicy('physician')">Physician Code of Conduct</a>
       </div>
     </div>
   </div>
@@ -1072,22 +1543,22 @@ footer {
           <div class="option-card wide" onclick="selectOption(this, 'goalCards', 'goal')">
             <span class="opt-icon">⚖️</span>
             <div class="opt-text">
-              <span class="opt-label">Weight Loss</span>
-              <span class="opt-desc">Lose weight sustainably with GLP-1 therapy</span>
+              <span class="opt-label">Lose 10–25 lbs</span>
+              <span class="opt-desc">Sustainable weight loss with GLP-1 therapy</span>
             </div>
           </div>
           <div class="option-card wide" onclick="selectOption(this, 'goalCards', 'goal')">
-            <span class="opt-icon">🧬</span>
+            <span class="opt-icon">🎯</span>
             <div class="opt-text">
-              <span class="opt-label">Peptide Therapy</span>
-              <span class="opt-desc">Recovery, cellular repair, anti-aging protocols</span>
+              <span class="opt-label">Lose 25–50 lbs</span>
+              <span class="opt-desc">Targeted GLP-1 protocol with physician guidance</span>
             </div>
           </div>
           <div class="option-card wide" onclick="selectOption(this, 'goalCards', 'goal')">
-            <span class="opt-icon">⚡</span>
+            <span class="opt-icon">🌿</span>
             <div class="opt-text">
-              <span class="opt-label">Longevity & Vitality</span>
-              <span class="opt-desc">Comprehensive optimization for healthspan</span>
+              <span class="opt-label">Lose 50+ lbs</span>
+              <span class="opt-desc">Comprehensive long-term GLP-1 program</span>
             </div>
           </div>
           <div class="option-card wide" onclick="selectOption(this, 'goalCards', 'goal')">
@@ -1281,7 +1752,7 @@ footer {
         <div class="form-group">
           <label class="checkbox-item" style="margin-top: 8px;">
             <input type="checkbox" id="consent">
-            I agree to the <a href="#" style="color: var(--sage);">Terms of Service</a> and <a href="#" style="color: var(--sage);">Privacy Policy</a>, and consent to receiving telehealth services. *
+            I agree to the <a href="#" style="color: var(--moss);">Terms of Service</a> and <a href="#" style="color: var(--moss);">Privacy Policy</a>, and consent to receiving telehealth services. *
           </label>
           <div class="form-error" id="consentErr">You must agree to continue</div>
         </div>
@@ -1294,7 +1765,13 @@ footer {
       <!-- SUCCESS -->
       <div class="form-step" id="stepSuccess">
         <div class="assessment-success">
-          <div class="success-icon">✓</div>
+          <div class="success-icon">
+            <svg class="center-glyph-svg" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="36" cy="36" r="36" fill="#C9D4B8" class="target"/>
+              <text class="glyph" x="36" y="36" text-anchor="middle" dominant-baseline="central"
+                    font-family="Yellowtail, cursive" font-size="48" fill="#3F4A38">R</text>
+            </svg>
+          </div>
           <h3>Assessment Submitted!</h3>
           <p>Thank you. A board-certified physician will review your information and reach out within 24 hours with your personalized treatment plan.</p>
           <div class="success-details">
@@ -1313,8 +1790,67 @@ footer {
   </div>
 </div>
 
+<!-- ═══════════ CONTACT MODAL ═══════════ -->
+<div class="modal-overlay" id="contactModal">
+  <div class="contact-modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeContact()" aria-label="Close">✕</button>
+    <div class="contact-modal-art">
+      <div class="contact-ribbon">— Get in Touch</div>
+      <h2>Contact us</h2>
+    </div>
+    <div class="contact-modal-body">
+      <p>We typically respond within one business day. For clinical questions, please use your patient portal.</p>
+
+      <div class="contact-email-display">
+        <a href="mailto:support@restorlifemed.com">support@restorlifemed.com</a>
+        <button class="copy-btn" id="copyEmailBtn" onclick="copyEmail()">Copy</button>
+      </div>
+
+      <div class="contact-divider"><span>Or send us a note</span></div>
+
+      <div class="contact-form">
+        <input type="text" id="contactName" placeholder="Your name">
+        <input type="email" id="contactEmailField" placeholder="Your email">
+        <textarea id="contactMessage" placeholder="How can we help?"></textarea>
+        <button class="contact-send-btn" onclick="sendContactEmail()">
+          Send Message <span class="arr">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ POLICY MODAL ═══════════ -->
+<div class="modal-overlay" id="policyModal">
+  <div class="policy-modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closePolicy()" aria-label="Close">✕</button>
+    <div class="policy-modal-header">
+      <div class="pol-eyebrow" id="policyEyebrow">— Legal</div>
+      <h2 id="policyTitle">Policy</h2>
+    </div>
+    <div class="policy-modal-body" id="policyBody">
+      <!-- Filled by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ COOKIE BANNER ═══════════ -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie preferences">
+  <div class="cookie-content">
+    <div class="cookie-title">A quiet word about cookies</div>
+    <p>We use cookies to improve your experience and analyze site performance. You can accept all cookies or reject non-essential ones.</p>
+  </div>
+  <div class="cookie-actions">
+    <button class="cookie-btn reject" onclick="setCookiePreference('rejected')">Reject</button>
+    <button class="cookie-btn accept" onclick="setCookiePreference('accepted')">Accept All</button>
+  </div>
+</div>
+
+<!-- ═══════════ TOAST ═══════════ -->
+<div class="toast" id="toast"></div>
+
 <!-- ═══════════ JAVASCRIPT ═══════════ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ── Mobile Menu ──
 function toggleMenu() {
   document.getElementById('navLinks').classList.toggle('open');
@@ -1501,10 +2037,338 @@ document.getElementById('phone').addEventListener('input', function(e) {
   else if (x.length > 0) x = '(' + x;
   e.target.value = x;
 });
+
+// ══════════════════════════════════
+// TOAST
+// ══════════════════════════════════
+function showToast(message, duration) {
+  duration = duration || 2400;
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => toast.classList.remove('show'), duration);
+}
+
+// ══════════════════════════════════
+// CONTACT MODAL
+// ══════════════════════════════════
+const SUPPORT_EMAIL = 'support@restorlifemed.com';
+
+function openContact() {
+  document.getElementById('contactModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  // Reset form fields each time
+  document.getElementById('contactName').value = '';
+  document.getElementById('contactEmailField').value = '';
+  document.getElementById('contactMessage').value = '';
+  const btn = document.getElementById('copyEmailBtn');
+  btn.textContent = 'Copy';
+  btn.classList.remove('copied');
+}
+
+function closeContact() {
+  document.getElementById('contactModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('contactModal').addEventListener('click', function(e) {
+  if (e.target === this) closeContact();
+});
+
+function copyEmail() {
+  const btn = document.getElementById('copyEmailBtn');
+  const fallbackCopy = (text) => {
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(SUPPORT_EMAIL).catch(() => fallbackCopy(SUPPORT_EMAIL));
+  } else {
+    fallbackCopy(SUPPORT_EMAIL);
+  }
+
+  btn.textContent = 'Copied';
+  btn.classList.add('copied');
+  setTimeout(() => {
+    btn.textContent = 'Copy';
+    btn.classList.remove('copied');
+  }, 2000);
+}
+
+function sendContactEmail() {
+  const name = document.getElementById('contactName').value.trim();
+  const email = document.getElementById('contactEmailField').value.trim();
+  const message = document.getElementById('contactMessage').value.trim();
+
+  // Build mailto with whatever's filled — none required
+  const subject = name ? `Contact from ${name}` : 'Website Contact';
+  let body = '';
+  if (name) body += `Name: ${name}\n`;
+  if (email) body += `From: ${email}\n`;
+  if (name || email) body += '\n';
+  body += message || '';
+
+  const mailto = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = mailto;
+
+  showToast('Opening your email app…');
+  setTimeout(closeContact, 800);
+}
+
+// Make Escape close the contact modal too
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeContact();
+});
+
+// ══════════════════════════════════
+// COOKIE CONSENT
+// ══════════════════════════════════
+const COOKIE_KEY = 'rlm_cookie_pref';
+const COOKIE_VERSION = 'v1';
+
+function getCookiePreference() {
+  try {
+    const raw = localStorage.getItem(COOKIE_KEY);
+    if (!raw) return null;
+    const data = JSON.parse(raw);
+    return data.version === COOKIE_VERSION ? data : null;
+  } catch (e) { return null; }
+}
+
+function setCookiePreference(status) {
+  const pref = {
+    status: status,                     // 'accepted' | 'rejected'
+    version: COOKIE_VERSION,
+    timestamp: new Date().toISOString()
+  };
+  try { localStorage.setItem(COOKIE_KEY, JSON.stringify(pref)); } catch (e) {}
+
+  const banner = document.getElementById('cookieBanner');
+  banner.classList.add('hiding');
+  setTimeout(() => banner.classList.remove('show', 'hiding'), 400);
+
+  if (status === 'accepted') {
+    onCookiesAccepted();
+    showToast('Cookie preferences saved');
+  } else {
+    onCookiesRejected();
+    showToast('Only essential cookies will be used');
+  }
+}
+
+function onCookiesAccepted() {
+  // Hook for analytics, marketing pixels, etc.
+  document.documentElement.setAttribute('data-cookies', 'accepted');
+}
+
+function onCookiesRejected() {
+  document.documentElement.setAttribute('data-cookies', 'rejected');
+}
+
+// Show banner on load if preference not yet set
+window.addEventListener('load', () => {
+  const pref = getCookiePreference();
+  if (!pref) {
+    setTimeout(() => document.getElementById('cookieBanner').classList.add('show'), 1200);
+  } else if (pref.status === 'accepted') {
+    onCookiesAccepted();
+  } else {
+    onCookiesRejected();
+  }
+});
+
+// ══════════════════════════════════
+// PRECISE GLYPH CENTERING
+// ══════════════════════════════════
+// SVG <text> with web fonts cannot be reliably centered using dominant-baseline alone —
+// font-specific ascender/descender metrics push the visible glyph off-center.
+// Solution: after fonts load, measure the actual rendered bbox and translate to circle center.
+function centerGlyphInSvg(svg) {
+  const text = svg.querySelector('.glyph');
+  const target = svg.querySelector('.target');
+  if (!text || !target) return;
+
+  // Determine the geometric center of the target shape
+  let cx, cy;
+  const tag = target.tagName.toLowerCase();
+  if (tag === 'circle') {
+    cx = parseFloat(target.getAttribute('cx'));
+    cy = parseFloat(target.getAttribute('cy'));
+  } else if (tag === 'rect') {
+    cx = parseFloat(target.getAttribute('x') || 0) + parseFloat(target.getAttribute('width')) / 2;
+    cy = parseFloat(target.getAttribute('y') || 0) + parseFloat(target.getAttribute('height')) / 2;
+  } else {
+    return;
+  }
+
+  // Reset any previous transform and place text at center as starting point
+  text.removeAttribute('transform');
+  text.setAttribute('x', cx);
+  text.setAttribute('y', cy);
+
+  // Measure where the rendered glyph actually sits
+  let bbox;
+  try { bbox = text.getBBox(); } catch (e) { return; }
+  if (!bbox || bbox.width === 0) return;
+
+  // Compute the offset needed so the bbox center == circle center
+  const bboxCx = bbox.x + bbox.width / 2;
+  const bboxCy = bbox.y + bbox.height / 2;
+  const dx = cx - bboxCx;
+  const dy = cy - bboxCy;
+
+  // Apply via transform (so x/y attributes still semantically point to the anchor)
+  text.setAttribute('transform', `translate(${dx.toFixed(2)} ${dy.toFixed(2)})`);
+}
+
+function centerAllGlyphs() {
+  document.querySelectorAll('svg.center-glyph-svg').forEach(centerGlyphInSvg);
+}
+
+// Run when fonts have finished loading (otherwise bbox reflects fallback font metrics)
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(centerAllGlyphs);
+} else {
+  window.addEventListener('load', () => setTimeout(centerAllGlyphs, 200));
+}
+// Also re-run on window resize in case sizing changes (cheap, no re-layout penalty)
+window.addEventListener('resize', () => {
+  if (window._gcTimer) clearTimeout(window._gcTimer);
+  window._gcTimer = setTimeout(centerAllGlyphs, 150);
+});
+const POLICIES = {
+  "privacy": {
+    "title": "Privacy Policy",
+    "html": "<h3 class=\"pol-h2\">INTRODUCTION</h3>\n<p>This Privacy Policy (“Privacy Policy”) describes the data protection practices of RestorLife Med and its affiliates, including, but not limited to, RestorLife Med (collectively, “RestorLife Med”, “we”, “our”, or “us”), including when you visit any RestorLife Med website that links to this Privacy Policy (including https://restorlifemed.com/ and [INSERT ALTERNATE DOMAIN]) (collectively, our “Websites”), use any affiliated mobile applications (the “Apps”), or otherwise provide data to RestorLife Med. We refer to the Websites, Apps, and other services provided by RestorLife Med together in this Privacy Policy as the “Services.” This Privacy Policy is incorporated into our Terms of Use. All capitalized terms used in this Privacy Policy but not defined herein have the meanings assigned to them in the Terms of Use.</p>\n<p>PLEASE READ THIS PRIVACY POLICY CAREFULLY TO UNDERSTAND HOW WE HANDLE YOUR INFORMATION. IF YOU DO NOT AGREE TO THIS PRIVACY POLICY, PLEASE DO NOT USE THE SERVICES.</p>\n<p>This Privacy Policy contains the following sections:</p>\n<p>The Information We Collect and the Sources of Such Information</p>\n<h4 class=\"pol-h3\">Purposes for How We Use Your Information</h4>\n<h4 class=\"pol-h3\">Online Analytics and Advertising</h4>\n<h4 class=\"pol-h3\">How We Share and Disclose Your Information</h4>\n<h4 class=\"pol-h3\">Your Marketing Choices</h4>\n<h4 class=\"pol-h3\">Third Party Services and Notice About Health Information</h4>\n<h4 class=\"pol-h3\">How We Protect Your Information</h4>\n<h4 class=\"pol-h3\">Privacy Information for California Residents</h4>\n<h4 class=\"pol-h3\">Privacy Information for Nevada Residents</h4>\n<h4 class=\"pol-h3\">Retention of Your Information</h4>\n<h4 class=\"pol-h3\">Revisions to Our Privacy Policy</h4>\n<h4 class=\"pol-h3\">Contacting Us</h4>\n<h3 class=\"pol-h2\">THE INFORMATION WE COLLECT AND THE SOURCES OF SUCH INFORMATION</h3>\n<p>We obtain information about you through the means discussed below when you use the Services. Please note that we need certain types of information so that we can provide the Services to you. If you do not provide us with such information, or ask us to delete it, you may no longer be able to access or use part or all of our Services.</p>\n<h4 class=\"pol-h3\">1. Information You Provide to Us</h4>\n<p>We collect a variety of information that you provide directly to us.</p>\n<p>For example, we collect information from you through:</p>\n<p>Account and product registration and administration of your account</p>\n<p>Processing your orders and requests for treatment</p>\n<p>Questions, communications, or feedback you submit to us via forms or email</p>\n<p>Your participation in research and surveys</p>\n<p>Requests for customer support and technical assistance, including through online chat functionalities</p>\n<p>Uploads or posts to the Services</p>\n<p>Employment applications you submit</p>\n<p>The specific types of information we collect will depend upon the Services you use, how you use them, and the information you choose to provide. The types of data we collect directly from you includes:</p>\n<p>Name, address, telephone number, date of birth, and email address</p>\n<p>Information about your medical conditions, treatment options, physician referrals, prescriptions, and lab results or other related health information, such as your physical and emotional characteristics</p>\n<p>Log-in credentials, if you create an account</p>\n<p>Billing information, such as shipping address, credit or debit card number, verification number, expiration date, and identity verification information, collected by our payment processors on our behalf</p>\n<p>Information about purchases or other transactions with us</p>\n<p>Information about your customer service and maintenance interactions with us</p>\n<p>Demographic information such as your gender and age</p>\n<p>User-generated content you post in public online forums on our Services</p>\n<p>Any other information you choose to directly provide to us in connection with your use of the Services.</p>\n<h4 class=\"pol-h3\">2. Information We Collect Through Automated Means</h4>\n<p>We collect certain information about your use of the Services and the devices you use to access the Services, as described in this Section. As discussed further below, we and our service providers (which are third party companies that work on our behalf), may use a variety of technologies, including cookies and similar tools, to assist in collecting this information.</p>\n<p>Our Websites. When you use our Websites, we collect and analyze information such as your IP address, browser types, browser language, operating system, the state or country from which you accessed the Services, software and hardware attributes (including device IDs) referring and exit pages and URLs, platform type, the number of clicks, files you download, domain names, landing pages, pages viewed and the order of those pages, the amount of time spent on particular pages, the terms you use in searches on our sites, the date and time you used the Services, error logs, and other similar information.</p>\n<p>Our Apps. When you use our Apps, we automatically receive certain information about the mobile phone, tablet, or computer used to access the Apps, including a mobile device identifier, IP address, operating system, version, Internet service provider, browser type, domain name and other similar information, whether and when you update the Apps, date and time of use, and how you use the Apps, including time spent in different portions of the Apps.</p>\n<p>Location Information. When you use the Services, we and our service providers may automatically collect general location information (e.g., IP address, city/state and or postal code associated with an IP address) from your computer or mobile device. This information allows us to enable access to content that varies based on a user’s general location (e.g., to provide you with accurate sales tax information and to deliver content customized to your location).</p>\n<p>We will ask your permission before collecting your precise GPS location information. In such instances, we will use your precise geo-location information to provide customized services, content, promotional offers and other information that may be of interest to you. If you no longer wish for us and our service providers to collect and use GPS location information, you may disable the location features on your device. Please see your device manufacturer settings.</p>\n<p>Our Use of Cookies and Similar Online Tools. To collect the information discussed in this Section, we and our service providers use web server logs, cookies, tags, SDKs, tracking pixels, and other similar tracking technologies. We use these technologies to offer you a more tailored experience.</p>\n<p>A web server log is a file where website activity is stored.</p>\n<p>An SDK is a set of tools and/or code that we embed in our Apps and software to allow third parties to collect information about how users interact with the Services.</p>\n<p>A cookie is a small text file that is placed on your computer or mobile device when you visit a site, that enables us to: (i) recognize your computer/device; (ii) store your preferences and settings; (iii) understand the parts of the Services you have visited and used; (iv), enhance your user experience by delivering and measuring the effectiveness of content and advertising tailored to your interests; (v) perform searches and analytics; and (vi) assist with security and administrative functions.</p>\n<p>Tracking pixels (sometimes referred to as web beacons or clear GIFs) are tiny electronic tags with a unique identifier embedded in websites, online ads and/or email that are designed to: (1) collect usage information like ad impressions or clicks and email open rates; (2) measure popularity of the Services and associated advertising; and (3) access user cookies.</p>\n<p>As we adopt additional technologies, we may also gather information through other methods.</p>\n<p>Please note that you can change your settings to notify you when a cookie is being set or updated, or to block cookies altogether. Please consult the “Help” section of your browser for more information (e.g., Internet Explorer; Google Chrome; Mozilla Firefox; or Apple Safari). Please note that by blocking, disabling, or managing any or all cookies, you may not have access to certain features or offerings of the Services.</p>\n<h4 class=\"pol-h3\">3. Information We Collect From Social Media and Other Content Platforms</h4>\n<p>When you “like” or “follow” us on Facebook, Instagram, Twitter, or other social media sites, we may collect some information from you including your name, email address, and any comments or content you post relevant to us. We also collect your information if you sign up for one of our promotions or submit information to us through social media sites.</p>\n<h4 class=\"pol-h3\">4. Information We Receive From Other Sources</h4>\n<p>We work closely with third parties (including, for example, third party intermediaries, such as the physicians, medical professionals, and pharmacies with whom we partner to provide you with the Services and their health care services, sub-contractors in technical, advertising networks, analytics providers, and search information providers). Such third parties will sometimes provide us with additional information about you.</p>\n<h3 class=\"pol-h2\">PURPOSES FOR HOW WE USE YOUR INFORMATION</h3>\n<p>In connection with providing you with the Services, we may use your information for our business purposes to:</p>\n<p>Carry out, improve, and manage the Services and, as applicable, facilitate the provision of health care services to you by physicians or other health care providers and ensure that the physicians or health care providers have the services and support necessary for health care operations.</p>\n<p>Engage in internal research to understand the effectiveness of our Services, improve our Services, and better understand our user base. If we publish or provide the results of this research to others, such research will be presented in a de-identified and aggregate form such that individual users cannot be identified.</p>\n<p>Communicate with you about the Services, your use of the Services, or your inquiries related to the Services and send you communications on behalf of physicians or other health care providers utilizing the Services to meet your needs.</p>\n<p>Communicate with you by email, postal mail, or phone about surveys, promotions, special events or our products and Services and those of our subsidiaries, affiliates, and parent companies and any of their related businesses and those of our third-party partners.</p>\n<p>Provide you with technical support and customer service.</p>\n<p>Verify your identity and administer your account, including processing your payments and fulfilling your orders.</p>\n<p>Ensure that content from our Services is presented in the most effective manner for you and for your computer or device, allow you to participate in interactive features of our Services (when you choose to do so), and as part of our efforts to keep our Services safe and secure.</p>\n<p>Measure or understand the effectiveness of advertising and content we serve to you and others, and to deliver and customize relevant advertising and content to you.</p>\n<p>Help us better understand your interests and needs, such as by engaging in analysis and research regarding use of the Services.</p>\n<p>Comply in good faith with any procedures, laws, and regulations which apply to us where it is necessary for our legitimate interests or the legitimate interests of others.</p>\n<p>Establish, exercise, or defend our legal rights where it is necessary for our legitimate interests or the legitimate interests of others.</p>\n<p>Combined Information. For the purposes discussed in this Privacy Policy, we may combine the information that we collect through the Services with information that we receive from other sources, both online and offline, and use and share such combined information in accordance with this Privacy Policy.</p>\n<p>Aggregate/De-Identified Data. We may aggregate and/or de-identify any information collected through the Services so that such information can no longer be linked to you or your device (“Aggregate/De-Identified Information”). We may use Aggregate/De-Identified Information for any purpose, including for research and marketing purposes, and may also share such data with any third parties, including advertisers, promotional partners, and sponsors.</p>\n<h3 class=\"pol-h2\">ONLINE ANALYTICS AND ADVERTISING</h3>\n<h4 class=\"pol-h3\">1. Online Analytics</h4>\n<p>We may use third-party web analytics services (such as those of Google Analytics (including Google Signals, Google User-ID, and other Google Analytics features) and MixPanel) on our Services to collect and analyze usage information through cookies and similar tools; engage in auditing, research, or reporting; assist with fraud prevention; try to locate the same unique users across multiple browsers or devices to better tailor services and features; and provide certain features to you. If you have a Google account with personalized advertising enabled, through Google Signals, Google will also be able to gather for us analytics and engagement information from across the various devices you use to access the Services. To prevent Google from using your information for analytics (including cross-device tracking for personalization purposes), you may install the Google Analytics Opt-out Browser Add-on by clicking here. And to opt out of Google Signals, please open your “Settings” app, locate and tap “Google,” select “Ads,” and turn ON “Opt out of Ads Personalization.” You may also be able to disable cross-device tracking through your Android or Apple device-based settings.</p>\n<p>If you receive email from us, we may use certain analytics tools, such as clear GIFs to capture data such as when you open our message or click on any links or banners our email contains. This data allows us to gauge the effectiveness of our communications and marketing campaigns.</p>\n<h4 class=\"pol-h3\">2. Online Advertising</h4>\n<p>The Services may integrate third-party advertising technologies (e.g., ad networks and ad servers such as Facebook, Google Ad Words, Criteo and others) that use cookies and other technologies to deliver relevant content and advertising for RestorLife Med products on the Services, as well as on other websites you visit and other applications you use. The ads may be based on various factors such as the content of the page you are visiting, information you enter such as your searches, demographic data, and other information we collect from you. These ads may be based on your current activity or your activity over time and across other websites and online services.</p>\n<p>We sometimes provide our customer information (such as email addresses) to service providers, who may “match” this information in de-identified form to cookies (or mobile ad identifiers) and other proprietary IDs, in order to provide you with more relevant ads when you visit other websites and mobile applications.</p>\n<p>We neither have access to, nor does this Privacy Policy govern, the use of cookies or other tracking technologies that may be placed on your device you use to access the Services by non-affiliated third party advertising network services. If you are interested in more information about tailored browser advertising and how you can generally control cookies from being put on your computer to deliver tailored advertising, you may visit the Network Advertising Initiative’s Consumer Opt-Out link, the Digital Advertising Alliance’s Consumer Opt-Out link, or Your Online Choices to opt-out of receiving tailored advertising from companies that participate in those programs. If you are interested in more information about Criteo’s privacy practices or opting-out of Criteo’s advertising services, you may view their Privacy Policy. To opt out of Google Analytics for display advertising or customize Google display network ads, visit the Google Ads Settings page. We do not control these opt-out links or whether any particular company chooses to participate in these opt-out programs. We are not responsible for any choices you make using these mechanisms or the continued availability or accuracy of these mechanisms.</p>\n<p>Please note that if you exercise the opt out choices above, you will still see advertising when you use the Services, but it will not be tailored to you based on your online behavior over time.</p>\n<h4 class=\"pol-h3\">3. Mobile Advertising</h4>\n<p>When using mobile applications from us or others, you may also receive tailored in-application advertisements. We may use third-party service providers to deliver advertisements on mobile applications or for mobile application analytics. Each operating system, iOS for Apple phones, Android for Android devices, and Windows for Microsoft devices provides its own instructions on how to prevent the delivery of tailored in-application advertisements. We do not control how the applicable platform operator allows you to control receiving personalized in-application advertisements; thus, you should contact the platform provider for further details on opting out of tailored in-application advertisements. You may review the support materials and/or the device settings for the respective operating systems to opt-out of tailored in-app advertisements.</p>\n<h4 class=\"pol-h3\">4. Notice Concerning Do Not Track</h4>\n<p>Do Not Track (“DNT”) is a privacy preference that users can set in certain web browsers. We are committed to providing you with meaningful choices about the information collected on our website for third party purposes, and that is why we provide the variety of opt-out mechanisms listed above. However, we do not currently recognize or respond to browser-initiated DNT signals. To learn more about Do Not Track, you can do so here.</p>\n<h3 class=\"pol-h2\">HOW WE SHARE AND DISCLOSE YOUR INFORMATION</h3>\n<p>We may share your information for our business purposes in the following ways:</p>\n<p>Affiliates and Subsidiaries. We may share information we collect within any RestorLife Med member or group (i.e., our subsidiaries and affiliates, including our ultimate holding company and its subsidiaries) to deliver products and services to you, ensure a consistent level of service across our products and services, and enhance our products, services, and your customer experience.</p>\n<p>Health Care Providers and Services. We share your information with health care providers: (i) to schedule and fulfill appointments and provide health care services as part of the Services, (ii) to whom you send messages through our Services, and (iii) for other treatment, payment or health care operations purposes, including pharmacy services, upon your request.</p>\n<p>Service Providers. We provide access to or share your information with select third parties who use the information to perform services on our behalf. They provide a variety of services to us, including billing, sales, marketing, advertising, analytics, research, customer service, shipping and fulfillment, data storage, IT and security, fraud prevention, payment processing, and auditing and legal services. These entities may also include health care organizations, pharmacies, and other third parties we use to support our business or in connection with the administration and support of the Services.</p>\n<p>Protection of RestorLife Med and Others. By using the Services, you acknowledge and agree that we may access, retain and disclose the information we collect and maintain about you if required to do so by law or in a good faith belief that such access, retention or disclosure is reasonably necessary to: (a) comply with legal process (e.g. a subpoena or court order); (b) enforce our Terms of Use, this Privacy Policy, or other contracts with you, including investigation of potential violations thereof; (c) respond to claims that any content violates the rights of third parties; (d) respond to your requests for customer service; and/or (e) protect the rights, property or personal safety of RestorLife Med, its agents and affiliates, its users and/or the public. This includes exchanging information with other companies and organizations for fraud protection, and spam/malware prevention, and similar purposes.</p>\n<p>Business Transfers. As we continue to develop our business, we may buy, merge, or partner with other companies. In such transactions, (including in contemplation of such transactions) user information may be among the transferred assets. If a portion or all of our assets are sold or transferred to a third-party, customer information (including your email address) would likely be one of the transferred business assets. If such transfer is subject to additional mandatory restrictions under applicable laws, we will comply with such restrictions.</p>\n<p>Public Forums. Certain features of our Services make it possible for you to share comments publicly with other users. Any information that you submit through such features is not confidential, and we may use it for any purpose (including in testimonials or other marketing materials). For example, if you submit a product review on one of our sites, we may display your review (along with the name provided, if any) on other RestorLife Med websites and on third-party websites. Any information you post openly in these ways will be available to the public at large and potentially accessible through third-party search engines. Accordingly, please take care when using these features.</p>\n<p>Consent. We may also disclose your information in other ways you direct us to and when we have your consent.</p>\n<p>Aggregate/De-Identified Information. We reserve the right to create Aggregate/De-Identified Data from the information we collect through the Services and our sharing of such Aggregate/De-Identified Data is in our discretion.</p>\n<h3 class=\"pol-h2\">YOUR MARKETING CHOICES</h3>\n<p>You may instruct us not to use your contact information to contact you by email, postal mail, or phone regarding products, services, promotions and special events that might appeal to your interests by contacting us using the information below. In commercial email messages, you can also opt out by following the instructions located at the bottom of such emails. Please note that, regardless of your request, we may still use and share certain information as permitted by this Privacy Policy or as required by applicable law. For example, you may not opt out of certain operational emails, such as those reflecting our relationship or transactions with you.</p>\n<h3 class=\"pol-h2\">THIRD PARTY SERVICES AND NOTICE ABOUT HEALTH INFORMATION</h3>\n<p>This Privacy Policy does not address, and we are not responsible for, the privacy, information, or other practices, including data privacy and security process and standards of any third parties, including physicians and other health care providers using the Services, the manufacturer of your mobile device and other IT hardware and software, and any other third party mobile application, website, or service to which our Services may contain a link. These third parties may at times gather information from or about you. We have no control over the privacy practices of these third parties. The collection, use, and disclosure of your information will be subject to the privacy policies of the third-party websites or services, and not this Privacy Policy. We urge you to read the privacy and security policies of these third parties.</p>\n<h3 class=\"pol-h2\">HOW WE PROTECT YOUR INFORMATION</h3>\n<p>RestorLife Med takes a variety of technical and organizational security measures to protect your information against accidental or unlawful destruction or accidental loss, alteration, unauthorized disclosure or access. However, no method of transmission over the Internet, and no means of electronic or physical storage, is absolutely secure. As such, you acknowledge and accept that we cannot guarantee the security of your information transmitted to, through, or on our Services or via the Internet and that any such transmission is at your own risk.</p>\n<p>Where we have given you (or where you have chosen) a password that enables you to access the Services, you are responsible for keeping this password confidential. We ask you not to share your password with anyone. The information you share in public areas may be viewed by any user of the Services.</p>\n<h3 class=\"pol-h2\">PRIVACY INFORMATION FOR CALIFORNIA RESIDENTS</h3>\n<p>If you are a California resident, California law requires us to provide you with some additional information regarding how we collect, use, and share your “personal information” (as defined in the California Consumer Privacy Act (“CCPA”)).</p>\n<p>Categories of personal information we collect and disclose. Throughout this Policy, we discuss in detail the specific pieces of personal information we collect from and about our users. Under the CCPA, we are also required to provide you with the “categories” of personal information we collect and the categories of third parties to which we disclose personal information. Please note that some of the information we collect through the Services (e.g., medical information), is subject to various health data privacy laws, and is therefore not subject to the CCPA. See the following chart to understand more about the categories of personal information we collect that are subject to the CCPA and the third parties to which we disclose it:</p>\n<h4 class=\"pol-h3\">Category of Personal Information</h4>\n<h4 class=\"pol-h3\">Categories of Third Parties to Which we Disclose</h4>\n<p>Identifiers and contact information (e.g., name, address, email address, account names)</p>\n<p>Service providers; our affiliates; health care providers and services; entities for legal and fraud prevention</p>\n<p>Commercial and transactional information (e.g., information about your purchases)</p>\n<p>Service providers; our affiliates; health care providers and services; entities for legal and fraud prevention</p>\n<p>Financial information (e.g., credit card info collected by our payment processors)</p>\n<p>Payment processors; service providers; our affiliates; entities for legal and fraud prevention</p>\n<p>Internet or other network or device activity (e.g., IP address, browsing history, app usage)</p>\n<p>Service providers; our affiliates; entities for legal and fraud prevention</p>\n<p>Geolocation information (e.g., general location and precise location, with your permission)</p>\n<p>Service providers; our affiliates; entities for legal and fraud prevention</p>\n<p>Demographic and statistical data (e.g., your gender, interests based on products and services you use)</p>\n<p>Service providers; our affiliates; entities for legal and fraud prevention</p>\n<p>Physical characteristics (e.g., photos of you)</p>\n<p>Service providers; our affiliates</p>\n<p>User-generated content (e.g., information you choose to post in our online forums)</p>\n<p>Service providers; our affiliates; entities for legal and fraud prevention</p>\n<p>Customer service data (e.g., information you provide through a chat or call with RestorLife Med’s Care Team)</p>\n<p>Service providers; our affiliates; health care providers and services; entities for legal and fraud prevention</p>\n<p>The business purposes for which we use the personal information we collect are: manage, facilitate, and improve the Services; research, marketing, and analytics; communicate with users; technical support and customer service; security and fraud prevention; and legal compliance and defense. For more detailed information about how we use and share your personal information, please see the “Purposes for How We Use Your Information” and “How We Share and Disclose Your Information” sections of this Policy above.</p>\n<h4 class=\"pol-h3\">Your California Privacy Rights</h4>\n<p>CCPA Rights Disclosure. If you are a California resident, the CCPA allows you to make certain requests about your personal information. Specifically, the CCPA allows you to request us to:</p>\n<p>Inform you about the categories of personal information we collect or disclose about you; the categories of sources of such information; the business or commercial purpose for collecting your personal information; and the categories of third parties with whom we share/disclose personal information.</p>\n<p>Provide access to and/or a copy of certain information we hold about you.</p>\n<p>Delete certain information we have about you.</p>\n<p>The CCPA further provides you with the right to not be discriminated against (as provided for in applicable law) for exercising your rights.</p>\n<p>Please note that certain information may be exempt from such requests under California law. For example, we need certain information in order to provide the Services to you. We also will take reasonable steps to verify your identity before responding to a request.</p>\n<p>If you are a California resident and you would like to exercise any of your data rights under California law, please click here to submit your request through our webform. Alternatively, you can email us at support@restorlifemed.com.</p>\n<p>Please include your full name, email address and residential address associated with your use of our Services, along with the rights you would like to exercise, so that we can process your request in an efficient manner. If you would like to receive a copy of your medical record in connection with your request, please indicate that in your email message. By requesting your medical record in this way, you are agreeing to receive your medical record in an unencrypted email message.</p>\n<p>Sale of Personal Information.</p>\n<p>RestorLife Med does not, and will not, sell information that identifies you such as your name, email address, phone number, or postal address. Like many companies with an internet presence, we do work with third parties that provide marketing and advertising services to us, including interest-based advertising services, and these third parties may place tags, pixels, cookies, beacons, and other similar tracking mechanisms on our Website and App and collect your online identifiers. Because of the CCPA’s broad definitions of “sale” and “personal information,” making certain online identifiers available to these companies so that they can provide marketing and advertising services to RestorLife Med may be considered a “sale” under the CCPA . To opt out of sharing your information with participating third parties for interest-based advertising, please visit the Network Advertising Initiative’s Consumer Opt-Out link, the Digital Advertising Alliance’s Consumer Opt-Out link, and Your Online Choices. Please note that these opt-outs are device and browser based, so you will need to opt out on each of your devices and browsers. For more information, see the Online Analytics and Advertising Section above.</p>\n<p>Shine the Light Disclosure. The California “Shine the Light” law gives residents of California the right under certain circumstances to request information from us regarding the manner in which we share certain categories of personal information (as defined in the Shine the Light law) with third parties for their direct marketing purposes. We do not share your personal information with third parties for their own direct marketing purposes.</p>\n<h3 class=\"pol-h2\">PRIVACY INFORMATION FOR NEVADA RESIDENTS</h3>\n<p>Under Nevada law, certain Nevada consumers may opt out of the sale of “personally identifiable information” for monetary consideration (as such terms are defined under Nevada law) to a person for that person to license or sell such information to additional persons. We do not engage in such activity; however, if you are a Nevada resident who has purchased services from us, you may submit a request to opt out of any potential future sales under Nevada law by [INSERT CUSTOMER SERVICE EMAIL]. Please note we will take reasonable steps to verify your identity and the authenticity of the request. Once verified, we will maintain your request in the event our practices change.</p>\n<h3 class=\"pol-h2\">RETENTION OF YOUR INFORMATION</h3>\n<p>We keep your information for no longer than necessary for the purposes for which it is processed. The length of time for which we retain information depends on the purposes for which we collected and use it and/or as required to comply with applicable laws.</p>\n<h3 class=\"pol-h2\">REVISIONS TO OUR PRIVACY POLICY</h3>\n<p>We reserve the right to change this Privacy Policy at any time to reflect changes in the law, our data collection and use practices, the features of our Services, or advances in technology. We will make the revised Privacy Policy accessible through the Services, so you should review it periodically. The date this Privacy Policy was last revised is identified at the top of the document. You are responsible for periodically monitoring and reviewing any updates to the Privacy Policy. If we make a material change to the Privacy Policy, we will provide you with appropriate notice in accordance with legal requirements. Your continued use of our Websites or Apps after such amendments (and notice, where applicable) will be deemed your acknowledgment of these changes to this Privacy Policy.</p>\n<h3 class=\"pol-h2\">CONTACTING US</h3>\n<p>If you have any questions about this Privacy Policy or RestorLife Med’s privacy practices, please contact us at:</p>\n<h4 class=\"pol-h3\">RestorLife Med</h4>\n<h4 class=\"pol-h3\">Support@restorlifemed.com</h4>"
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "html": "<h4 class=\"pol-h3\">Date of Last Revision: 1/11/2022</h4>\n<p>AMONG OTHER ACTIVITIES, RESTORLIFE MED’S SERVICES ENABLE COORDINATION AND COMMUNICATION WITH A HEALTH CARE PROVIDER. IT DOES NOT REPLACE YOUR RELATIONSHIP WITH ANY PHYSICIAN. THESE SERVICES MIGHT NOT BE APPROPRIATE FOR ALL MEDICAL CONDITIONS OR CONCERNS. IF YOU HAVE A MEDICAL EMERGENCY, IMMEDIATELY CALL YOUR DOCTOR OR DIAL 911.</p>\n<p>PLEASE READ THESE TERMS AND CONDITIONS CAREFULLY BECAUSE THEY SET FORTH THE IMPORTANT TERMS YOU WILL NEED TO KNOW ABOUT THE SERVICES.</p>\n<p>YOU UNDERSTAND THAT BY ACCESSING OR USING THE SITES OR SERVICES, YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTOOD, AND AGREED TO BE LEGALLY BOUND BY AND COMPLY WITH THESE TERMS OF USE. IF YOU DO NOT OR CANNOT AGREE WITH ANY PART OF THESE TERMS OF USE, YOU MAY NOT USE THE SITES OR ANY SERVICES PROVIDED ON OR THROUGH THE SITES.</p>\n<h3 class=\"pol-h2\">THE TERMS OF USE ARE SUBJECT TO CHANGE AS PROVIDED HEREIN.</h3>\n<h4 class=\"pol-h3\">Introduction</h4>\n<p>RestorLife Med, and their respective affiliates (collectively, “RestorLife Med”, “we”, “us”, or “our”) own and operate the websites located at https://restorlifemed.com/, [INSERT ALTERNATE DOMAIN] (collectively, the “Websites,” and collectively with any affiliated mobile application (“App”), the “Sites”). The Sites are intended to facilitate the provision of the Services to registered users. The “Services” may include (i) providing individuals with information on health care and wellness (“Content”); (ii) providing individuals with pharmacy services; (iii) providing individuals with access to technology-oriented tools for smoking cessation; (iv) development and gathering of health care records and health care information with retention of the same for use in health care provider appointments, communications, and pharmacy services; (v) administrative support in connection with scheduling, payment for health care provider services, and payment for pharmacy services; and (vi) telecommunications support for using the Services as a means of direct access to health care providers provided by Beluga Health, P.A. and similar affiliated professional entities for communication, consultations, assessments, and treatment by such health care organizations and their providers.</p>\n<p>These terms and conditions of use (“Terms of Use”) describe your rights and responsibilities with regard to the RestorLife Med Sites that you may use to receive Services. Your access to and use of the Sites is subject to these Terms of Use, our Privacy Policy https://restorlifemed.com/, as well as all applicable laws and regulations. In these Terms of Use, the terms “you” and “yours” refer to the person using the Services. Even though you may have arrived to the Sites through a website or mobile application operated or controlled by a third party, including by an affiliate of RestorLife Med, you understand and agree that these Terms of Use are entered into between you and RestorLife Med. If you do not accept and agree to be bound by these Terms of Use, you are not authorized to access or otherwise use the Sites, Services or any information or Content provided through the Sites or Services. The Sites and Services are continually under development, and RestorLife Med reserves the right to review or remove any part of these Terms of Use in its sole discretion at any time and without prior notice to you. You should check the Terms of Use from time to time when you use the Sites or Services to determine if any changes have been made. Any changes to these Terms of Use are effective upon posting to the Sites. Unless otherwise indicated, any new Content added to the Services is also subject to these Terms of Use upon posting to the Sites. If you disagree with these Terms of Use, your sole and exclusive remedy is to discontinue your use of the Sites and/or Services. Your continued use after a change has been posted constitutes your acceptance of the changes.</p>\n<p>Use of these terms is accepting use of Bask Health Inc’s platform and its applicable privacy policy located on the Bask Health website (bask.health, bask.bio).</p>\n<h4 class=\"pol-h3\">Availability</h4>\n<p>Certain of our Services are currently only available to individuals located in certain states.</p>\n<h4 class=\"pol-h3\">Eligibility</h4>\n<p>In order to qualify to use the Services, the following must be true:</p>\n<ul class=\"pol-list\">\n<li>You are age 18 or over.</li>\n<li>You are located in a State Where We Operate (depending on the type of Services).</li>\n<li>You agree to be legally bound by and comply with these Terms of Use.</li>\n</ul>\n<p>You understand and agree that satisfying the above requirements does not guarantee that you will receive Services through RestorLife Med. In addition to the above requirements, RestorLife Med and certain affiliated professional entities reserve the right to change or include new requirements as deemed appropriate in their sole discretion without providing prior notice to you.</p>\n<p>Requirements for use</p>\n<p>You must have compatible computing and/or mobile devices, access to the Internet, and certain necessary software in order to use the Sites. Fees and charges may apply to your use of the mobile services and to the Internet.</p>\n<p>Special consent to telehealth services</p>\n<p>Telemedicine involves the delivery of health care services using electronic communications, information technology, or other means between a health care provider and a patient who are not in the same physical location. Telemedicine may be used for diagnosis, treatment, follow-up and/or related patient education, and may include, but is not limited to:</p>\n<ul class=\"pol-list\">\n<li>Electronic transmission of medical records, photo images, personal health information, or other data between a patient and health care provider;</li>\n<li>Interactions between a patient and health care provider via audio, video, and/or data communications; and</li>\n<li>Use of output data from medical devices, sound, and video files.</li>\n</ul>\n<p>The electronic systems used in the Services will incorporate network and software security protocols to protect the privacy and security of health information and imaging data, and will include measures to safeguard the data to ensure its integrity against intentional or unintentional corruption.</p>\n<p>Please see our Consent to Telehealth available for a description of the risks and benefits of telemedicine. The Consent to Telehealth is hereby incorporated into these Terms of Use by reference and constitutes a part of these Terms of Use.</p>\n<p>Note that access to the Services and the Sites is not conditioned upon your consent to receive marketing or promotional text messages from RestorLife Med, and you can opt-out of any of RestorLife Med’s SMS services at any time by texting “STOP” to the message received, from the mobile device that is subscribed to receive the SMS messages. After you send the text message “STOP” to us, we may send you one final text message to confirm that you have been unsubscribed. If you have opted-in to receive more than one type of text message from RestorLife Med, you will need to opt-out of each RestorLife Med SMS service to which you are subscribed. Until you have done so, you may continue to receive the types of text messages from RestorLife Med that you have opted-in to receive but have not unsubscribed from.</p>\n<p>You also understand that while RestorLife Med takes your privacy and the security of your health and other sensitive information very seriously, the transmission of information over the internet and mobile networks is not 100% secure. Text messages and emails that you send to or receive from RestorLife Med are not encrypted, which means that it is possible they may be intercepted by third parties. If you choose to send or receive information about your health or any other sensitive information by text message or email, you do so at your own risk. By initiating an SMS Enrollment, you consent to sending text messages to RestorLife Med, and receiving text messages from RestorLife Med, that are not encrypted. Likewise, by emailing RestorLife Med or giving RestorLife Med your email, you consent to receiving unencrypted emails messages from RestorLife Med.</p>\n<p>If you are experiencing any issues with RestorLife Med’s text messaging or email services, or if you have any concerns about sending or receiving any sensitive information through text or email, please contact us directly at [INSERT CUSTOMER SERVICE EMAIL]. If you have questions specific to your text or data plan, please contact your wireless provider.</p>\n<h4 class=\"pol-h3\">Consultative service</h4>\n<p>In some cases, a Beluga Health, P.A. or affiliated health care provider may use the Services to provide advice or treatment to you. A health care provider consulting with you through the Services may not have the benefit of information that would be obtained by examining you in person and observing your physical condition, in each instance. Therefore, the health care provider may not be aware of facts or information that may affect his or her opinion regarding a potential diagnosis or treatment recommendation. To reduce the risk to you of this limitation, RestorLife Med strongly encourages you to provide all relevant information and discuss any and all diagnosis and treatment options with a health care provider. Moreover, a health care provider utilizing RestorLife Med may be limited by state law in prescribing certain medications to you without first conducting an in-person physical examination. By deciding to engage the Services, you acknowledge and agree that you are aware of these limitations and agree to assume the risk of these limitations. Furthermore, you agree and accept that: (i) any diagnosis you may receive is limited and, in some cases, provisional; (ii) the health care services are not intended, in all cases, to replace a full medical evaluation or an in-person visit with a health care provider; (iii) a health care provider acting through the Services may not have important information that is usually obtained through a “hands-on” physical examination; and (iv) the absence of a physical examination may affect the health care provider’s ability to diagnose any potential condition, disease or injury.</p>\n<p>For more information regarding the health care services offered by health care providers utilizing the Services, please visit https://restorlifemed.com/.</p>\n<h4 class=\"pol-h3\">Site content</h4>\n<p>Except for specific communications received from Beluga Health, P.A. or affiliate health care organizations and providers, none of the Content you receive through the Sites should be considered medical advice.</p>\n<p>Registration and user accounts</p>\n<p>Although certain parts of the Sites are accessible by any individual, you are obligated to register with RestorLife Med in order to access the Services. The Services are available only to users who have registered with RestorLife Med and to other persons affiliated with RestorLife Med who have been granted accounts with usernames and passwords (“Secure Users”). If you are a Secure User, you agree to provide information that is accurate, complete and correct, and to accurately maintain and update any information about yourself that you have provided to RestorLife Med. If you do not maintain such information, or RestorLife Med has reasonable grounds to suspect as much, RestorLife Med has the right to suspend or terminate your account and your use of the Services. You also agree to immediately notify RestorLife Med of any unauthorized use of your username, password or any other breach of security that you become aware of involving or relating to the Services by emailing RestorLife Med at [INSERT CUSTOMER SERVICE EMAIL]. RestorLife Med may take any and all actions it deems necessary or reasonable to maintain the security of the Sites, Services and your Secure User account.</p>\n<p>You agree to keep confidential your username and password and to exit from your Secure User account at the end of each session. You are responsible for all activities that occur under your account and for maintaining the confidentiality of your password. You are responsible for changing your password promptly if you think it has been compromised. You may not transfer or share your password with anyone, or create more than one account. You may not use anyone else’s account at any time. RestorLife Med explicitly disclaims liability for any and all losses and damages arising from your failure to comply with this section. You acknowledge and agree that: (1) all or any part of the Sites may not be accessible at any time, for any period, or for any reason; and (2) RestorLife Med will not be liable if for any reason all or any part of the Sites are unavailable at any time or for any period.</p>\n<p>‘jailbreaking’ the mobile operating system</p>\n<p>The App is intended for use only on a mobile phone that runs an unmodified manufacturer approved operating system. Using the App on a mobile phone with a modified operating system may undermine security features that are intended to protect your protected health information from unauthorized or unintended disclosure. As a result, you may compromise your protected health information if you use the App on a mobile phone that has been modified. Use of the App on a mobile phone with a modified operating system is a material breach of these Terms of Use.</p>\n<p>Access rights and prohibited use</p>\n<p>Subject to your compliance with these Terms of Use, we hereby grant to you a personal, limited, revocable, non-exclusive, and nontransferable right to view, download, access, and use the Sites in the United States and to use the Services solely for your personal and non-commercial use and only as permitted under these Terms of Use, the Consent to Telehealth, and the Privacy Policy. No other right, title, or interest in or to the Sites is transferred to you, and all rights not expressly granted are reserved by RestorLife Med or its licensors. We reserve the right, in our sole discretion, to deny or suspend use of the Sites or Services to anyone for any reason. You agree that you will not, and will not attempt to: (a) impersonate any person or entity or otherwise misrepresent your affiliation with a person or entity; (b) use the Sites or Services to violate any local, state, national or international law; (c) reverse engineer, disassemble, decompile, or translate any software or other components of the Sites; (d) distribute, input, upload, transmit, or otherwise run or propagate any virus, application, Trojan horse, or any other harmful computer code that could damage or alter a computer, portable device, computer network, communication network, data, or our Sites, or any other system, device, or property; (e) access or use the Sites in any manner or for any purpose that infringes, misappropriates, or otherwise violates any intellectual property right or other right of any third party; (f) license, sublicense, sell, resell, transfer, assign, distribute or otherwise commercially exploit or make available to any third party the Sites, Services or related materials in any way; (g) use or access the Sites to create or develop competing products or services or for any other purpose that is to RestorLife Med’s detriment or commercial disadvantage; (h) take any action or use the Sites in any manner which could damage, destroy, disrupt, disable, impair, overburden, interfere with, or otherwise impede or harm in any manner our Sites or any content, in whole or in part; (i) disrupt, interfere with, violate the security of, or attempt to gain unauthorized access to our Sites or any computer network; (j) bypass, breach, avoid, remove, deactivate, impair, descramble, or otherwise circumvent any security device, protection, or technological measure implemented by RestorLife Med or any of our service providers to protect our Sites; (k) remove, delete, alter, or obscure any trademarks, specifications, warranties, or disclaimers, or any copyright, trademark, patent, or other intellectual property or proprietary rights notices from our Sites or any content made available to you on or through our Sites; (l) use any manual process or automated device to monitor or copy any content made available on or through our Sites for any unauthorized purpose except as permitted by this section; (m) copy, duplicate, download, store in a retrieval system, publish, transmit or otherwise reproduce, transfer, distribute, store, disseminate, aggregate, use as a component of or as the basis for a database or otherwise use in any form or by any means any data, text, reports, or other materials related to RestorLife Med or third-party content from the Sites; (n) otherwise use the Sites in any manner that exceeds the scope of use granted above; or (o) encourage or enable any other individual to do any of the foregoing.</p>\n<p>Ownership of information submitted via the sites</p>\n<p>With the exception of any personal data or information you submit maintained in accordance with our Privacy Policy (which may be governed by the Health Insurance Portability and Accountability Act of 1996, Public Law 104-191, and its related regulations and amendments from time to time (collectively, “HIPAA”) or related state-specific privacy laws and regulations), you understand and agree that any information you provide to RestorLife Med on or through the Sites or Services, whether by direct entry, submission, email or otherwise, including, but not limited to, data, questions, comments, forum communications, or suggestions, will be treated as non-confidential and non-proprietary and will become the property of RestorLife Med and/or (i) Beluga Health, P.A., (ii) similar affiliated professional entities, or (iii) individual health providers utilizing the Services.</p>\n<p>Such information may be used for any purpose, including, without limitation, reproduction, solicitation, disclosure, transmission, publication, broadcast, and posting. RestorLife Med shall be free to use any ideas, concepts, know-how, or techniques contained in any communication you send to RestorLife Med via the Services or by any other means for any purpose whatsoever, including, without limitation, developing and marketing products using such information.</p>\n<p>For any personal data or information subject to the foregoing exception, and to the extent permitted by law, you: (1) understand and agree that any such information provided by you may be used, copied or displayed by RestorLife Med, RestorLife Med may create derivative works of any such data, and RestorLife Med may provide such data to our service providers, our successors and assigns, Pennsylvania Medical, P.C. and affiliated health care providers, and their affiliated professional entities, in performance of their services; and (2) grant RestorLife Med, our service providers, our successors and assigns, Beluga Health, P.A. and affiliated health care providers, and their affiliated professional entities, the fully transferable and sublicenseable right and license to use, reproduce, modify, analyze, perform, display, distribute, and otherwise disclose to third parties any data or information you submit on or through the Sites for the purposes of providing services to you; conducting research or analyses of such data; and designing, developing, implementing, modifying and/or improving new, current or future features, products and services of RestorLife Med using such data.</p>\n<p>Ownership of site content</p>\n<p>As between RestorLife Med and you, RestorLife Med is the sole and exclusive owner of all right, title and interest in and to the Sites and their content, features and functionality (including, without limitation, all information, software, text, displays, images, video, audio, design, selection, arrangement and look and feel), other Content, and all intellectual property rights therein, and any suggestions, ideas or other feedback provided by you. You are not permitted to reproduce, publish, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, transmit, sell or participate in any sale of, or exploit in any way, in whole or in part, any of the material on our Sites except as generally and ordinarily permitted through the Sites according to these Terms of Use. Any copy, modification, revision, enhancement, adaptation, translation, or derivative work of the Sites or Content shall be owned solely and exclusively by RestorLife Med or its licensors, including all intellectual property rights therein. You may not access or use for any commercial purposes any part of the Sites or Content.</p>\n<h4 class=\"pol-h3\">Trademarks</h4>\n<p>Certain names, logos, and other materials displayed in and through the Sites may constitute trademarks, trade names, service marks or logos (“Marks”) of RestorLife Med or its affiliates. You are not authorized to use any such Marks without the express written permission of RestorLife Med. Ownership of all such Marks and the goodwill associated therewith remains with us or our affiliates.</p>\n<p>Links to third-party hyperlinks and websites</p>\n<p>The Sites may contain hyperlinks or references to other websites (“Linked Sites”) operated by third parties. The Linked Sites may not be under our control, therefore, we are not responsible for the information, products or services described thereon, or for the content of any Linked Site, including, without limitation, any link contained in a Linked Site, or any changes or updates to a Linked Site. We are providing these Linked Sites to you only as a convenience, and the inclusion of any link does not necessarily imply endorsement of the Linked Site or any association with its operators. Your use of these Linked Sites is at your own risk, and we are not liable to you in any way, either directly or indirectly, for any content, errors, damage or loss caused by or in connection with use of or reliance on information contained in or provided to Linked Sites.</p>\n<p>You may have arrived to the Sites through a Linked Site, including a Linked Site controlled by a parent, subsidiary or affiliate of RestorLife Med. You understand and agree that we are not responsible for the information, products or services described on those Linked Sites and only these Terms of Use will apply to your use of or access to the Sites.</p>\n<h4 class=\"pol-h3\">Termination</h4>\n<p>The Terms of Use will remain in full force and effect as long as you continue to access or use the Sites or Services. You may terminate the Terms of Use at any time by discontinuing use of the Sites. Your permission to use the Sites automatically terminates if you violate these Terms of Use.</p>\n<p>RestorLife Med may terminate or suspend any of the rights granted by these Terms of Use and your access to and use of the Sites or Services with or without prior notice, for any reason, and at any time. The following provisions survive the expiration or termination of these Terms of Use for any reason whatsoever: Disclaimer of Warranties; Limitation of Liability; Indemnification; Governing Law, Dispute Resolution, Arbitration, Venue, Severability of Provisions; No Waiver; and Assignment.</p>\n<p>Subject to applicable law, RestorLife Med reserves the right to maintain, delete or destroy all communications and materials posted or uploaded to the Sites pursuant to its internal record retention and/or content destruction policies. After such termination, RestorLife Med will have no further obligation to provide the Services, except to the extent an affiliated professional entity is obligated to provide you access to your health records or is required to provide you with continuing care under applicable legal, ethical and professional obligations to you. You agree that if your use of the Services is terminated pursuant to these Terms of Use, you will not attempt to use the Services in any way, and further agree that if you violate this restriction after such termination, you will indemnify and hold RestorLife Med harmless from any and all liability that RestorLife Med may incur therefore.</p>\n<p>Disclaimer of warranties</p>\n<p>YOU EXPRESSLY AGREE THAT USE OF THE SITES IS AT YOUR SOLE RISK. YOU ACKNOWLEDGE AND AGREE THAT THE SITES AND ANY SERVICES ARE PROVIDED THROUGH THE SITES ON AN “AS IS” AND “AS AVAILABLE” BASIS. RESTORLIFE MED AND ITS AFFILIATES, INCLUDING WITHOUT LIMITATION ALL AFFILIATED PROFESSIONAL ENTITIES, AND THEIR RESPECTIVE OFFICERS, DIRECTORS, MANAGERS, PARTNERS, MEMBERS, EMPLOYEES, AND AGENTS (COLLECTIVELY “RELATED PERSONS”) MAKE NO REPRESENTATIONS OR WARRANTIES AND EXPRESSLY DISCLAIM ANY AND ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, WITH RESPECT TO THE SITES AND SERVICES INCLUDING, BUT NOT LIMITED TO, ANY REPRESENTATIONS OR WARRANTIES WITH RESPECT TO MERCHANTABILITY, FITNESS FOR A PARTICULAR USE OR PURPOSE, NONINFRINGEMENT, TITLE, AVAILABILITY, SECURITY, OPERABILITY, CONDITION, QUIET ENJOYMENT, VALUE, ACCURACY OF DATA, FREEDOM FROM VIRUSES OR MALWARE, COMPLETENESS, TIMELINESS, FUNCTIONALITY, RELIABILITY, SEQUENCING OR SPEED OF DELIVERY OR SYSTEM INTEGRATION. WE MAKE NO WARRANTIES OR REPRESENTATIONS THAT YOUR USE OF THE SITES OR SERVICES WILL NOT INFRINGE THE RIGHTS OF THIRD PARTIES.</p>\n<p>TO THE FULLEST EXTENT OF APPLICABLE LAW, NEITHER RESTORLIFE MED NOR ITS RELATED PERSONS WILL BE LIABLE FOR ANY LOSS OR DAMAGE CAUSED BY YOUR RELIANCE ON INFORMATION OBTAINED THROUGH THE SITES. IT IS YOUR RESPONSIBILITY TO EVALUATE THE ACCURACY, COMPLETENESS, TIMELINESS, RELIABILITY OR USEFULNESS OF THE SITES. FURTHERMORE, RESTORLIFE MED DOES NOT GUARANTEE THAT THE SITES WILL BE UNINTERRUPTED, OR FREE FROM ERROR, DEFECT, LOSS, DELAY IN OPERATION, CORRUPTION, CYBER ATTACK, VIRUSES, INTERFERENCE, HACKING, MALWARE, OR OTHER SECURITY INTRUSION, AND RESTORLIFE MED DISCLAIMS ANY LIABILITY RELATING THERETO.</p>\n<p>YOU UNDERSTAND AND AGREE THAT ANY CONTENT, MATERIAL AND/OR INFORMATION OBTAINED THROUGH THE USE OF THE SITES ARE USED AT YOUR SOLE RISK AND THAT YOU WILL BE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER OR MOBILE PHONE OR LOSS OF DATA THAT RESULTS FROM THE DOWNLOAD OF SUCH CONTENT, MATERIAL AND/OR INFORMATION.</p>\n<p>Limitation of liability</p>\n<p>YOU UNDERSTAND THAT TO THE EXTENT PERMITTED UNDER APPLICABLE LAW AND EXCEPT AS SET FORTH IN THIS SECTION, IN NO EVENT WILL RESTORLIFE MED, ITS RELATED PERSONS OR LICENSORS BE LIABLE TO YOU OR TO ANY PARTY FOR ANY CLAIMS, LIABILITIES, LOSSES, COSTS OR DAMAGES UNDER ANY LEGAL OR EQUITABLE THEORY, WHETHER IN TORT (INCLUDING NEGLIGENCE AND STRICT LIABILITY), CONTRACT, WARRANTY, STATUTE OR OTHERWISE, INCLUDING, BUT NOT LIMITED TO, ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE OR EXEMPLARY DAMAGES, INCLUDING BUT NOT LIMITED TO, DAMAGES FOR LOSS OF REVENUES, PROFITS, GOODWILL, USE OR DATA, SERVICE INTERRUPTION, COMPUTER OR MOBILE PHONE DAMAGE, OR SYSTEM FAILURE, OR THE COST OF SUBSTITUTE PRODUCTS OR SERVICES, OR FOR ANY DAMAGES FOR PERSONAL OR BODILY INJURY OR EMOTIONAL DISTRESS, INCLUDING DEATH, ARISING OUT OF OR IN CONNECTION WITH ANY ACCESS, USE OF (OR INABILITY TO USE) THE SITES OR ANY SERVICES PROVIDED THROUGH THE SITES, OR OTHER INTANGIBLE LOSSES ARISING OUT OF OR RELATED TO YOUR USE OF THE SITES. THIS IS TRUE EVEN IF RESTORLIFE MED OR RELATED PERSONS HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES OR LOSSES.</p>\n<p>To the extent that we may not, as a matter of applicable law, disclaim any implied warranty or limit liabilities, the scope and duration of such warranty and the extent of our liability will be the minimum permitted under such applicable law.</p>\n<h4 class=\"pol-h3\">Indemnification</h4>\n<p>You agree to indemnify, defend, and hold harmless RestorLife Med, its affiliates (including without limitation all affiliated professional entities), subsidiaries, and their directors, officers, employees, contractors, licensors, suppliers, representatives, proprietors, partners, shareholders, servants, principals, agents, predecessors, successors, assigns, accountants, and attorneys harmless from and against any and all third-party suits, actions, claims, proceedings, damages, settlements, judgments, injuries, liabilities, obligations, losses, risks, costs, and expenses (including, without limitation, reasonable attorneys’ fees, litigation expenses, and accounting fees), relating to or arising from, or alleged to arise from, your use of materials or features available on the Sites in an unauthorized manner, fraud, violation of law, or willful misconduct, or any breach by you of these Terms of Use.</p>\n<p>Modifications to the sites</p>\n<p>RestorLife Med reserves the right at any time and for any reason to modify, or temporarily or permanently discontinue, the Sites or Services or any portion thereof, with or without notice. You agree that RestorLife Med shall not be liable to you or to any third party for any modification, suspension, or discontinuance of the Sites or Services.</p>\n<h4 class=\"pol-h3\">Pharmacy services</h4>\n<p>If you receive a prescription as a result of the Services, you may select RestorLife Med or one of our partner pharmacies (collectively, the “RestorLife Med Pharmacy Network”) to ship your prescription. You give us consent to send and disclose to the Bask Pharmacy Network all information provided by you, health care records, and other applicable health care information and personal information (such as your name, location and demographic information) so that you may receive pharmacy services.</p>\n<p>Packaging and fulfillment restrictions</p>\n<p>If you select to use the Bask Pharmacy Network to fulfil any prescriptions provided by health care providers through the Services, you acknowledge that your medication, if approved, will not be shipped in child-resistant packaging and that you must keep it out of the reach of children.</p>\n<h4 class=\"pol-h3\">Payment</h4>\n<p>You agree to pay all fees due for services requested. You will see a prompt for your payment details, such as your credit card information and any promotional codes you may have. By entering your payment information and submitting your request, you authorize us, our affiliates, or our third-party payment processors to charge the amount due.</p>\n<p>You understand and agree that you are responsible for all fees due to receive health care services and pharmacy services, including any fees charged by the health care organization(s) or provider(s). Your payments to RestorLife Med may include fees charged by health care organization(s) or provider(s) for health care services and/or pharmacy services, which RestorLife Med collects on their behalf. Any health care services or pharmacy services not made available through the Services are not included in the payments collected by RestorLife Med and you may be separately charged by the applicable health care providers for such services. In the event that your credit card expires or RestorLife Med, our affiliates, or our third-party payment processors are unable to process your payment, you may receive notice for you to provide an alternative payment method. RestorLife Med and/or the health care organization(s) and/or provider(s) have no obligation to provide any health care services or pharmacy services unless and until full payment has been received and/or verified.</p>\n<h4 class=\"pol-h3\">Special notice to Medicare and Medicaid beneficiaries</h4>\n<p>Federal and state health care programs, such as Medicare and Medicaid, do not pay for all health care costs, even for some health care services and products that you or your health care provider have good reason to think you need. If you are a beneficiary of a federal or state health care program, and such program does not pay for certain services or products rendered to you, you may have to pay for these services and products. As we understand it, neither federal nor state health care programs currently pay for any of the medical services or products made available through the Services performed by affiliated health care organizations or providers, at least not in the way such services or products are provided (i.e., using telemedicine and bundled treatment offerings). By agreeing to use the Services, you acknowledge and agree that: (1) you will pay directly for any medical services and products provided to you, and (2) neither RestorLife Med nor any RestorLife Med affiliated health care organization or provider will bill any federal or state health care program for such medical services or products.</p>\n<p>Testosterone health program terms and conditions</p>\n<p>This section describes additional terms and conditions applicable to your participation in the Testosterone Health Program (the “Program”) offered through RestorLife Med and the affiliated professional entities that provide services on the RestorLife Med platform. The Program is designed to provide access to routine and necessary services for the management of low testosterone in biological males caused by secondary hypogonadism. The Program is a membership-based service through which eligible Members can obtain limited medical care, including at-home phlebotomy services, medication at the discretion of the Member’s provider, and pharmacy services for a recurring monthly payment. The Program is not health insurance or a substitute for health insurance, does not meet any individual health insurance mandate under federal or state law, and cannot replace your in-person provider relationships. You should keep your existing health insurance coverage while you are participating in the Program or obtain health insurance coverage if you do not currently have it.</p>\n<p>Eligibility limitations applicable to the Program</p>\n<p>Except in New York, Florida, and Illinois, in order to be eligible to participate in the program you must have a commercial health insurance benefits plan, including, but not limited to, an employer-provided health insurance plan, that may be billed for laboratory services. To learn more about billing for laboratory services please see the “Laboratory testing services not included” section below. You understand and agree that the affiliated professional entities, the healthcare professionals practicing on the Bask platform, and the pharmacies in the Bask Pharmacy Network will not bill your health insurance benefits plan for the health care and pharmacy services and products that you receive as part of the Program and that such health care and pharmacy services and products may not be eligible for reimbursement. You understand and agree that you are responsible for all fees due to receive health care and pharmacy services and products consistent with the “Payment” and “Special notice to Medicare and Medicaid beneficiaries” sections above.</p>\n<p>Onboarding and diagnosis</p>\n<p>In order to participate in the Program, you must be evaluated by a doctor or nurse practitioner on the RestorLife Med platform and, in the professional judgment of such health care provider, meet the clinical criteria for participation. To be evaluated for participation, you must complete an initial onboarding telehealth medical assessment (the “Diagnosis Online Visit”) with a doctor or nurse practitioner and obtain laboratory blood testing to measure your key physiological indicators including, but not limited to, your serum testosterone levels. If, following a review of the laboratory results and the Diagnosis Online Visit, your health care provider determines that you are a good candidate for treatment through the Program, he or she may initiate such treatment by writing you a prescription.</p>\n<p>You acknowledge and agree that, even if you do not meet the clinical criteria for participation in the Program, you are responsible for payment of the cost of the Diagnosis Online Visit and any laboratory testing that your health care provider orders for you and such cost is not included in the Membership Fee.</p>\n<h4 class=\"pol-h3\">Membership and Additional Services</h4>\n<p>Your membership (“Membership”) in the Program, including your ability to access the Membership Services and your obligation to pay Membership Fees (each as defined below) will commence when your health care provider communicates your care plan, risks and benefits of treatment, and you acknowledge such and elect to proceed with participation in the Program.</p>\n<p>The Program includes:</p>\n<ul class=\"pol-list\">\n<li>12 months of Membership</li>\n<li>Up to eight (8) discrete medical consults per year with your RestorLife Med-affiliated health care provider, all of which will be set on a pre-scheduled basis according to your personalized care plan.</li>\n<li>Health care provider services required to order and interpret up to eight (8) lab panels per year (Note: the costs of the laboratory tests are not included in your Membership and must be paid by you separately)</li>\n<li>Up to eight (8) at-home blood draws</li>\n<li>Secure messaging with your RestorLife Med-affiliated healthcare provider between discrete medical consults</li>\n<li>Fulfillment of prescription medication for the treatment of low testosterone (as prescribed), if you choose to have your prescription filled by the RestorLife Med Pharmacy Network, with free two-day shipping</li>\n</ul>\n<p>In certain cases, you or your health care provider may request that you complete services (e.g., medical consults, laboratory tests) in excess of the Membership Services. For each medical consult after the eighth consult, for each at-home blood draw after the eighth at-home blood draw, and for each lab result interpretation after the eighth lab result interpretation, (the “Additional Services”) you will be charged a separate fee (the “Additional Services Fee”). You will be charged an Additional Services Fee of $15.00 for each additional consult or lab result interpretation. You will be charged an Additional Services Fee of $125.00 for each additional at-home blood draw. As part of your participation in the Program, you agree that any Additional Services Fees that you incur can be charged to your payment card or PayPal account on file within seven (7) days of the date on when such Additional Services are rendered.</p>\n<p>The Membership Services may change from time to time. You will be given thirty (30) days’ notice of any such change. You may accept the revised Membership Services by continuing in the Program or reject them by terminating your Membership.</p>\n<p>At-home phlebotomy services</p>\n<p>In order to participate in the Program, you must periodically obtain medically necessary laboratory testing (bloodwork). As part of the Membership Services, you will receive up to eight (8) at-home blood draws from our partner mobile phlebotomy provider. You agree to receive at-home phlebotomy services from our mobile phlebotomy partner for any laboratory testing required by your RestorLife Med-affiliated health care provider as part of the Program.</p>\n<p>Laboratory testing services not included</p>\n<p>In order to participate in the Program, you must periodically obtain medically necessary laboratory testing (bloodwork). Your blood sample, once collected by our mobile phlebotomy partner, will be processed and tested by Quest Diagnostics. You acknowledge and agree that your Membership Fee does not include the cost of any laboratory services provided by Quest and that RestorLife Med is not responsible for any such costs. Quest determines the charges for its laboratory testing services and may bill you directly for any amounts that you owe Quest based on your agreement with Quest. Your payment arrangement with Quest is not governed by these Terms of Use. Contact Quest directly for more information about pricing and payment for laboratory testing services.</p>\n<h4 class=\"pol-h3\">Payment of Membership Fee</h4>\n<p>You will have an opportunity to review and agree to the cost of Membership (the “Membership Fee”) during the checkout process that is part of the Diagnosis Online Visit. You may also view the costs associated with Membership on the Program webpage located here. Once you begin participation in the Program, your Membership Fee will be automatically charged to your payment card or PayPal account on file on a recurring, monthly basis (approximately every 28-30 days) until your Membership is canceled. The initial payment must be made the day your Membership commences. Once paid, your Membership Fee is non-refundable. You may cancel your Membership at any time by calling us at [INSERT CUSTOMER SERVICE PHONE], emailing us at [INSERT CUSTOMER SERVICE EMAIL], or logging into your Secure User account.</p>\n<p>If you choose to have your prescription filled at a local pharmacy, your Membership Fee will not include the cost of medication and pharmacy fulfillment. If you transfer your prescription from a local pharmacy to the RestorLife Med Pharmacy Network, the cost of medication and pharmacy fulfillment will be added to your Membership Fee at the beginning of the next billing cycle. You may transfer your prescription to a local pharmacy or to the Bask Pharmacy Network at any time by calling us at [INSERT CUSTOMER SERVICE PHONE] or emailing us at [INSERT CUSTOMER SERVICE EMAIL].</p>\n<h4 class=\"pol-h3\">Canceling your Membership</h4>\n<p>You may cancel your Membership at any time by calling us at [INSERT CUSTOMER SERVICE PHONE], emailing us at [INSERT CUSTOMER SERVICE EMAIL], or logging into your Secure User account. Any Membership Fees paid prior to the date of cancellation are non-refundable.</p>\n<h4 class=\"pol-h3\">Delaying your Membership</h4>\n<p>If you would like to delay your billing date for any reason, you may delay by logging into your Secure User account, calling us at [INSERT CUSTOMER SERVICE PHONE], or emailing us at [INSERT CUSTOMER SERVICE EMAIL]. You may learn more about how to initiate a delay through your Secure User account in the FAQs located here. When you delay, you will not be charged a Membership Fee until the end of the delay period that you have selected. During such period, you will not be eligible to receive any Membership Services, except you may still message your RestorLife Med-affiliated health care professional through RestorLife Med’s secure messaging application at any time. Delaying could impact your ability to adhere to your treatment plan. As a result, at your RestorLife Med-affiliated health care provider’s discretion, you may need to be re-evaluated and undergo additional laboratory testing before continuing with treatment (a “Continuation Visit”) at the end of a delay period. If you delay for a cumulative period of eight (8) consecutive weeks or more without scheduling a Continuation Visit, your Membership may be canceled without notice.</p>\n<h4 class=\"pol-h3\">Pausing your Membership</h4>\n<p>If you would like to pause your Membership by turning off auto-payments (going “On-demand”) for any reason, you may do so by logging into your Secure User account, calling us at [INSERT CUSTOMER SERVICE PHONE], or emailing us at [INSERT CUSTOMER SERVICE EMAIL]. You may learn more about how to go On-demand through your Secure User account in the FAQs located here. When you go On-demand, you will not be charged any additional monthly Membership Fee payments until you initiate a charge by ordering a refill of your medication or turning auto-payments back on. You will receive Membership Services through the last day of the monthly billing cycle for which you have paid the monthly Membership Fee. Thereafter, other than messaging your RestorLife Med-affiliated health care professional through RestorLife Med’s secure messaging application, you will not be eligible to receive any Membership Services until you initiate another charge as described above. Going On-demand could impact your ability to adhere to your treatment plan. As a result, at your RestorLife Med-affiliated health care provider’s discretion, you may need to undergo a Continuation Visit before continuing with treatment at the end of an On-demand period. If you remain On-demand for a cumulative period of eight (8) consecutive weeks or more without scheduling a Continuation Visit, your Membership may be canceled without notice.</p>\n<h4 class=\"pol-h3\">No Testosterone Replacement Therapy</h4>\n<p>The Program is not appropriate for patients seeking testosterone replacement therapy (commonly referred to as “TRT”), such as testosterone patches, gels, injections, or pellets. Providers participating in the Program cannot prescribe TRT by telehealth. Please contact your in-person provider to seek TRT options.</p>\n<p>No representation, warranty, or guarantee of continued availability of the Program</p>\n<p>NEITHER RESTORLIFE MED NOR THE AFFILIATED PROFESSIONAL ENTITIES MAKE ANY REPRESENTATIONS, WARRANTIES, OR GUARANTEES REGARDING THE CONTINUED AVAILABILITY OF THE PROGRAM. THE PROGRAM MAY BE DISCONTINUED AT ANY TIME AT THE SOLE DISCRETION OF RESTORLIFE MED AND/OR THE AFFILIATED PROFESSIONAL ENTITIES. YOU WILL BE GIVEN 30 DAYS’ NOTICE OF ANY SUCH DISCONTINUATION SO THAT YOU MAY FIND A LOCAL PROVIDER WITH WHOM TO CONTINUE TREATMENT.</p>\n<p>Governing law; dispute resolution; arbitration; venue; severability of provisions</p>\n<p>PLEASE READ THIS SECTION CAREFULLY BECAUSE IT REQUIRES YOU AND RESTORLIFE MED TO RESOLVE ALL DISPUTES BETWEEN US THROUGH BINDING INDIVIDUAL ARBITRATION AND LIMITS THE MANNER IN WHICH YOU CAN SEEK RELIEF FROM RESTORLIFE MED</p>\n<p>These Terms of Use and your use of the Sites shall be governed by the laws of the State of Delaware, without giving effect to the principles of conflict of laws. Any dispute arising under or relating in any way to these Terms of Use will be resolved exclusively by final and binding arbitration in New York, New York under the rules of the American Arbitration Association, except that either party may bring a claim related to intellectual property rights, or seek temporary and preliminary specific performance and injunctive relief, in any court of competent jurisdiction. The parties agree that the courts located in New York, New York shall have exclusive personal jurisdiction, subject matter jurisdiction, and venue for any such claim.</p>\n<p>All parts of these Terms of Use apply to the maximum extent permitted by law. RestorLife Med and you both agree that if we cannot enforce a part of this contract as written, then that part will be replaced with terms that most closely match the intent of the part we cannot enforce, to the extent permitted by law. The invalidity of part of these Terms of Use will not affect the validity and enforceability of the remaining provisions. The section headings are for convenience only and do not have any force or effect.</p>\n<h4 class=\"pol-h3\">No waiver</h4>\n<p>No waiver by RestorLife Med of any term or condition set forth in these Terms of Use shall be deemed a further or continuing waiver of such term or condition or a waiver of any other term or condition, and any failure by RestorLife Med to assert a right or provision under these Terms of Use shall not constitute a waiver of such right or provision.</p>\n<p>No agency relationship</p>\n<p>Neither these Terms of Use, nor any Content, materials or features of the Services create any partnership, joint venture, employment, or other agency relationship between us and you. You may not enter into any contract on our behalf or bind us in any way.</p>\n<h4 class=\"pol-h3\">Remedies</h4>\n<p>You agree that any violation, or threatened violation, by you of these Terms of Use constitutes an unlawful and unfair business practice that will cause us irreparable and unquantifiable harm. You also agree that monetary damages would be inadequate for such harm and consent to our obtaining any injunctive or equitable relief that we deem necessary or appropriate. These remedies are in addition to any other remedies we may have at law or in equity.</p>\n<h4 class=\"pol-h3\">Assignment</h4>\n<p>You may not assign any of your rights under these Terms of Use, and any such attempt will be null and void. Beluga Health, P.A. and their affiliates may, in their individual discretion, transfer, without further consent or notification, all contractual rights and obligations pursuant to these Terms of Use if some or all of the business of RestorLife Med is transferred to another entity by way of merger, sale of its assets or otherwise.</p>\n<h4 class=\"pol-h3\">Digital Millennium Copyright Act</h4>\n<p>RestorLife Med reserves the right to remove any content or any other material or information available on or through our Sites, at any time, for any reason. RestorLife Med otherwise complies with the provisions of the Digital Millennium Copyright Act (“DMCA”) applicable to Internet service providers (17 U.S.C. § 512, as amended), and responds to clear notices of alleged copyright infringement. This Section describes the procedure that should be followed to file a notification of alleged copyright infringement with RestorLife Med</p>\n<p>Notification of Claimed Copyright Infringement. If you have objections to copyrighted content or material made available on or through our Sites, you may submit a notification to our Designated Agent at the following address:</p>\n<h3 class=\"pol-h2\">[INSERT CUSTOMER SERVICE ADDRESS]</h3>\n<h3 class=\"pol-h2\">[INSERT CUSTOMER SERVICE EMAIL]</h3>\n<p>Any notification to RestorLife Med under 17 U.S.C. § 512(c) alleging copyright infringement must include the following information:</p>\n<ul class=\"pol-list\">\n<li>An electronic or physical signature of the person authorized to act on behalf of the owner of the exclusive right being infringed;</li>\n<li>An identification of the copyrighted work or other intellectual property that you claim has been infringed or, if multiple copyrighted works are covered by a single notification, a representative list of such works;</li>\n<li>An identification of the content or material that you claim is infringing and where it is located on our Sites;</li>\n<li>Information sufficient for RestorLife Med to contact you, such as your address, telephone number, and/or email address;</li>\n<li>A statement by you that you have a good-faith belief that the use of the content or material of which you are complaining is not authorized by the copyright owner, its agent, or the law; and</li>\n<li>A signed statement by you that the above information in your notice is accurate and that, under penalty of perjury, you are the copyright owner or authorized to act on the copyright owner’s behalf.</li>\n</ul>\n<p>Asynchronous Telemedicine Informed Consent Thank you for choosing Beluga Health, P.A. (“Beluga”)! You are viewing this form because you have elected to engage in asynchronoustelemedicine visits with a Beluga healthcare practitioner. Your practitioner is a board-certified physician licensed in your state. By clicking “I Agree,” I ACKNOWLEDGE I HAVE READ AND UNDERSTAND THE TERMS PRESENTED BELOW, AND UNDERSTAND THE RISKS AND BENEFITS OF ASYNCHRONOUS TELEMEDICINE, AND BY ACCEPTING THESE TERMS OF USE I HEREBY GIVE MY INFORMED CONSENT TO PARTICIPATE IN ASYNCHRONOUS TELEMEDICINE UNDER THESE TERMS. What is Telemedicine? Telemedicine is the delivery of healthcare services, including examination, consultation, diagnosis, and treatment, through electronic communication technologies when you (the patient) are located in a different location than your healthcare practitioner. Beluga allows you to receive treatment from a healthcare practitioner without having to travel to another location or schedule a separate appointment and helps you avoid long wait times that you might otherwise experience at an in-person visit. What is Asynchronous Telemedicine? Asynchronous telemedicine is one way to deliver telemedicine. Asynchronous communication is often referred to as “store-and-forward” communication, where participants submit and collect data at different times. An example of asynchronous communication is a telemedicine encounter with a healthcare practitioner that involves sending photos, video, or other communications via email or text message. “Asynchronous” means “not occurring at the same time” and is different from “synchronous” telemedicine, which generally includes visits conducted in real-time between patients and healthcare practitioners through audio or video means (e.g., live phone calls or video-conferencing). Healthcare practitioners may use asynchronous telemedicine to aid in diagnoses and medical consultations when live communication or face-to-face contact is not possible or necessary. Beluga’s platform (“Platform”), in particular, allows for the following asynchronous telemedicine services: 1) text-based healthcare practitioner-patient interactions through short message service (“SMS”) and multimedia messaging service (“MMS”) communications; and 2) secure information collection through asynchronous store-and-forward patient questionnaires. What are the Possible Risks to Using Asynchronous Telemedicine? As with any medical treatment, there are potential risks associated with the use of asynchronous telemedicine. Beluga believes that the likelihood of these risks materializing is very low. These risks may include, without limitation, the following: • Delays in medical evaluation and consultation or treatment may occur due to deficiencies or failures of the equipment or the Internet, which may include poor data quality, Internet outages, or other service interruption issues. You may reschedule the visit with your healthcare practitioner should these interruptions occur. • Security protocols could fail, causing a breach of privacy of personal medical information. • Because Beluga does not have access to your complete medical records, if you do not disclose to your healthcare practitioner a full list of your medical history including diagnoses, treatments, medications/supplements, and allergies, adverse treatment, drug interactions or allergic reactions, or other negative outcomes may occur. • Asynchronous telemedicine services are NOT emergency services and your Personal Data (as defined in the Beluga Privacy Policy) WILL NOT BE MONITORED 24/7. If you think you are experiencing a medical emergency, CALL 911 IMMEDIATELY. THE CARE YOU RECEIVE WILL BE AT THE SOLE DISCRETION OF THE HEALTHCARE PRACTITIONER WHO IS TREATING YOU, WITH NO GUARANTEE OF DIAGNOSIS, TREATMENT, OR PRESCRIPTION. THE HEALTHCARE PRACTITIONER WILL DETERMINE WHETHER OR NOT THE CONDITION BEING DIAGNOSED AND/OR TREATED IS APPROPRIATE FOR THE CARE PROVIDED THROUGH AN ASYNCHRONOUS TELEMEDICINE ENCOUNTER VIA THE PLATFORM.</p>\n<p>Your Rights and Acknowledgements:</p>\n<ul class=\"pol-list\">\n<li>You have the same privacy rights via asynchronous telemedicine that you would have during an in-person visit. Dissemination of any identifiable images or information from the asynchronous telemedicine visit to researchers or other entities will not occur without your written consent. For more information about how we protect your privacy, please read the Beluga Privacy Policy here.</li>\n<li>Asynchronous telemedicine may involve electronic communication of your personal medical information to healthcare practitioners who may be located in other areas, including out of state. • You understand that you may expect the anticipated benefits from the use of asynchronous telemedicine, but that no results can be guaranteed or assured.</li>\n<li>You understand that all information submitted to Beluga via text message and entered by your healthcare practitioner in the Beluga Platform will be part of your medical record and available to you by emailing [admin@belugahealth.com](mailto:admin@belugahealth.com). This information will have the same restrictions on dissemination without your consent.</li>\n<li>You understand that your healthcare practitioner’s initial text message to you will include his/her name and credentials, and this will be recorded in the Beluga Platform as part of your medical record. • You understand you may withdraw your consent and delete your patient profile at any time by emailing [admin@belugahealth.com](mailto:admin@belugahealth.com).</li>\n<li>You understand that your healthcare information may be shared with other individuals in accordance with the Beluga Privacy Policy and regulations or laws in state or territory in which you are located. • You further understand that your healthcare information may be shared in the following circumstances: o When a valid court order is issued for medical records. o Reporting suspected abuse, neglect, or domestic violence. o Preventing or reducing a serious threat to anyone's health or safety. Call/Email/Text Messaging Consent: You expressly consent to allow Beluga or its healthcare practitioners to call, email, or text you (via SMS and/or MMS) with or regarding Personal Data (as defined in the Beluga Privacy Policy), appointments, or similar matters related to your telemedicine encounters using the contact information you have provided. Any calls or texts to you may be placed using an auto-dialer or a pre-recorded or artificial voice, even if your number is on a do-not-call list. Your phone carrier’s normal rates may apply. This is consent, not a condition of purchase. You may revoke this consent at any time by emailing us at [admin@belugahealth.com](mailto:admin@belugahealth.com). This Asynchronous Telemedicine Informed Consent is valid during your entire treatment with Beluga.</li>\n</ul>"
+  },
+  "physician": {
+    "title": "Physician Code of Conduct",
+    "html": "<h4 class=\"pol-h3\">Last updated: September 30th, 2021</h4>\n<h3 class=\"pol-h2\">INTRODUCTION</h3>\n<p>The Bask mission is to help as many people as possible with their healthcare needs and ultimately improve the way that people interact with the medical system when addressing certain health conditions. This document serves as the universal code of conduct for physician use of the Bask platform. Our goal is to align the values and philosophies of Bask HQ and the physicians who practice on the Bask Platform. This Code of Conduct will continue to be updated based on feedback from affiliated physicians in order to ensure patients are always receiving the highest quality of care.</p>\n<h3 class=\"pol-h2\">BEST PRACTICES ON THE PLATFORM</h3>\n<p>Be Patient:</p>\n<p>Telemedicine is a new experience for many patients. They may ask questions that seem obvious (e.g., “How does telemedicine work?”). Please be sensitive to their concerns and work with them to determine the best course of treatment.</p>\n<p>Always Explain:</p>\n<p>Always provide a detailed explanation to a patient whether you find it appropriate to write a prescription or not. Patients are coming to the Bask Platform because they are in need of your guidance and care.</p>\n<p>Follow Up:</p>\n<p>The Bask Platform will automatically follow up with patients who receive treatment plans after 2 weeks, 1 month, and every 3 months thereafter. If you think that a patient needs additional follow up, you can automate follow ups in the messaging system or contact the Bask Medical Ops Team.</p>\n<p>Document:</p>\n<p>Always thoroughly document your decisions. For example, if you approve a patient for treatment, and the Bask system flagged one or several of their responses as a potential contraindication or risk, please make sure to document your rationale (e.g., you spoke to them via phone, video, or message and received additional clarifying information).</p>\n<p>Check-in:</p>\n<p>The physicians with the highest rate of patient satisfaction check their messages at least once per day. If you will be unavailable for more than 48 hours, please give the Bask Medical Ops one week notice so that we can ensure your patient’s receive timely responses to any question. In case of an emergency, please try to notify us as soon as possible.</p>\n<h3 class=\"pol-h2\">CONDUCT EXPECTATIONS ON THE PLATFORM</h3>\n<p>Verify Identity:</p>\n<p>ID &amp; Photo Match: The first step by any physician is to confirm the identity of the patient and ensure that the image uploaded matches the patient’s government ID. This is also double-checked by automated software. Personal Information: After you’ve confirmed the ID matches the Face Photo, confirm that the basic information entered during the online visit (i.e., first name, last name, DOB) matches the information on the government ID.</p>\n<p>Follow State Protocols:</p>\n<p>The Bask Platform will always require you to confirm that you established a patient-physician relationship according to the state-specific requirement. Never provide any medical advice or treatment until you have adequately established a patient-physician relationship. When in doubt, please contact the Bask Medical Operations team or Bask’s General Counsel.</p>\n<p>Treat “Oldest” First:</p>\n<p>Please always treat patients who entered the Bask Platform first. We pride ourselves on providing timely service to our patients. This can only be done if those who have been waiting longer are served first.</p>\n<p>One at a time:</p>\n<p>If another physician has started to treat a patient, do not attempt to provide additional treatment unless specifically asked for a second opinion.</p>\n<p>In addition, physicians should complete only one consult at a time before moving on to the next patient. Each consultation requires your undivided attention.</p>\n<h3 class=\"pol-h2\">SAFETY, SECURITY &amp; PRIVACY</h3>\n<p>Drug Interactions:</p>\n<p>Always pay attention to reported medications and be alert to drug interactions. Please make sure to always check a patient’s previous plans on the Bask Platform before making a treatment decision.</p>\n<p>When There’s Doubt, There is No Doubt:</p>\n<p>When in doubt about a specific drug interaction, please contact the Bask Medical Ops team, who will route your question to one of Bask’s clinical directors.</p>\n<p>If anything is unclear from the visit, please follow up with the patient. It is always better to be 100% certain that you have all the necessary information.</p>\n<p>Never create a prescription for a patient if you are unsure if it’s safe. It is always better to get a second opinion or refer the patient to his/her in-person primary physician when in doubt.</p>\n<p>Pay Attention to Underlying Causes:</p>\n<p>Our patients’ mental health is as important to us as their physical health. Always follow up with patients who provide answers concerning their mental health. Please refer to the Emergency Plan located in the Bask’s Manuals and Protocols folder for guidance on how to respond if a patient is experiencing a medical emergency.</p>\n<p>Consistently Review Protocols:</p>\n<p>Please reference the condition-specific Physician Protocols regularly. They contain the most important points on safe practices on the Bask Platform and should serve as a continuous reference for physicians. Most importantly, all medical decisions should be made solely at your discretion according to the standard of care.</p>\n<p>Never Share:</p>\n<p>Never share your Bask physician app password with anyone.</p>\n<p>Never share any patient information with anyone outside of Bask and only share information that is required for someone to complete their job.</p>\n<p>Secure PHI:</p>\n<p>Never share PHI using any software tool that is not HIPAA compliant. You may use password protected links to patient charts in Asana and email.</p>\n<p>Never work on the platform in open areas where someone may be able to see your screen and see PHI.</p>\n<h3 class=\"pol-h2\">ETHICAL EXPECTATIONS FOR PLATFORM PHYSICIANS</h3>\n<p>Bask-affiliated physicians are expected to uphold the highest ethical standards called upon by the medical profession.</p>\n<p>Do No Harm:</p>\n<p>First, do no harm. The practice of medicine is a calling. Always put your patients’ safety first. Patient safety is the first and primary priority. You will always be compensated the exact same, regardless of whether a prescription is written.</p>\n<p>No Self-Referral:</p>\n<p>Patients that come through the Bask Platform should never be self referred to your own practice. If a referral is needed, please refer them to their primary healthcare provider or other outside physician.</p>\n<p>Sound Body &amp; Sound Mind:</p>\n<p>Never engage in the practice of medicine on our platform while under the influence of alcohol or other mind-altering substances.</p>\n<p>Keep Bask Informed:</p>\n<p>In case of a board complaint, hospital administrative action, malpractice suit or judgement, or any other administrative or disciplinary action against you (including a criminal charge or conviction related or unrelated to the practice of medicine), please promptly notify the Bask Medical Operations Team.</p>\n<p>Thank you.</p>\n<h4 class=\"pol-h3\">RestorLife Med</h4>\n<p>support@restorlifemed.com</p>\n<p>Services are provided via Bask Health Inc and Bask Health NY. View their applicable policies as well to stay informed on bask.health and bask.bio.</p>"
+  },
+  "returns": {
+    "title": "Return Policy",
+    "html": "<p>Unfortunately we cannot accept returns of prescription products for reuse or resale, and all sales are final. However, if you feel we have made an error in the filling of your prescription, please contact us at support@restorlifemed.com</p>"
+  },
+  "shipping": {
+    "title": "Shipping Policy",
+    "html": "<h4 class=\"pol-h3\">Shipping Policy</h4>\n<p>Thank you for visiting and shopping at RestorLife Med.</p>\n<p>Following are the terms and conditions that constitute our Shipping Policy.</p>\n<p>Domestic Shipping Policy Shipment processing time All orders are processed within 2-3 business days.</p>\n<p>4-12 business days average shipping period (the shipping time may be affected if one of the ordered items is in very high demand or if any holidays are going on).</p>\n<p>Orders are not shipped or delivered on weekends or holidays.</p>\n<p>If we are experiencing a high volume of orders, shipments may be delayed by a few days. Please allow additional days in transit for delivery.</p>\n<p>If there will be a significant delay in the shipment of your order, we will contact you via email or telephone.</p>\n<p>Shipping rates &amp; delivery estimates Shipping charges for your order will be calculated and displayed at checkout.</p>\n<h4 class=\"pol-h3\">Shipment confirmation &amp; Order tracking</h4>\n<p>You will receive a Shipment Confirmation email once your order has shipped containing your tracking number(s). The tracking number will be active within 24 hours.</p>\n<h4 class=\"pol-h3\">Customs, Duties and Taxes</h4>\n<p>RestorLife Med is not responsible for any customs and taxes applied to your order. All fees imposed during or after shipping are the responsibility of the customer (tariffs, taxes, etc.).</p>\n<h4 class=\"pol-h3\">Damages</h4>\n<p>RestorLife Med is not liable for any products damaged or lost during shipping. If you received your order damaged, please contact the shipment carrier to file a claim. Please save all packaging materials and damaged goods before filing a claim.</p>\n<h4 class=\"pol-h3\">International Shipping Policy</h4>\n<p>We currently do not ship outside the U.S.</p>\n<h4 class=\"pol-h3\">Returns Policy</h4>\n<p>Our Return &amp; Refund Policy provides detailed information about options and procedures for returning your order.</p>"
+  }
+};
+
+function openPolicy(key) {
+  const policy = POLICIES[key];
+  if (!policy) return;
+  document.getElementById('policyTitle').textContent = policy.title;
+  document.getElementById('policyEyebrow').textContent = '— Legal · Last updated';
+
+  // Build TOC if there are 3+ pol-h2 sections
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = policy.html;
+  const h2s = wrapper.querySelectorAll('.pol-h2');
+
+  let bodyHtml = '';
+  if (h2s.length >= 3) {
+    // Assign IDs and build TOC
+    let toc = '<div class="policy-toc"><div class="policy-toc-title">Contents</div><ol>';
+    h2s.forEach((h, i) => {
+      const id = 'pol-sec-' + key + '-' + i;
+      h.id = id;
+      toc += '<li><a href="#' + id + '" onclick="scrollPolicySection(event, \'' + id + '\')">' + h.textContent + '</a></li>';
+    });
+    toc += '</ol></div>';
+    bodyHtml = toc + wrapper.innerHTML;
+  } else {
+    bodyHtml = policy.html;
+  }
+
+  const body = document.getElementById('policyBody');
+  body.innerHTML = bodyHtml;
+  body.scrollTop = 0;
+
+  document.getElementById('policyModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function scrollPolicySection(e, id) {
+  e.preventDefault();
+  const target = document.getElementById(id);
+  const body = document.getElementById('policyBody');
+  if (target && body) {
+    body.scrollTo({ top: target.offsetTop - 16, behavior: 'smooth' });
+  }
+}
+
+function closePolicy() {
+  document.getElementById('policyModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('policyModal').addEventListener('click', function(e) {
+  if (e.target === this) closePolicy();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closePolicy();
+});
+
 </script>
 
+<!-- ═══════════ ZENDESK WIDGET — BRAND THEMED ═══════════ -->
+<script>
+  // Configure widget appearance BEFORE the snippet loads (Classic Web Widget).
+  window.zESettings = {
+    webWidget: {
+      color: {
+        theme: '#6B8F71',
+        launcher: '#6B8F71',
+        launcherText: '#FFFFFF',
+        button: '#6B8F71',
+        header: '#6B8F71',
+        resultLists: '#6B8F71',
+        articleLinks: '#6B8F71'
+      },
+      position: { horizontal: 'right', vertical: 'bottom' },
+      offset: { vertical: '16px' }
+    }
+  };
+</script>
 <!-- Start of restorlifemed Zendesk Widget script -->
-<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=6540e87b-af4b-4db2-a8af-2e43d1388e51"> </script>
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=6540e87b-af4b-4db2-a8af-2e43d1388e51"></script>
 <!-- End of restorlifemed Zendesk Widget script -->
+<script>
+  // After snippet loads, push color updates — handles both Classic & Messaging widgets.
+  (function applyZendeskBrand() {
+    const apply = () => {
+      if (typeof window.zE !== 'function') return false;
+      try {
+        // Classic Web Widget
+        window.zE('webWidget', 'updateSettings', {
+          webWidget: {
+            color: {
+              theme: '#6B8F71',
+              launcher: '#6B8F71',
+              launcherText: '#FFFFFF',
+              button: '#6B8F71',
+              header: '#6B8F71',
+              resultLists: '#6B8F71',
+              articleLinks: '#6B8F71'
+            }
+          }
+        });
+      } catch (e) {}
+      return true;
+    };
+    if (!apply()) window.addEventListener('load', () => setTimeout(apply, 800));
+  })();
+</script>
 </body>
 </html>
