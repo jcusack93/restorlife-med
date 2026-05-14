@@ -162,16 +162,19 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
     position: fixed; top: 0; right: -100%; width: min(320px, 88vw); height: 100vh;
     height: 100dvh;
     background: var(--white); flex-direction: column; align-items: stretch;
-    padding: 76px 28px 32px; gap: 0; z-index: 1000;
+    padding: 76px 28px calc(32px + env(safe-area-inset-bottom, 0px));
+    gap: 0; z-index: 1000;
     box-shadow: -4px 0 32px rgba(27,42,74,0.1);
     transition: right 0.35s ease;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
   .nav-links.open { right: 0; }
   .nav-links a {
     font-size: 16px; padding: 14px 0;
     border-bottom: 1px solid var(--cream);
+    flex-shrink: 0;
   }
   /* CTA buttons in mobile menu shouldn't inherit the cream divider line */
   .nav-links a.nav-cta,
@@ -186,7 +189,7 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
     padding: 13px 24px !important; font-size: 14px !important;
   }
   .nav-login {
-    margin-top: 10px; margin-left: 0; text-align: center;
+    margin-top: 10px; margin-bottom: 8px; margin-left: 0; text-align: center;
     padding: 12px 24px; font-size: 14px;
     display: block;
   }
