@@ -159,26 +159,31 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
 @media (max-width: 768px) {
   .hamburger { display: flex; }
   .nav-links {
-    position: fixed; top: 0; right: -300px; width: 280px; height: 100vh;
+    position: fixed; top: 0; right: -100%; width: min(320px, 88vw); height: 100vh;
+    height: 100dvh;
     background: var(--white); flex-direction: column; align-items: stretch;
-    padding: 100px 32px 40px; gap: 0; z-index: 1000;
+    padding: 76px 28px 32px; gap: 0; z-index: 1000;
     box-shadow: -4px 0 32px rgba(27,42,74,0.1);
     transition: right 0.35s ease;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .nav-links.open { right: 0; }
   .nav-links a {
-    font-size: 16px; padding: 16px 0;
+    font-size: 16px; padding: 14px 0;
     border-bottom: 1px solid var(--cream);
   }
   .nav-cta {
-    margin-top: 16px; text-align: center;
-    padding: 14px 24px !important; font-size: 15px !important;
+    margin-top: 14px; text-align: center;
+    padding: 13px 24px !important; font-size: 14px !important;
   }
   .nav-login {
     margin-top: 10px; margin-left: 0; text-align: center;
-    padding: 13px 24px; font-size: 15px;
+    padding: 12px 24px; font-size: 14px;
     display: block;
   }
+  /* Hide logo when menu is open so it doesn't show over the panel */
+  nav.menu-open .logo { opacity: 0; pointer-events: none; transition: opacity 0.2s; }
   .mobile-overlay { display: block; pointer-events: none; }
   .mobile-overlay.active { pointer-events: all; }
 }
@@ -2616,12 +2621,14 @@ function toggleMenu() {
   document.getElementById('navLinks').classList.toggle('open');
   document.getElementById('hamburger').classList.toggle('active');
   document.getElementById('mobileOverlay').classList.toggle('active');
+  document.getElementById('nav').classList.toggle('menu-open');
   document.body.style.overflow = document.getElementById('navLinks').classList.contains('open') ? 'hidden' : '';
 }
 function closeMenu() {
   document.getElementById('navLinks').classList.remove('open');
   document.getElementById('hamburger').classList.remove('active');
   document.getElementById('mobileOverlay').classList.remove('active');
+  document.getElementById('nav').classList.remove('menu-open');
   document.body.style.overflow = '';
 }
 
