@@ -116,12 +116,23 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
 .nav-links a:hover { color: var(--ink); }
 .nav-cta {
   background: var(--ink) !important; color: var(--paper) !important;
-  padding: 11px 24px !important; border-radius: 2px;
+  padding: 11px 24px !important; border-radius: 999px;
   font-weight: 500 !important; font-size: 12px !important;
   letter-spacing: 1.2px !important; text-transform: uppercase;
   transition: all 0.3s !important;
 }
 .nav-cta:hover { background: var(--moss) !important; transform: translateY(-1px); }
+
+.nav-login {
+  background: transparent; color: var(--ink) !important;
+  padding: 10px 22px; border-radius: 999px;
+  border: 1.5px solid var(--ink);
+  font-weight: 500; font-size: 12px;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  transition: all 0.3s; text-decoration: none;
+  margin-left: 10px;
+}
+.nav-login:hover { background: var(--ink); color: var(--paper) !important; transform: translateY(-1px); }
 
 /* Hamburger */
 .hamburger {
@@ -162,6 +173,11 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
   .nav-cta {
     margin-top: 16px; text-align: center;
     padding: 14px 24px !important; font-size: 15px !important;
+  }
+  .nav-login {
+    margin-top: 10px; margin-left: 0; text-align: center;
+    padding: 13px 24px; font-size: 15px;
+    display: block;
   }
   .mobile-overlay { display: block; pointer-events: none; }
   .mobile-overlay.active { pointer-events: all; }
@@ -258,7 +274,7 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
 
 .btn-primary {
   background: var(--ink); color: var(--paper);
-  padding: 17px 36px; border-radius: 2px; border: none;
+  padding: 17px 36px; border-radius: 999px; border: none;
   font-family: var(--font-body); font-size: 12px; font-weight: 500;
   letter-spacing: 1.5px; text-transform: uppercase;
   cursor: pointer; transition: all 0.35s;
@@ -267,7 +283,7 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
 .btn-primary:hover { background: var(--moss); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(63,74,56,0.18); }
 .btn-secondary {
   background: transparent; color: var(--ink); border: 1px solid var(--moss);
-  padding: 16px 32px; border-radius: 2px;
+  padding: 16px 32px; border-radius: 999px;
   font-family: var(--font-body); font-size: 12px; font-weight: 500;
   letter-spacing: 1.5px; text-transform: uppercase;
   cursor: pointer; transition: all 0.3s; text-decoration: none;
@@ -275,7 +291,7 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
 .btn-secondary:hover { border-color: var(--ink); background: var(--cream); }
 .btn-sage {
   background: var(--moss); color: var(--paper);
-  padding: 17px 36px; border-radius: 2px; border: none;
+  padding: 17px 36px; border-radius: 999px; border: none;
   font-family: var(--font-body); font-size: 12px; font-weight: 500;
   letter-spacing: 1.5px; text-transform: uppercase;
   cursor: pointer; transition: all 0.35s; text-decoration: none;
@@ -623,7 +639,7 @@ section { padding: 110px 32px; }
 .cta-banner p { font-size: 17px; color: var(--ink-soft); margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 .btn-white {
   background: var(--ink); color: var(--paper);
-  padding: 17px 40px; border-radius: 2px; border: none;
+  padding: 17px 40px; border-radius: 999px; border: none;
   font-family: var(--font-body); font-size: 12px; font-weight: 500;
   letter-spacing: 1.5px; text-transform: uppercase;
   cursor: pointer; transition: all 0.3s; text-decoration: none;
@@ -911,7 +927,7 @@ section { padding: 110px 32px; }
 .cookie-content p { font-size: 12px; color: rgba(240,239,231,0.72); line-height: 1.6; }
 .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
 .cookie-btn {
-  padding: 11px 22px; border: none; border-radius: 2px;
+  padding: 11px 22px; border: none; border-radius: 999px;
   font-family: var(--font-body); font-size: 11px; font-weight: 500;
   letter-spacing: 1.5px; text-transform: uppercase;
   cursor: pointer; transition: all 0.25s; white-space: nowrap;
@@ -1227,18 +1243,17 @@ footer {
 
 /* Physician card, small, sits within Treatments section */
 .physician-card {
-  display: flex; align-items: center; gap: 28px;
+  display: flex; align-items: flex-start; gap: 28px;
   max-width: 720px; margin: 56px auto 0;
   background: var(--cream); border: 1px solid var(--border);
   border-radius: 18px; padding: 28px 32px;
   text-align: left;
 }
 .physician-card .pc-photo {
-  width: 100px; height: 100px; border-radius: 50%; overflow: hidden;
-  flex-shrink: 0; border: 3px solid var(--white);
-  box-shadow: 0 6px 20px rgba(63,74,56,0.12);
+  width: 120px; height: auto; border-radius: 10px; overflow: hidden;
+  flex-shrink: 0; box-shadow: 0 6px 20px rgba(63,74,56,0.12);
 }
-.physician-card .pc-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.physician-card .pc-photo img { width: 100%; height: auto; display: block; }
 .physician-card .pc-info { flex: 1; }
 .physician-card .pc-info .pc-eyebrow-small {
   font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
@@ -1575,8 +1590,15 @@ footer {
    RESPONSIVE
    ══════════════════════════════════ */
 @media (max-width: 960px) {
+  /* Nav: tighten padding so logo + Get Started + hamburger fit comfortably */
+  .nav-inner { padding: 14px 22px; height: auto; }
+  .logo-text .script { font-size: 24px; }
+  .logo-text .tagline { font-size: 8px; letter-spacing: 2.4px; }
+  .logo-mark { width: 36px; height: 36px; }
+
   .hero-inner { display: block; padding: 60px 28px 60px; }
   .hero h1 { font-size: 46px; letter-spacing: -1px; white-space: normal; }
+  .hero h1 em { font-size: 64px; }
   .hero-text { font-size: 19px; white-space: normal; }
   .section-title { font-size: 36px; }
   .cta-banner h2 { font-size: 34px; }
@@ -1596,40 +1618,143 @@ footer {
   .pricing-grid.editorial { gap: 24px; }
 }
 @media (max-width: 640px) {
-  .hero { min-height: 80vh; margin: 80px 14px 0; border-radius: 18px; }
-  .hero-bg, .hero-bg::after { border-radius: 18px; }
+  /* Nav tighter on phones */
+  .nav-inner { padding: 12px 18px; height: auto; }
+  .logo-text .script { font-size: 22px; }
+  .logo-text .tagline { font-size: 7.5px; letter-spacing: 2px; }
+  .logo-mark { width: 34px; height: 34px; }
+
+  /* Hero */
+  .hero { min-height: 78vh; margin: 76px 12px 0; border-radius: 16px; }
+  .hero-bg, .hero-bg::after { border-radius: 16px; }
   .hero-inner { padding: 40px 22px 50px; }
-  .hero h1 { font-size: 36px; line-height: 1.04; letter-spacing: -0.5px; white-space: normal; }
-  .hero-text { font-size: 17px; margin-bottom: 30px; white-space: normal; }
-  .hero-actions { flex-direction: column; align-items: stretch; }
-  .btn-primary, .btn-secondary, .btn-sage { text-align: center; justify-content: center; }
-  section { padding: 70px 20px; }
-  .section-title { font-size: 30px; }
-  .cta-banner h2 { font-size: 28px; }
-  .cta-banner::before { font-size: 110px; }
+  .hero h1 { font-size: 38px; line-height: 1.05; letter-spacing: -0.5px; white-space: normal; }
+  .hero h1 em { font-size: 52px; }
+  .hero-text { font-size: 17px; margin-bottom: 28px; white-space: normal; }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+  .btn-primary, .btn-secondary, .btn-sage, .btn-white {
+    text-align: center; justify-content: center;
+    padding: 15px 28px; font-size: 11.5px;
+  }
+
+  /* Sections */
+  section { padding: 60px 20px; }
+  .section-label { font-size: 10px; letter-spacing: 3px; }
+  .section-title { font-size: 28px; line-height: 1.15; }
+  .section-subtitle { font-size: 15px; line-height: 1.65; }
+
+  /* CTA banner */
+  .cta-banner { padding: 70px 24px; }
+  .cta-banner h2 { font-size: 26px; line-height: 1.2; }
+  .cta-banner p { font-size: 15px; }
+  .cta-banner::before { font-size: 90px; opacity: 0.06; }
+
+  /* Trust bar — wrap nicely on narrow screens, center-aligned */
+  .trust-bar { padding: 28px 18px; }
+  .trust-bar-inner {
+    gap: 16px 22px; justify-content: center; flex-wrap: wrap;
+  }
+  .trust-item { font-size: 11px; }
+  .trust-item .trust-icon { width: 18px; height: 18px; }
+
+  /* Grids → single column */
   .steps-grid, .treatments-grid, .why-grid, .pricing-grid { grid-template-columns: 1fr; }
-  .trust-bar-inner { gap: 20px; justify-content: flex-start; }
+
+  /* Footer */
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
-  .modal-header, .modal-body { padding-left: 24px; padding-right: 24px; }
+  .footer-brand { text-align: left; }
+  .footer-contact { margin-top: 16px; }
+  .footer-bottom { flex-direction: column; gap: 14px; text-align: center; padding-top: 22px; }
+
+  /* Modal padding */
+  .modal-header, .modal-body { padding-left: 22px; padding-right: 22px; }
   .form-row { grid-template-columns: 1fr; }
   .option-cards { grid-template-columns: 1fr; }
   .learn-visual { grid-template-columns: 1fr; }
-  .treatment-feature { padding: 36px 24px; }
+
+  /* Treatment feature card */
+  .treatment-feature { padding: 32px 22px; }
   .treatment-feature h3 { font-size: 24px; }
-  .treatment-feature .tf-corner { font-size: 48px; }
-  .support-selector { padding: 56px 20px; }
-  .support-selector h3 { font-size: 28px; }
-  .support-pill { padding: 12px 18px; font-size: 13px; }
-  .timeline-section { padding: 70px 20px; }
-  .timeline-grid { grid-template-columns: 1fr; gap: 16px; }
+  .treatment-feature .tf-corner { font-size: 44px; top: 12px; right: 18px; }
+
+  /* Support selector pills */
+  .support-selector { padding: 48px 20px; }
+  .support-selector h3 { font-size: 26px; }
+  .support-pill { padding: 11px 16px; font-size: 12.5px; }
+
+  /* Timeline */
+  .timeline-section { padding: 60px 20px; }
+  .timeline-grid { grid-template-columns: 1fr; gap: 14px; }
   .timeline-grid::before { display: none; }
-  .pricing-grid.editorial { grid-template-columns: 1fr; gap: 24px; max-width: 420px; }
-  .product-card { padding: 16px; }
-  .product-card .pc-media { padding: 28px; }
-  .product-card .pc-title { font-size: 26px; }
+  .timeline-card { padding: 22px 20px; }
+  .timeline-card h4 { font-size: 18px; }
+
+  /* Pricing cards */
+  .pricing-grid.editorial { grid-template-columns: 1fr; gap: 22px; max-width: 100%; padding: 0 4px; }
+  .product-card { padding: 14px; }
+  .product-card .pc-media { padding: 24px; min-height: 220px; }
+  .product-card .pc-media img { max-height: 200px; }
+  .product-card .pc-title { font-size: 24px; }
+  .product-card .pc-subtitle { font-size: 13px; }
+  .product-card .pc-price-now { font-size: 30px; }
+
+  /* Physician card stack */
+  .physician-card { flex-direction: column; text-align: center; gap: 16px; padding: 26px 20px; }
+  .physician-card .pc-photo { width: 110px; height: auto; }
+
+  /* Testimonials */
+  .testimonial-card { padding: 24px 22px; }
+  .testimonial-quote { font-size: 16px; line-height: 1.55; }
+
+  /* FAQ */
+  .faq-item { padding: 18px 0; }
+  .faq-question { font-size: 15px; }
+  .faq-answer { font-size: 14px; }
+
+  /* Cookie banner — fit on phones */
+  .cookie-banner {
+    left: 12px; right: 12px; bottom: 12px;
+    flex-direction: column; align-items: stretch;
+    gap: 14px; padding: 18px 20px;
+  }
+  .cookie-actions { width: 100%; gap: 8px; }
+  .cookie-btn { flex: 1; padding: 12px 14px; font-size: 11px; }
+
+  /* Hero photo for legacy class */
   .hero-photo { aspect-ratio: 4 / 4.5; }
-  .physician-card { flex-direction: column; text-align: center; gap: 18px; padding: 28px 24px; }
-  .physician-card .pc-photo { width: 88px; height: 88px; }
+}
+
+@media (max-width: 400px) {
+  /* iPhone-narrow: keep things readable on 360px and below */
+  .nav-inner { padding: 12px 14px; }
+  .logo-text .script { font-size: 20px; }
+  .logo-text .tagline { display: none; }
+  .logo-mark { width: 30px; height: 30px; }
+
+  .hero { margin: 70px 10px 0; }
+  .hero-inner { padding: 36px 18px 44px; }
+  .hero h1 { font-size: 32px; }
+  .hero h1 em { font-size: 44px; }
+  .hero-text { font-size: 15.5px; }
+
+  section { padding: 52px 18px; }
+  .section-title { font-size: 25px; }
+  .section-subtitle { font-size: 14.5px; }
+
+  .cta-banner { padding: 60px 20px; }
+  .cta-banner h2 { font-size: 23px; }
+  .cta-banner::before { font-size: 72px; }
+
+  .trust-bar { padding: 22px 14px; }
+  .trust-bar-inner { gap: 12px 18px; }
+
+  .product-card .pc-title { font-size: 22px; }
+  .product-card .pc-price-now { font-size: 26px; }
+  .product-card .pc-media { padding: 20px; min-height: 200px; }
+
+  .btn-primary, .btn-secondary, .btn-sage, .btn-white {
+    padding: 14px 22px; font-size: 11px; letter-spacing: 1.2px;
+  }
 }
 </style>
 </head>
@@ -1656,7 +1781,8 @@ footer {
       <a href="#how" onclick="closeMenu()">How It Works</a>
       <a href="#pricing" onclick="closeMenu()">Pricing</a>
       <a href="#faq" onclick="closeMenu()">FAQ</a>
-      <a href="javascript:void(0)" class="nav-cta" target="_blank" rel="noopener" href="https://restorlife-med.mybaskhealth.com/start-online-visit/weightloss" onclick="closeMenu()">Get Started</a>
+      <a href="https://restorlife-med.mybaskhealth.com/start-online-visit/weightloss" class="nav-cta" target="_blank" rel="noopener" onclick="closeMenu()">Get Started</a>
+      <a href="https://my.restorlifemed.com" class="nav-login" target="_blank" rel="noopener" onclick="closeMenu()">Login</a>
     </div>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -1951,7 +2077,7 @@ footer {
         <div class="pc-body">
           <div class="pc-eyebrow">GLP-1 Protocol</div>
           <h3 class="pc-title">Fat Loss</h3>
-          <p class="pc-subtitle">Semaglutide, the proven GLP-1 protocol</p>
+          <p class="pc-subtitle">Semaglutide, the original GLP-1 protocol</p>
           <p class="pc-desc">Clinician-guided GLP-1 therapy, personalized to your response. Compounded with Vitamin B12 to support energy and reduce common side effects.</p>
 
           <div class="pc-actions">
