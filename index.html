@@ -312,12 +312,17 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
 .trust-bar { padding: 36px 32px; border-bottom: 1px solid var(--border); background: var(--cream); }
 .trust-bar-inner {
   max-width: 1200px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: nowrap;
 }
 .trust-item {
-  display: flex; align-items: center; gap: 12px;
+  display: flex; align-items: center; gap: 10px;
   font-size: 11px; font-weight: 500; color: var(--moss);
-  letter-spacing: 2px; text-transform: uppercase;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  white-space: nowrap; flex: 1 1 0; justify-content: center;
+}
+@media (max-width: 960px) {
+  .trust-bar-inner { flex-wrap: wrap; gap: 18px; justify-content: center; }
+  .trust-item { flex: 0 1 auto; }
 }
 .trust-icon {
   width: 32px; height: 32px; border-radius: 50%;
@@ -1651,7 +1656,7 @@ footer {
       <a href="#how" onclick="closeMenu()">How It Works</a>
       <a href="#pricing" onclick="closeMenu()">Pricing</a>
       <a href="#faq" onclick="closeMenu()">FAQ</a>
-      <a href="javascript:void(0)" class="nav-cta" onclick="closeMenu(); openAssessment()">Get Started</a>
+      <a href="javascript:void(0)" class="nav-cta" target="_blank" rel="noopener" href="https://restorlife-med.mybaskhealth.com/start-online-visit/weightloss" onclick="closeMenu()">Get Started</a>
     </div>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -1837,12 +1842,12 @@ footer {
     <div class="testimonials-grid">
       <div class="testimonial animate">
         <div class="stars">★★★★★</div>
-        <blockquote>"I've tried every diet out there. Within 8 weeks on the GLP-1 program, I lost 22 lbs and my energy is through the roof. The doctor actually listened to me."</blockquote>
+        <blockquote>"I've tried every diet out there. Within 8 weeks on the GLP-1 program, I lost 22 lbs and my energy is through the roof. The doctor actually listened to me.."</blockquote>
         <div class="testimonial-author">
           <div class="testimonial-photo">
             <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&h=200&q=80" alt="Patient portrait" loading="lazy">
           </div>
-          <div class="author-info"><div class="name">Sarah M.</div><div class="detail">Lost 22 lbs in 8 weeks</div></div>
+          <div class="author-info"><div class="name">Sarah M.</div><div class="detail">GLP-1 Program · 8 Weeks</div></div>
         </div>
       </div>
       <div class="testimonial animate delay-1">
@@ -1852,7 +1857,7 @@ footer {
           <div class="testimonial-photo">
             <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&h=200&q=80" alt="Patient portrait" loading="lazy">
           </div>
-          <div class="author-info"><div class="name">Marcus T.</div><div class="detail">Lost 31 lbs in 5 months</div></div>
+          <div class="author-info"><div class="name">Marcus T.</div><div class="detail">GLP-1 Program · 5 Months</div></div>
         </div>
       </div>
       <div class="testimonial animate delay-2">
@@ -1866,10 +1871,12 @@ footer {
         </div>
       </div>
     </div>
+    <p class="testimonials-footnote" style="margin-top: 28px; font-size: 12px; color: var(--ink-mute); letter-spacing: 0.4px;">*Individual results vary. Testimonials reflect personal experience and are not guarantees of weight-loss outcomes.</p>
+    <div style="margin-top: 36px;">
+      <button class="btn-sage" onclick="openAssessment()">Start Your Free Assessment →</button>
+    </div>
   </div>
 </section>
-
-<!-- ═══════════ SUPPORT SELECTOR (What are you looking to support?) ═══════════ -->
 <div class="support-selector">
   <div class="support-selector-inner">
     <div class="section-label">Personalize Your Path</div>
@@ -1920,6 +1927,9 @@ footer {
       </div>
     </div>
     <p class="timeline-footnote">Individual results vary. Timelines reflect commonly reported experiences with physician-guided GLP-1 therapy, not guaranteed outcomes. Consistent dosing, nutrition, sleep, and movement amplify results.</p>
+    <div style="text-align: center; margin-top: 36px;">
+      <button class="btn-sage" onclick="openAssessment()">See Your Personalized Timeline →</button>
+    </div>
   </div>
 </section>
 
@@ -2086,6 +2096,18 @@ footer {
           </span>
         </a>
         <p>Physician-guided GLP-1 therapy. Quietly delivered.</p>
+        <div class="footer-contact" style="margin-top: 22px; font-size: 12.5px; line-height: 1.85; color: rgba(240,239,231,0.7);">
+          <div style="margin-bottom: 10px;">
+            <strong style="color: var(--paper); font-weight: 600; letter-spacing: 0.3px;">RestorLife Med</strong><br>
+            1 Mid America Plaza, 3rd Fl #5049<br>
+            Oakbrook Terrace, IL 60181
+          </div>
+          <div>
+            <a href="tel:7087753734" style="color: var(--paper); text-decoration: none;">(708) 775-3734</a><br>
+            <a href="mailto:support@restorlifemed.com" style="color: var(--paper); text-decoration: none;">support@restorlifemed.com</a><br>
+            <span style="color: rgba(240,239,231,0.55);">24/7 AI chat support · Human team M–F 9 AM–5 PM CST</span>
+          </div>
+        </div>
       </div>
       <div class="footer-col">
         <h4>Treatment</h4>
@@ -2102,19 +2124,19 @@ footer {
       </div>
       <div class="footer-col">
         <h4>Support</h4>
-        <a href="javascript:void(0)" onclick="openContact()">Contact Us</a>
+        <a href="contact-us.html">Contact Us</a>
         <a href="javascript:void(0)" onclick="openPolicy('providers')">Our Providers</a>
         <a href="javascript:void(0)" onclick="openPolicy('pharmacy')">Partner Pharmacy</a>
-        <a href="#">Patient Portal</a>
-        <a href="javascript:void(0)" onclick="openPolicy('shipping')">Shipping Policy</a>
-        <a href="javascript:void(0)" onclick="openPolicy('returns')">Return Policy</a>
+        <a href="javascript:void(0)" onclick="openPatientPortal()">Patient Portal</a>
+        <a href="shipping-policy.html">Shipping Policy</a>
+        <a href="return-policy.html">Return Policy</a>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 RestorLife Med. All rights reserved.</span>
       <div class="footer-legal">
-        <a href="javascript:void(0)" onclick="openPolicy('privacy')">Privacy Policy</a>
-        <a href="javascript:void(0)" onclick="openPolicy('terms')">Terms of Service</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
         <a href="javascript:void(0)" onclick="openPolicy('physician')">Physician Code of Conduct</a>
       </div>
     </div>
@@ -2509,10 +2531,15 @@ function toggleIncluded(btn) {
 // ── Assessment Modal ──
 let formData = {};
 
+var BASK_ASSESSMENT_URL = 'https://restorlife-med.mybaskhealth.com/start-online-visit/weightloss';
+var PATIENT_PORTAL_URL = 'https://my.restorlifemed.com';
+
 function openAssessment() {
-  document.getElementById('assessmentModal').classList.add('active');
-  document.body.style.overflow = 'hidden';
-  resetAssessment();
+  window.open(BASK_ASSESSMENT_URL, '_blank', 'noopener');
+}
+
+function openPatientPortal() {
+  window.open(PATIENT_PORTAL_URL, '_blank', 'noopener');
 }
 
 function closeAssessment() {
