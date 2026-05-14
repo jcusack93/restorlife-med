@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physician Code of Conduct | RestorLife Med</title>
+<meta name="description" content="Physician Code of Conduct — RestorLife Med, physician-guided GLP-1 therapy for sustainable weight loss.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --paper: #F0EFE7; --cream: #F5F2E8; --wash: #C9D4B8; --sage: #A9B89A;
+  --moss: #7E8C72; --moss-deep: #6B8F71; --ink: #3F4A38; --ink-soft: #5C6855;
+  --ink-mute: #8A9582; --white: #FFFFFF; --border: rgba(126, 140, 114, 0.18);
+  --font-script: 'Yellowtail', cursive;
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--ink); background: var(--paper); line-height: 1.7; font-weight: 400; -webkit-font-smoothing: antialiased; }
+nav.legal-nav { background: var(--paper); border-bottom: 1px solid var(--border); }
+.legal-nav-inner { max-width: 980px; margin: 0 auto; padding: 22px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.legal-nav .logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+.legal-nav .logo-mark { width: 40px; height: 40px; flex-shrink: 0; display: block; }
+.legal-nav .logo-mark svg { width: 100%; height: 100%; display: block; }
+.legal-nav .logo-text { display: inline-flex; flex-direction: column; line-height: 1; }
+.legal-nav .logo-text .script { font-family: var(--font-script); font-size: 28px; color: var(--ink); }
+.legal-nav .logo-text .tagline { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--moss); margin-top: 4px; font-weight: 500; }
+.legal-nav a.back { font-size: 13px; color: var(--moss); text-decoration: none; letter-spacing: 0.5px; font-weight: 500; }
+.legal-nav a.back:hover { color: var(--ink); }
+
+main.legal-main { max-width: 820px; margin: 0 auto; padding: 64px 32px 96px; }
+.legal-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--moss); margin-bottom: 14px; display: inline-flex; align-items: center; gap: 14px; }
+.legal-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--moss); }
+.legal-title { font-family: var(--font-display); font-size: 48px; font-weight: 400; font-style: italic; color: var(--ink); letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 36px; }
+
+.legal-body p { font-size: 15px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 16px; }
+.legal-body .pol-h2 { font-family: var(--font-display); font-size: 26px; font-style: italic; font-weight: 500; color: var(--ink); margin: 40px 0 14px; padding-top: 28px; border-top: 1px solid var(--border); letter-spacing: -0.3px; }
+.legal-body .pol-h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.legal-body .pol-h3 { font-family: var(--font-body); font-size: 15px; font-weight: 600; color: var(--ink); margin: 28px 0 10px; text-transform: uppercase; letter-spacing: 1.5px; }
+.legal-body .pol-h3:first-child { margin-top: 0; }
+.legal-body .pol-list { list-style: none; padding-left: 0; margin: 12px 0 20px; }
+.legal-body .pol-list li { position: relative; padding-left: 20px; margin-bottom: 8px; color: var(--ink-soft); }
+.legal-body .pol-list li::before { content: '·'; position: absolute; left: 4px; top: -4px; font-size: 20px; color: var(--moss); }
+.legal-body .pol-lettered { list-style: lower-alpha; padding-left: 24px; margin: 12px 0 20px; }
+.legal-body .pol-lettered > li { padding-left: 8px; margin-bottom: 10px; color: var(--ink-soft); }
+.legal-body .pol-lettered > li strong { color: var(--ink); }
+.legal-body .pol-effective { font-size: 13px; color: var(--moss); margin-bottom: 28px; padding: 10px 16px; background: var(--cream); border-left: 3px solid var(--sage); }
+.legal-body .pol-effective strong { color: var(--ink); font-weight: 600; }
+.legal-body .pol-contact-card { background: var(--cream); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; margin: 18px 0 24px; font-size: 14px; line-height: 1.85; color: var(--ink-soft); }
+.legal-body .pol-contact-card strong { color: var(--ink); font-weight: 600; }
+.legal-body .pol-contact-card a { color: var(--moss); text-decoration: none; }
+.legal-body .pol-contact-card a:hover { color: var(--ink); text-decoration: underline; }
+.legal-body a { color: var(--moss); text-decoration: underline; }
+.legal-body a:hover { color: var(--ink); }
+
+footer.legal-footer { background: var(--ink); color: var(--paper); padding: 56px 32px 36px; margin-top: 72px; }
+.legal-footer-inner { max-width: 980px; margin: 0 auto; }
+.legal-footer-cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px; padding-bottom: 36px; border-bottom: 1px solid rgba(240,239,231,0.12); }
+.legal-footer-brand .logo-script { font-family: var(--font-script); font-size: 28px; color: var(--paper); }
+.legal-footer-brand .logo-tagline { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--wash); margin-top: 4px; font-weight: 500; }
+.legal-footer-brand p { font-size: 12.5px; line-height: 1.85; color: rgba(240,239,231,0.7); margin-top: 16px; }
+.legal-footer-brand p.address strong { color: var(--paper); font-weight: 600; letter-spacing: 0.3px; }
+.legal-footer-brand a { color: var(--paper); text-decoration: none; }
+.legal-footer-col h4 { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--paper); margin-bottom: 16px; }
+.legal-footer-col a { display: block; font-size: 13px; color: rgba(240,239,231,0.55); text-decoration: none; padding: 5px 0; transition: color 0.2s; }
+.legal-footer-col a:hover { color: var(--paper); }
+.legal-footer-bottom { padding-top: 28px; display: flex; flex-wrap: wrap; gap: 18px; justify-content: space-between; align-items: center; font-size: 12px; color: rgba(240,239,231,0.45); }
+.legal-footer-bottom .legal-links { display: flex; gap: 22px; flex-wrap: wrap; }
+.legal-footer-bottom .legal-links a { color: rgba(240,239,231,0.55); text-decoration: none; }
+.legal-footer-bottom .legal-links a:hover { color: var(--paper); }
+
+@media (max-width: 720px) {
+  .legal-title { font-size: 36px; }
+  main.legal-main { padding: 40px 24px 64px; }
+  .legal-footer-cols { grid-template-columns: 1fr; gap: 32px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="legal-nav">
+  <div class="legal-nav-inner">
+    <a href="index.html" class="logo" aria-label="RestorLife Med, Restorative Medicine">
+      <span class="logo-mark">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" fill="#A9B89A"/>
+          <text x="32" y="32" text-anchor="middle" dominant-baseline="central" font-family="Yellowtail, cursive" font-size="42" fill="#F0EFE7">R</text>
+        </svg>
+      </span>
+      <span class="logo-text">
+        <span class="script">restorlife med</span>
+        <span class="tagline">Restorative Medicine</span>
+      </span>
+    </a>
+    <a href="index.html" class="back">← Back to home</a>
+  </div>
+</nav>
+
+<main class="legal-main">
+  <div class="legal-eyebrow">Legal</div>
+  <h1 class="legal-title">Physician Code of Conduct</h1>
+  <div class="legal-body">
+<h4 class="pol-h3">Last updated: September 30th, 2021</h4>
+<h3 class="pol-h2">INTRODUCTION</h3>
+<p>The Bask mission is to help as many people as possible with their healthcare needs and ultimately improve the way that people interact with the medical system when addressing certain health conditions. This document serves as the universal code of conduct for physician use of the Bask platform. Our goal is to align the values and philosophies of Bask HQ and the physicians who practice on the Bask Platform. This Code of Conduct will continue to be updated based on feedback from affiliated physicians in order to ensure patients are always receiving the highest quality of care.</p>
+<h3 class="pol-h2">BEST PRACTICES ON THE PLATFORM</h3>
+<p>Be Patient:</p>
+<p>Telemedicine is a new experience for many patients. They may ask questions that seem obvious (e.g., “How does telemedicine work?”). Please be sensitive to their concerns and work with them to determine the best course of treatment.</p>
+<p>Always Explain:</p>
+<p>Always provide a detailed explanation to a patient whether you find it appropriate to write a prescription or not. Patients are coming to the Bask Platform because they are in need of your guidance and care.</p>
+<p>Follow Up:</p>
+<p>The Bask Platform will automatically follow up with patients who receive treatment plans after 2 weeks, 1 month, and every 3 months thereafter. If you think that a patient needs additional follow up, you can automate follow ups in the messaging system or contact the Bask Medical Ops Team.</p>
+<p>Document:</p>
+<p>Always thoroughly document your decisions. For example, if you approve a patient for treatment, and the Bask system flagged one or several of their responses as a potential contraindication or risk, please make sure to document your rationale (e.g., you spoke to them via phone, video, or message and received additional clarifying information).</p>
+<p>Check-in:</p>
+<p>The physicians with the highest rate of patient satisfaction check their messages at least once per day. If you will be unavailable for more than 48 hours, please give the Bask Medical Ops one week notice so that we can ensure your patient’s receive timely responses to any question. In case of an emergency, please try to notify us as soon as possible.</p>
+<h3 class="pol-h2">CONDUCT EXPECTATIONS ON THE PLATFORM</h3>
+<p>Verify Identity:</p>
+<p>ID &amp; Photo Match: The first step by any physician is to confirm the identity of the patient and ensure that the image uploaded matches the patient’s government ID. This is also double-checked by automated software. Personal Information: After you’ve confirmed the ID matches the Face Photo, confirm that the basic information entered during the online visit (i.e., first name, last name, DOB) matches the information on the government ID.</p>
+<p>Follow State Protocols:</p>
+<p>The Bask Platform will always require you to confirm that you established a patient-physician relationship according to the state-specific requirement. Never provide any medical advice or treatment until you have adequately established a patient-physician relationship. When in doubt, please contact the Bask Medical Operations team or Bask’s General Counsel.</p>
+<p>Treat “Oldest” First:</p>
+<p>Please always treat patients who entered the Bask Platform first. We pride ourselves on providing timely service to our patients. This can only be done if those who have been waiting longer are served first.</p>
+<p>One at a time:</p>
+<p>If another physician has started to treat a patient, do not attempt to provide additional treatment unless specifically asked for a second opinion.</p>
+<p>In addition, physicians should complete only one consult at a time before moving on to the next patient. Each consultation requires your undivided attention.</p>
+<h3 class="pol-h2">SAFETY, SECURITY &amp; PRIVACY</h3>
+<p>Drug Interactions:</p>
+<p>Always pay attention to reported medications and be alert to drug interactions. Please make sure to always check a patient’s previous plans on the Bask Platform before making a treatment decision.</p>
+<p>When There’s Doubt, There is No Doubt:</p>
+<p>When in doubt about a specific drug interaction, please contact the Bask Medical Ops team, who will route your question to one of Bask’s clinical directors.</p>
+<p>If anything is unclear from the visit, please follow up with the patient. It is always better to be 100% certain that you have all the necessary information.</p>
+<p>Never create a prescription for a patient if you are unsure if it’s safe. It is always better to get a second opinion or refer the patient to his/her in-person primary physician when in doubt.</p>
+<p>Pay Attention to Underlying Causes:</p>
+<p>Our patients’ mental health is as important to us as their physical health. Always follow up with patients who provide answers concerning their mental health. Please refer to the Emergency Plan located in the Bask’s Manuals and Protocols folder for guidance on how to respond if a patient is experiencing a medical emergency.</p>
+<p>Consistently Review Protocols:</p>
+<p>Please reference the condition-specific Physician Protocols regularly. They contain the most important points on safe practices on the Bask Platform and should serve as a continuous reference for physicians. Most importantly, all medical decisions should be made solely at your discretion according to the standard of care.</p>
+<p>Never Share:</p>
+<p>Never share your Bask physician app password with anyone.</p>
+<p>Never share any patient information with anyone outside of Bask and only share information that is required for someone to complete their job.</p>
+<p>Secure PHI:</p>
+<p>Never share PHI using any software tool that is not HIPAA compliant. You may use password protected links to patient charts in Asana and email.</p>
+<p>Never work on the platform in open areas where someone may be able to see your screen and see PHI.</p>
+<h3 class="pol-h2">ETHICAL EXPECTATIONS FOR PLATFORM PHYSICIANS</h3>
+<p>Bask-affiliated physicians are expected to uphold the highest ethical standards called upon by the medical profession.</p>
+<p>Do No Harm:</p>
+<p>First, do no harm. The practice of medicine is a calling. Always put your patients’ safety first. Patient safety is the first and primary priority. You will always be compensated the exact same, regardless of whether a prescription is written.</p>
+<p>No Self-Referral:</p>
+<p>Patients that come through the Bask Platform should never be self referred to your own practice. If a referral is needed, please refer them to their primary healthcare provider or other outside physician.</p>
+<p>Sound Body &amp; Sound Mind:</p>
+<p>Never engage in the practice of medicine on our platform while under the influence of alcohol or other mind-altering substances.</p>
+<p>Keep Bask Informed:</p>
+<p>In case of a board complaint, hospital administrative action, malpractice suit or judgement, or any other administrative or disciplinary action against you (including a criminal charge or conviction related or unrelated to the practice of medicine), please promptly notify the Bask Medical Operations Team.</p>
+<p>Thank you.</p>
+<h4 class="pol-h3">RestorLife Med</h4>
+<p>support@restorlifemed.com</p>
+<p>Services are provided via Bask Health Inc and Bask Health NY. View their applicable policies as well to stay informed on bask.health and bask.bio.</p>
+  </div>
+</main>
+
+<footer class="legal-footer">
+  <div class="legal-footer-inner">
+    <div class="legal-footer-cols">
+      <div class="legal-footer-brand">
+        <div class="logo-script">restorlife med</div>
+        <div class="logo-tagline">Restorative Medicine</div>
+        <p class="address"><strong>RestorLife Med</strong><br>1 Mid America Plaza, 3rd Fl #5049<br>Oakbrook Terrace, IL 60181</p>
+        <p>
+          <a href="tel:7087753734">(708) 775-3734</a><br>
+          <a href="mailto:support@restorlifemed.com">support@restorlifemed.com</a><br>
+          <span style="color: rgba(240,239,231,0.55);">24/7 AI chat support · Human team M–F 9 AM–5 PM CST</span>
+        </p>
+      </div>
+      <div class="legal-footer-col">
+        <h4>Company</h4>
+        <a href="index.html#learn-more">About Us</a>
+        <a href="index.html#how">How It Works</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+      <div class="legal-footer-col">
+        <h4>Support</h4>
+        <a href="contact-us.html">Contact Us</a>
+        <a href="https://my.restorlifemed.com" target="_blank" rel="noopener">Patient Portal</a>
+        <a href="shipping-policy.html">Shipping Policy</a>
+        <a href="return-policy.html">Return Policy</a>
+      </div>
+    </div>
+    <div class="legal-footer-bottom">
+      <span>© 2026 RestorLife Med. All rights reserved.</span>
+      <div class="legal-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
