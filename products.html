@@ -2841,7 +2841,12 @@ function centerAllGlyphs() {
 
 // Run when fonts have finished loading (otherwise bbox reflects fallback font metrics)
 if (document.fonts && document.fonts.ready) {
-  document.fonts.ready.then(centerAllGlyphs);
+  document.fonts.ready.then(() => {
+    centerAllGlyphs();
+    // Belt-and-suspenders: re-center after the webfont has actually painted,
+    // guarding against fonts.ready resolving before Yellowtail applies to the SVG glyph.
+    [120, 400, 900].forEach(t => setTimeout(centerAllGlyphs, t));
+  });
 } else {
   window.addEventListener('load', () => setTimeout(centerAllGlyphs, 200));
 }

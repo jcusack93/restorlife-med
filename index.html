@@ -1800,20 +1800,20 @@ footer {
 
 .category-banner {
   position: relative; max-width: 1200px;
-  margin: 64px auto 0; border-radius: 20px; overflow: hidden;
-  height: 168px;
+  margin: 48px auto 0; border-radius: 16px; overflow: hidden;
+  height: 92px;
 }
 .category-banner-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .category-banner-word {
-  position: absolute; left: 36px; bottom: 24px; z-index: 1;
+  position: absolute; left: 32px; top: 50%; transform: translateY(-50%); z-index: 1;
   font-family: var(--font-display); font-style: italic; font-weight: 700;
-  font-size: 38px; color: var(--paper); letter-spacing: 0.3px;
+  font-size: 30px; color: var(--paper); letter-spacing: 0.3px;
   text-shadow: 0 2px 14px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.5);
 }
 .category-banner + .category-block { margin-top: 22px; }
 @media (max-width: 768px) {
-  .category-banner { height: 130px; margin-top: 48px; border-radius: 16px; }
-  .category-banner-word { font-size: 30px; left: 22px; bottom: 18px; }
+  .category-banner { height: 70px; margin-top: 40px; border-radius: 14px; }
+  .category-banner-word { font-size: 24px; left: 20px; }
 }
 </style>
 </head>
@@ -3621,7 +3621,12 @@ function centerAllGlyphs() {
 
 // Run when fonts have finished loading (otherwise bbox reflects fallback font metrics)
 if (document.fonts && document.fonts.ready) {
-  document.fonts.ready.then(centerAllGlyphs);
+  document.fonts.ready.then(() => {
+    centerAllGlyphs();
+    // Belt-and-suspenders: re-center after the webfont has actually painted,
+    // guarding against fonts.ready resolving before Yellowtail applies to the SVG glyph.
+    [120, 400, 900].forEach(t => setTimeout(centerAllGlyphs, t));
+  });
 } else {
   window.addEventListener('load', () => setTimeout(centerAllGlyphs, 200));
 }
