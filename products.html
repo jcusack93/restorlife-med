@@ -369,7 +369,7 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
 /* ══════════════════════════════════
    SECTIONS (shared)
    ══════════════════════════════════ */
-section { padding: 110px 32px; }
+section { padding: 68px 32px; }
 .section-inner { max-width: 1200px; margin: 0 auto; }
 .section-label {
   font-size: 11px; font-weight: 500; letter-spacing: 4px;
@@ -642,7 +642,7 @@ section { padding: 110px 32px; }
    ══════════════════════════════════ */
 .cta-banner {
   background: var(--wash);
-  padding: 96px 32px; text-align: center; position: relative; overflow: hidden;
+  padding: 64px 32px; text-align: center; position: relative; overflow: hidden;
 }
 .cta-banner::before {
   content: 'restorlife'; position: absolute;
@@ -1330,7 +1330,7 @@ footer {
 /* "What are you looking to support?" pill selector */
 .support-selector {
   background: var(--cream);
-  padding: 80px 32px;
+  padding: 56px 32px;
   text-align: center;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -1372,7 +1372,7 @@ footer {
 .support-pill:hover .pill-plus { background: rgba(240,239,231,0.2); color: var(--paper); }
 
 /* Timeline section, "Week 1-2 / Week 4-6 / Month 2-3 / Month 3-6" */
-.timeline-section { background: var(--paper); padding: 110px 32px; }
+.timeline-section { background: var(--paper); padding: 68px 32px; }
 .timeline-inner { max-width: 1200px; margin: 0 auto; }
 .timeline-head { text-align: center; margin-bottom: 56px; }
 .timeline-head .section-subtitle { margin-left: auto; margin-right: auto; }
@@ -1659,7 +1659,7 @@ footer {
   }
 
   /* Sections */
-  section { padding: 60px 20px; }
+  section { padding: 40px 20px; }
   .section-label { font-size: 10px; letter-spacing: 3px; }
   .section-title { font-size: 28px; line-height: 1.15; }
   .section-subtitle { font-size: 15px; line-height: 1.65; }
@@ -1704,7 +1704,7 @@ footer {
   .support-pill { padding: 11px 16px; font-size: 12.5px; }
 
   /* Timeline */
-  .timeline-section { padding: 60px 20px; }
+  .timeline-section { padding: 40px 20px; }
   .timeline-grid { grid-template-columns: 1fr; gap: 14px; }
   .timeline-grid::before { display: none; }
   .timeline-card { padding: 22px 20px; }
@@ -1758,7 +1758,7 @@ footer {
   .hero h1 em { font-size: 44px; }
   .hero-text { font-size: 15.5px; }
 
-  section { padding: 52px 18px; }
+  section { padding: 36px 18px; }
   .section-title { font-size: 25px; }
   .section-subtitle { font-size: 14.5px; }
 
@@ -1780,11 +1780,11 @@ footer {
 </style>
 
 <style>
-  .products-page-section { padding-top: 120px; padding-bottom: 80px; }
-  .category-block { margin-top: 64px; }
-  .category-block:first-of-type { margin-top: 40px; }
+  .products-page-section { padding-top: 104px; padding-bottom: 56px; }
+  .category-block { margin-top: 44px; }
+  .category-block:first-of-type { margin-top: 28px; }
   .products-grid-all { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; align-items: stretch; margin-top: 8px; }
-  @media (max-width: 768px) { .products-page-section { padding-top: 100px; } .category-block { margin-top: 48px; } }
+  @media (max-width: 768px) { .products-page-section { padding-top: 88px; } .category-block { margin-top: 32px; } }
 </style>
 </head>
 <body>
@@ -1792,9 +1792,10 @@ footer {
   <div class="nav-inner">
     <a href="index.html" class="logo" aria-label="RestorLife Med, Restorative Medicine">
       <span class="logo-mark">
-        <svg class="center-glyph-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg class="logo-glyph-static" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <circle cx="32" cy="32" r="30" fill="#A9B89A" class="target"/>
           <text class="glyph" x="32" y="32" text-anchor="middle" dominant-baseline="central"
+                transform="translate(-2.75 -1.25)"
                 font-family="Yellowtail, cursive" font-size="42" fill="#F0EFE7">R</text>
         </svg>
       </span>
