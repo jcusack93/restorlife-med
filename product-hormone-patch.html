@@ -1837,6 +1837,11 @@ footer {
   .pdp-tier-price { text-align: right; font-family: var(--font-body); }
   .pdp-tier-now { font-size: 14px; font-weight: 700; color: var(--ink); line-height: 1.2; }
   .pdp-tier-was { font-size: 10.5px; color: var(--moss); text-decoration: line-through; line-height: 1.2; }
+  .pdp-dose-group { margin: 16px 0 14px; }
+  .pdp-dose-label { font-family: var(--font-body); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--moss); margin-bottom: 8px; display: block; }
+  .pdp-dose-select { width: 100%; padding: 11px 14px; border: 1.25px solid var(--border); border-radius: 10px; font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--ink); background: #fff; cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='none' stroke='%237E8C72' stroke-width='1.5' d='M1 1.5l5 5 5-5'/></svg>"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; transition: border-color 0.2s; }
+  .pdp-dose-select:hover, .pdp-dose-select:focus { border-color: var(--moss); outline: none; }
+
   .pdp-adult { text-align: center; font-family: var(--font-body); font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--moss); margin-top: 14px; }
   .pdp-about { max-width: 1200px; margin: 40px auto 0; }
   .pdp-about-card { border: 1.5px solid var(--border); border-radius: 16px; padding: 28px 30px; }
@@ -1899,7 +1904,17 @@ footer {
       <p class="pdp-sub">Estradiol · transdermal patch</p>
       <a href="https://restorlife-med.mybaskhealth.com/start-online-visit/weightloss" class="pdp-cta" target="_blank" rel="noopener">Take Your Free Assessment</a>
       <p class="pdp-nocharge">A pending charge will appear, but won't process until your prescription is approved.</p>
-        <div class="pdp-tier active" data-tier="1" onclick="selectTier(this)">
+        <div class="pdp-dose-group">
+        <label class="pdp-dose-label" for="pdpDose">Select Dose</label>
+        <select class="pdp-dose-select" id="pdpDose" onchange="updateDosePricing()">
+          <option value="0.025 mg/day" data-delta="0" selected>0.025 mg/day</option>
+          <option value="0.0375 mg/day" data-delta="5">0.0375 mg/day</option>
+          <option value="0.05 mg/day" data-delta="10">0.05 mg/day</option>
+          <option value="0.075 mg/day" data-delta="15">0.075 mg/day</option>
+          <option value="0.1 mg/day" data-delta="20">0.1 mg/day</option>
+        </select>
+      </div>
+      <div class="pdp-tier active" data-tier="1" data-fraction="0.4975" onclick="selectTier(this)">
           <div class="pdp-tier-left"><span class="pdp-radio"></span>
             <div>
               <div class="pdp-tier-name">1 Month</div>
@@ -1912,7 +1927,7 @@ footer {
           </div>
         </div>
 
-        <div class="pdp-tier" data-tier="3" onclick="selectTier(this)">
+        <div class="pdp-tier" data-tier="3" data-fraction="0.6985" onclick="selectTier(this)">
           <div class="pdp-tier-left"><span class="pdp-radio"></span>
             <div>
               <div class="pdp-tier-name">3 Month</div>
@@ -1925,7 +1940,7 @@ footer {
           </div>
         </div>
 
-        <div class="pdp-tier" data-tier="6" onclick="selectTier(this)">
+        <div class="pdp-tier" data-tier="6" data-fraction="0.6633" onclick="selectTier(this)">
           <div class="pdp-tier-left"><span class="pdp-radio"></span>
             <div>
               <div class="pdp-tier-name">6 Month<span class="pdp-tier-best">Best Value</span></div>
@@ -2744,6 +2759,23 @@ document.addEventListener('keydown', (e) => {
 </script>
 
 <script>
+var BASE_WAS = 199;
+
+function updateDosePricing(){
+  var sel = document.getElementById('pdpDose');
+  if(!sel) return;
+  var delta = parseInt(sel.options[sel.selectedIndex].getAttribute('data-delta'),10) || 0;
+  var newWas = BASE_WAS + delta;
+  document.querySelectorAll('.pdp-tier').forEach(function(tier){
+    var frac = parseFloat(tier.getAttribute('data-fraction'));
+    var nowEl = tier.querySelector('.pdp-tier-now');
+    var wasEl = tier.querySelector('.pdp-tier-was');
+    var newNow = Math.round(newWas * frac);
+    if(nowEl) nowEl.textContent = '$' + newNow + '/mo';
+    if(wasEl) wasEl.textContent = '$' + newWas + '/mo';
+  });
+}
+
 function selectTier(el){
   document.querySelectorAll('.pdp-tier').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
