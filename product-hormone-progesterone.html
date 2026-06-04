@@ -1802,7 +1802,25 @@ footer {
     padding: 14px 22px; font-size: 11px; letter-spacing: 1.2px;
   }
 }
-</style>
+
+  /* HBT-50 sticky promo banner */
+  .hbt50-banner { position: sticky; top: 0; z-index: 90; background: var(--moss); color: #fff; padding: 9px 16px; text-align: center; font-family: var(--font-body); font-size: 13px; letter-spacing: 0.2px; box-shadow: 0 1px 0 rgba(0,0,0,0.04); }
+  .hbt50-banner strong { font-weight: 700; letter-spacing: 0.5px; }
+  .hbt50-banner .hbt50-code { display: inline-block; padding: 1px 8px; margin: 0 2px; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35); border-radius: 4px; font-family: var(--font-body); font-weight: 700; letter-spacing: 1px; }
+  .hbt50-banner .hbt50-fine { opacity: 0.78; margin-left: 6px; font-size: 11px; }
+  @media (max-width: 640px) { .hbt50-banner { font-size: 11.5px; padding: 8px 12px; } .hbt50-banner .hbt50-fine { display: block; margin-left: 0; margin-top: 2px; } }
+
+  /* Sermorelin cross-sell on hormone PDPs */
+  .sermo-crosssell { margin: 28px 0 4px; padding: 18px 20px; background: var(--cream); border: 1px solid var(--border); border-radius: 14px; display: flex; gap: 16px; align-items: center; }
+  .sermo-crosssell-icon { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; background: var(--wash); display: flex; align-items: center; justify-content: center; }
+  .sermo-crosssell-body { flex: 1; }
+  .sermo-crosssell-title { font-family: var(--font-body); font-weight: 700; font-size: 13.5px; color: var(--ink); margin: 0 0 4px; letter-spacing: 0.2px; }
+  .sermo-crosssell-text { font-family: var(--font-body); font-size: 12.5px; color: var(--moss); margin: 0 0 8px; line-height: 1.5; }
+  .sermo-crosssell-link { display: inline-block; font-family: var(--font-body); font-size: 11.5px; color: var(--moss-dark, var(--ink)); text-decoration: none; border-bottom: 1px solid var(--moss); padding-bottom: 1px; font-weight: 600; letter-spacing: 0.4px; text-transform: uppercase; }
+  .sermo-crosssell-link:hover { color: var(--moss); }
+  @media (max-width: 520px) { .sermo-crosssell { flex-direction: column; text-align: center; padding: 16px; } }
+
+  </style>
 
 <style>
   .products-page-section { padding-top: 104px; padding-bottom: 56px; }
@@ -1863,6 +1881,10 @@ footer {
 </style>
 </head>
 <body>
+  <div class="hbt50-banner" role="region" aria-label="Promo code">
+    <strong>50% off your first hormone therapy order</strong> &nbsp;with code <span class="hbt50-code">HBT-50</span><span class="hbt50-fine">First-time orders only.</span>
+  </div>
+
 <nav id="nav">
   <div class="nav-inner">
     <a href="index.html" class="logo" aria-label="RestorLife Med, Restorative Medicine">
@@ -1916,11 +1938,11 @@ footer {
           <div class="pdp-tier-left"><span class="pdp-radio"></span>
             <div>
               <div class="pdp-tier-name">1 Month</div>
-              <div class="pdp-tier-save">50% off your first month</div>
+              <div class="pdp-tier-save">50% off your first order with HBT-50</div>
             </div>
           </div>
           <div class="pdp-tier-price">
-            <div class="pdp-tier-now">$18/mo</div>
+            <div class="pdp-tier-now">$19/mo</div>
             <div class="pdp-tier-was">$37/mo</div>
           </div>
         </div>
@@ -1929,17 +1951,27 @@ footer {
           <div class="pdp-tier-left"><span class="pdp-radio"></span>
             <div>
               <div class="pdp-tier-name">3 Month<span class="pdp-tier-best">Best Value</span></div>
-              <div class="pdp-tier-save">50% off month 1, then 20% off</div>
+              <div class="pdp-tier-save">20% off subscription · 50% off first order with HBT-50</div>
             </div>
           </div>
           <div class="pdp-tier-price">
-            <div class="pdp-tier-now">$21/mo</div>
+            <div class="pdp-tier-now">$15/mo</div>
             <div class="pdp-tier-was">$29/mo</div>
           </div>
         </div>
       
       
       
+            <aside class="sermo-crosssell">
+        <div class="sermo-crosssell-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7E8C72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <div class="sermo-crosssell-body">
+          <p class="sermo-crosssell-title">Many hormone therapy patients add Sermorelin</p>
+          <p class="sermo-crosssell-text">A peptide therapy that supports sleep, energy, recovery, and skin. Often paired with hormone protocols for a more complete approach to feeling well.</p>
+          <a href="product-anti-aging.html" class="sermo-crosssell-link">Explore Sermorelin →</a>
+        </div>
+      </aside>
       <p class="pdp-adult">For adult consumers 18+ only</p>
       <div class="pdp-about-incol">
     <div class="pdp-about-card">
@@ -2750,13 +2782,11 @@ function updateDosePricing(){
   var opt = sel.options[sel.selectedIndex];
   var mWas = parseInt(opt.getAttribute('data-m-was'), 10);
   var qTotal = parseInt(opt.getAttribute('data-q-total'), 10);
-  var qPerMo = qTotal / 3;
+  var qPerMo = Math.round(qTotal / 3);
 
-  // 1-month tier: 50% off the monthly anchor
+  // HBT-50 applies 50% to first order only — display reflects post-code price
   var m1Now = Math.round(mWas * 0.5);
-  // 3-month tier: blended discount (0.5 + 0.8 + 0.8)/3 = 0.7 applied to qPerMo
-  var m3Now = Math.round(qPerMo * 0.7);
-  var m3Was = Math.round(qPerMo);
+  var m3Now = Math.round(qPerMo * 0.5);
 
   var tier1 = document.querySelector('.pdp-tier[data-tier="1"]');
   var tier3 = document.querySelector('.pdp-tier[data-tier="3"]');
@@ -2766,7 +2796,7 @@ function updateDosePricing(){
   }
   if(tier3){
     tier3.querySelector('.pdp-tier-now').textContent = '$' + m3Now + '/mo';
-    tier3.querySelector('.pdp-tier-was').textContent = '$' + m3Was + '/mo';
+    tier3.querySelector('.pdp-tier-was').textContent = '$' + qPerMo + '/mo';
   }
 }
 
