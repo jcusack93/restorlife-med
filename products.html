@@ -405,7 +405,7 @@ section { padding: 68px 32px; }
 .section-inner { max-width: 1200px; margin: 0 auto; }
 .section-label {
   font-size: 11px; font-weight: 500; letter-spacing: 4px;
-  text-transform: uppercase; color: var(--moss); margin-bottom: 16px;
+  text-transform: uppercase; color: var(--moss); margin-bottom: 8px;
   display: inline-flex; align-items: center; gap: 14px;
 }
 .section-label::before {
@@ -414,13 +414,13 @@ section { padding: 68px 32px; }
 .section-title {
   font-family: var(--font-display); font-size: 46px;
   font-weight: 400;
-  color: var(--ink); margin-bottom: 18px; letter-spacing: -0.4px;
+  color: var(--ink); margin-bottom: 10px; letter-spacing: -0.4px;
   line-height: 1.12;
 }
 .section-title em { font-style: italic; color: var(--moss); font-weight: 300; }
 .section-subtitle {
   font-size: 17px; color: var(--ink-soft); max-width: 600px;
-  line-height: 1.75; margin-bottom: 56px;
+  line-height: 1.75; margin-bottom: 24px;
 }
 .center { text-align: center; }
 .center .section-subtitle { margin-left: auto; margin-right: auto; }
@@ -1817,14 +1817,23 @@ footer {
   .hbt50-banner .hbt50-fine { opacity: 0.78; margin-left: 6px; font-size: 11px; }
   @media (max-width: 640px) { .hbt50-banner { font-size: 11.5px; padding: 8px 12px; } .hbt50-banner .hbt50-fine { display: block; margin-left: 0; margin-top: 2px; } }
 
-  </style>
+  
+/* Sticky dark-sage products header (white text, pinned below nav) */
+.products-stickyhead { position: sticky; top: 72px; z-index: 900; background: var(--moss); box-shadow: 0 10px 26px rgba(63,74,56,0.20); padding: 16px 0; }
+.products-stickyhead .section-inner { padding-left: 24px; padding-right: 24px; }
+.products-stickyhead .section-label { color: #fff; margin-bottom: 6px; }
+.products-stickyhead .section-label::before { background: #fff; }
+.products-stickyhead .section-title { color: #fff; margin-bottom: 0; }
+.products-stickyhead .section-title em { color: #fff; }
+@media (max-width: 768px) { .products-stickyhead { top: 68px; padding: 12px 0; } }
+</style>
 
 <style>
-  .products-page-section { padding-top: 104px; padding-bottom: 56px; }
-  .category-block { margin-top: 44px; }
-  .category-block:first-of-type { margin-top: 28px; }
+  .products-page-section { padding-top: 84px; padding-bottom: 32px; }
+  .category-block { margin-top: 22px; }
+  .category-block:first-of-type { margin-top: 14px; }
   .products-grid-all { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; align-items: stretch; margin-top: 8px; }
-  @media (max-width: 768px) { .products-page-section { padding-top: 88px; } .category-block { margin-top: 32px; } }
+  @media (max-width: 768px) { .products-page-section { padding-top: 88px; } .category-block { margin-top: 16px; } }
 </style>
 </head>
 <body>
@@ -1869,10 +1878,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ═══════════ PRODUCTS (categorized) ═══════════ -->
 <section id="products" class="products-page-section">
-  <div class="section-inner center">
-    <div class="section-label">Our Treatments</div>
-    <h2 class="section-title">Physician-guided care for <em>how you want to feel.</em></h2>
-    <p class="section-subtitle">Every plan includes physician access, medication, and ongoing support. No insurance needed. Cancel anytime.</p>
+  <div class="products-stickyhead">
+    <div class="section-inner center">
+      <div class="section-label">Our Treatments</div>
+      <h2 class="section-title">Physician-guided care for <em>how you want to feel.</em></h2>
+    </div>
   </div>
 
   <!-- Hormone Therapy -->
