@@ -102,7 +102,7 @@ em { font-style: italic; }
    NAV
    ══════════════════════════════════ */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  position: fixed; top: var(--hbt-h, 0px); left: 0; right: 0; z-index: 1000;
   background: rgba(250,250,247,0.92);
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
@@ -1849,7 +1849,7 @@ footer {
 }
 
   /* HBT-50 sticky promo banner */
-  .hbt50-banner { position: sticky; top: 0; z-index: 90; background: var(--moss); color: #fff; padding: 9px 16px; text-align: center; font-family: var(--font-body); font-size: 13px; letter-spacing: 0.2px; box-shadow: 0 1px 0 rgba(0,0,0,0.04); }
+  .hbt50-banner { position: fixed; top: 0; left: 0; right: 0; z-index: 1100; background: var(--moss); color: #fff; padding: 9px 16px; text-align: center; font-family: var(--font-body); font-size: 13px; letter-spacing: 0.2px; box-shadow: 0 1px 0 rgba(0,0,0,0.04); }
   .hbt50-banner strong { font-weight: 700; letter-spacing: 0.5px; }
   .hbt50-banner .hbt50-code { display: inline-block; padding: 1px 8px; margin: 0 2px; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35); border-radius: 4px; font-family: var(--font-body); font-weight: 700; letter-spacing: 1px; }
   .hbt50-banner .hbt50-fine { opacity: 0.78; margin-left: 6px; font-size: 11px; }
@@ -1857,7 +1857,7 @@ footer {
 
   
 /* Sticky dark-sage products header (white text, pinned below nav) */
-.products-stickyhead { position: sticky; top: 72px; z-index: 900; background: var(--moss); box-shadow: 0 10px 26px rgba(63,74,56,0.20); padding: 16px 0; }
+.products-stickyhead { position: sticky; top: calc(72px + var(--hbt-h, 0px)); z-index: 900; background: var(--moss); box-shadow: 0 10px 26px rgba(63,74,56,0.20); padding: 16px 0; }
 .products-stickyhead .section-inner { padding-left: 24px; padding-right: 24px; }
 .products-stickyhead .section-label { color: #fff; margin-bottom: 6px; }
 .products-stickyhead .section-label::before { background: #fff; }
@@ -1900,6 +1900,12 @@ footer {
 .finder-rec .fr-arrow { color:var(--moss); font-size:18px; flex-shrink:0; }
 .finder-fine { font-size:11.5px; color:var(--moss); margin-top:18px; line-height:1.5; }
 
+
+
+/* HBT-50 banner: pin above the fixed nav, push content down by its height */
+:root { --hbt-h: 40px; }
+body { padding-top: var(--hbt-h, 0px); }
+@media (max-width: 640px){ :root { --hbt-h: 56px; } }
 </style>
 </head>
 <body>
@@ -3985,6 +3991,17 @@ document.addEventListener('keydown', (e) => {
     };
     if (!apply()) window.addEventListener('load', () => setTimeout(apply, 800));
   })();
+</script>
+<script>
+(function(){
+  var b=document.querySelector('.hbt50-banner');
+  if(!b) return;
+  function setH(){ document.documentElement.style.setProperty('--hbt-h', b.offsetHeight+'px'); }
+  setH();
+  window.addEventListener('load', setH);
+  window.addEventListener('resize', setH);
+  if(window.ResizeObserver){ new ResizeObserver(setH).observe(b); }
+})();
 </script>
 </body>
 </html>
