@@ -1832,6 +1832,8 @@ footer {
 :root { --hbt-h: 40px; }
 body { padding-top: var(--hbt-h, 0px); }
 @media (max-width: 640px){ :root { --hbt-h: 56px; } }
+.product-card { scroll-margin-top: calc(var(--hbt-h, 0px) + 180px); }
+@media (max-width: 768px){ .product-card { scroll-margin-top: calc(var(--hbt-h, 0px) + 150px); } }
 </style>
 
 <style>
@@ -1898,7 +1900,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="section-subtitle">Estradiol and progesterone therapy in the format that fits your routine: patch, gel, or oral tablets.</p>
     <div class="pricing-grid editorial products-grid-all">
 
-      <div class="product-card featured animate">
+      <div id="patch" class="product-card featured animate">
         <span class="pc-badge">50% Off First Order · HBT-50</span>
         <div class="pc-media">
           <img src="images/estradiol-patch.png" alt="Estradiol transdermal patch" style="width:auto;height:200px;max-height:200px;display:block;margin:0 auto;object-fit:contain;" loading="lazy" decoding="async">
@@ -1939,7 +1941,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
       </div>
-      <div class="product-card featured animate delay-1">
+      <div id="gel" class="product-card featured animate delay-1">
         <span class="pc-badge">50% Off First Order · HBT-50</span>
         <div class="pc-media">
           <img src="images/estradiol-gel.png" alt="Estradiol topical gel" style="width:auto;height:200px;max-height:200px;display:block;margin:0 auto;object-fit:contain;" loading="lazy" decoding="async">
@@ -1977,7 +1979,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
       </div>
-      <div class="product-card featured animate delay-2">
+      <div id="tablet" class="product-card featured animate delay-2">
         <span class="pc-badge">50% Off First Order · HBT-50</span>
         <div class="pc-media">
           <img src="images/estradiol-oral-tablets-fed58db1.png" alt="Estradiol oral tablets" style="width:auto;height:200px;max-height:200px;display:block;margin:0 auto;object-fit:contain;" loading="lazy" decoding="async">
@@ -2015,7 +2017,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
       </div>
-      <div class="product-card featured animate delay-3">
+      <div id="progesterone" class="product-card featured animate delay-3">
         <span class="pc-badge">50% Off First Order · HBT-50</span>
         <div class="pc-media">
           <img src="images/progesterone-oral-tablets-823e3f4a.png" alt="Progesterone oral tablets" style="width:auto;height:200px;max-height:200px;display:block;margin:0 auto;object-fit:contain;" loading="lazy" decoding="async">
@@ -2064,7 +2066,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="section-subtitle">Sermorelin pairs naturally with hormone therapy to support recovery, vitality, and healthy aging.</p>
     <div class="pricing-grid editorial products-grid-all">
 
-      <div class="product-card animate">
+      <div id="anti-aging" class="product-card animate">
         <span class="pc-badge">50% Off First Month</span>
         <div class="pc-media">
           <img src="images/sermorelin-vial-fe352cf1.webp" alt="Sermorelin vial" loading="lazy" decoding="async">
@@ -2113,7 +2115,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="section-subtitle">Begin with a microdose entry point, or step into a full GLP-1 protocol.</p>
     <div class="pricing-grid editorial products-grid-all">
 
-      <div class="product-card featured animate">
+      <div id="weight-loss-micro" class="product-card featured animate">
         <span class="pc-badge">50% Off First Month</span>
         <div class="pc-media">
           <img src="images/semaglutide-microdose-vial-11243875.webp" alt="Semaglutide microdose vial" loading="lazy" decoding="async">
@@ -2151,7 +2153,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
       </div>
-      <div class="product-card featured animate delay-1">
+      <div id="weight-loss-plus-micro" class="product-card featured animate delay-1">
         <span class="pc-badge">50% Off First Month</span>
         <div class="pc-media">
           <img src="images/tirzepatide-microdose-vial-51fbe845.webp" alt="Tirzepatide microdose vial" loading="lazy" decoding="async">
@@ -2192,7 +2194,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
       </div>
-      <div class="product-card animate delay-2">
+      <div id="weight-loss" class="product-card animate delay-2">
         <span class="pc-badge">50% Off First Month</span>
         <div class="pc-media">
           <img src="images/semaglutide-microdose-vial-11243875.webp" alt="Semaglutide vial" loading="lazy" decoding="async">
@@ -2231,7 +2233,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
       </div>
-      <div class="product-card animate delay-3">
+      <div id="weight-loss-plus" class="product-card animate delay-3">
         <span class="pc-badge">50% Off First Month</span>
         <div class="pc-media">
           <img src="images/tirzepatide-microdose-vial-51fbe845.webp" alt="Tirzepatide vial" loading="lazy" decoding="async">
