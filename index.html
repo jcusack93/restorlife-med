@@ -1359,50 +1359,6 @@ footer {
   font-size: 11px; color: var(--moss); letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500;
 }
 
-/* "What are you looking to support?" pill selector */
-.support-selector {
-  background: var(--cream);
-  padding: 56px 32px;
-  text-align: center;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.support-selector-inner { max-width: 980px; margin: 0 auto; }
-.support-selector h3 {
-  font-family: var(--font-display); font-style: italic; font-weight: 400;
-  font-size: 36px; color: var(--ink); margin-bottom: 10px; line-height: 1.15;
-}
-.support-selector .ss-sub {
-  font-size: 14px; color: var(--ink-soft); margin-bottom: 32px;
-  max-width: 540px; margin-left: auto; margin-right: auto;
-}
-.support-pills {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
-  margin-top: 8px;
-}
-.support-pill {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 14px 24px;
-  background: var(--white); color: var(--ink);
-  border: 1px solid var(--border); border-radius: 999px;
-  font-size: 14px; font-weight: 500; letter-spacing: 0.2px;
-  cursor: pointer; transition: all 0.25s ease;
-  font-family: var(--font-body);
-}
-.support-pill:hover {
-  background: var(--moss-deep); color: var(--paper); border-color: var(--moss-deep);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(107,143,113,0.22);
-}
-.support-pill .pill-plus {
-  width: 18px; height: 18px; border-radius: 50%;
-  background: var(--wash); color: var(--moss-deep);
-  display: inline-flex; align-items: center; justify-content: center;
-  font-size: 14px; font-weight: 700; line-height: 1;
-  transition: all 0.25s ease;
-}
-.support-pill:hover .pill-plus { background: rgba(240,239,231,0.2); color: var(--paper); }
-
 /* Timeline section, "Week 1-2 / Week 4-6 / Month 2-3 / Month 3-6" */
 .timeline-section { background: var(--paper); padding: 68px 32px; }
 .timeline-inner { max-width: 1200px; margin: 0 auto; }
@@ -1731,9 +1687,6 @@ footer {
   .treatment-feature .tf-corner { font-size: 44px; top: 12px; right: 18px; }
 
   /* Support selector pills */
-  .support-selector { padding: 48px 20px; }
-  .support-selector h3 { font-size: 26px; }
-  .support-pill { padding: 11px 16px; font-size: 12.5px; }
 
   /* Timeline */
   .timeline-section { padding: 40px 20px; }
@@ -2675,20 +2628,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </section>
-<div class="support-selector">
-  <div class="support-selector-inner">
-    <div class="section-label">Personalize Your Path</div>
-    <h3>What are you looking to support?</h3>
-    <p class="ss-sub">Tell us what matters most. We'll help you find the right physician-guided protocol.</p>
-    <div class="support-pills">
-      <button class="support-pill" onclick="openAssessment()"><span class="pill-plus">+</span> Sustainable Weight Loss</button>
-      <button class="support-pill" onclick="openAssessment()"><span class="pill-plus">+</span> Appetite Control</button>
-      <button class="support-pill" onclick="openAssessment()"><span class="pill-plus">+</span> Metabolic Health</button>
-      <button class="support-pill" onclick="openAssessment()"><span class="pill-plus">+</span> Energy &amp; Mood</button>
-      <button class="support-pill" onclick="openAssessment()"><span class="pill-plus">+</span> All of the Above</button>
-    </div>
-  </div>
-</div>
 
 <!-- ═══════════ TIMELINE (Your GLP-1 Journey) ═══════════ -->
 
