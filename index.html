@@ -1906,6 +1906,35 @@ footer {
 :root { --hbt-h: 40px; }
 body { padding-top: var(--hbt-h, 0px); }
 @media (max-width: 640px){ :root { --hbt-h: 56px; } }
+
+/* ===== About section: dark panel + accordion (Alloy-style) ===== */
+#learn-more { background: var(--ink); }
+#learn-more .section-label { color: var(--sage); }
+#learn-more .section-label::before { background: var(--sage); }
+#learn-more .section-title { color: var(--paper); }
+#learn-more .section-subtitle { color: rgba(240,239,231,0.78); margin-bottom: 32px; }
+#learn-more .finder-microcopy { color: rgba(240,239,231,0.6); }
+#learn-more .btn-finder { background: var(--paper); color: var(--ink); box-shadow: 0 10px 26px rgba(0,0,0,0.30); }
+#learn-more .btn-finder:hover { background: #fff; box-shadow: 0 14px 34px rgba(0,0,0,0.40); }
+#learn-more .btn-finder::after { animation: bfPulseLight 2.6s ease-out infinite; }
+@keyframes bfPulseLight { 0%{box-shadow:0 0 0 0 rgba(245,242,232,0.45);} 70%{box-shadow:0 0 0 14px rgba(245,242,232,0);} 100%{box-shadow:0 0 0 0 rgba(245,242,232,0);} }
+@media (prefers-reduced-motion: reduce){ #learn-more .btn-finder::after{ animation: none; } }
+.learn-steps { display: flex; flex-direction: column; }
+.lstep { border-top: 1px solid rgba(240,239,231,0.16); }
+.lstep:last-child { border-bottom: 1px solid rgba(240,239,231,0.16); }
+.lstep-head { display: flex; align-items: center; gap: 16px; width: 100%; text-align: left; background: none; border: none; padding: 22px 4px; cursor: pointer; }
+.lstep-ico { width: 22px; height: 22px; flex-shrink: 0; color: var(--sage); display: inline-flex; }
+.lstep-ico svg { width: 100%; height: 100%; display: block; }
+.lstep-title { flex: 1; font-size: 16px; font-weight: 600; color: var(--paper); letter-spacing: 0.2px; }
+.lstep-plus { position: relative; width: 16px; height: 16px; flex-shrink: 0; }
+.lstep-plus::before, .lstep-plus::after { content: ''; position: absolute; background: var(--sage); border-radius: 1px; transition: opacity .25s; }
+.lstep-plus::before { top: 7px; left: 0; width: 16px; height: 2px; }
+.lstep-plus::after { left: 7px; top: 0; width: 2px; height: 16px; }
+.lstep-head[aria-expanded="true"] .lstep-plus::after { opacity: 0; }
+.lstep-body { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.lstep-body-inner { padding: 0 4px 22px 42px; color: rgba(240,239,231,0.75); font-size: 14px; line-height: 1.6; }
+.lstep-head[aria-expanded="true"] + .lstep-body { max-height: 220px; }
+@media (max-width: 860px){ .learn-grid { grid-template-columns: 1fr; gap: 40px; } }
 </style>
 </head>
 <body>
@@ -1967,32 +1996,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ═══════════ TRUST BAR ═══════════ -->
-<div class="trust-bar">
-  <div class="trust-bar-inner">
-    <div class="trust-item">
-      <span class="line-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></span>
-      FDA-Regulated Pharmacies
-    </div>
-    <div class="trust-item">
-      <span class="line-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z"/></svg></span>
-      HIPAA Compliant
-    </div>
-    <div class="trust-item">
-      <span class="line-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 22v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg></span>
-      U.S. Licensed Physicians
-    </div>
-    <div class="trust-item">
-      <span class="line-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8L12 3 3 8l9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></span>
-      Free Discreet Shipping
-    </div>
-    <div class="trust-item">
-      <span class="line-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>
-      Cancel Anytime
-    </div>
-  </div>
-</div>
-
 <!-- ═══════════ LEGITSCRIPT SEAL ═══════════ -->
 <div class="legitscript-strip">
   <span class="legitscript-label">Verified &amp; Approved</span>
@@ -2008,38 +2011,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="learn-content animate">
         <div class="section-label">About RestorLife Med</div>
         <h2 class="section-title">Medicine That Meets You Where You Are</h2>
-        <ul class="learn-points">
-          <li><span class="check">✓</span> Every patient is evaluated by a board-certified physician</li>
-          <li><span class="check">✓</span> Medications sourced exclusively from FDA-regulated, state-licensed compounding pharmacies</li>
-          <li><span class="check">✓</span> Ongoing clinical support with dosage adjustments</li>
-          <li><span class="check">✓</span> A community that has your back, from day one</li>
-        </ul>
+        <p class="section-subtitle">We make it easy to connect directly with a board-certified physician &mdash; no waiting rooms, no insurance battles.</p>
         <button class="btn-finder" onclick="openFinder()">
           <span class="bf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.4 8.6l-2.1 4.7-4.7 2.1 2.1-4.7z"/></svg></span>
           Find Your Treatment
         </button>
-        <p class="finder-microcopy">Takes 30 seconds · no signup · matched in 2 questions</p>
+        <p class="finder-microcopy">Takes 30 seconds &middot; no signup &middot; matched in 2 questions</p>
       </div>
-      <div class="learn-visual animate delay-2">
-        <div class="learn-stat-card">
-          <span class="line-icon lg"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 22v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg></span>
-          <h4>100%</h4>
-          <p>Physician-Reviewed Plans</p>
+      <div class="learn-steps animate delay-2">
+        <div class="lstep">
+          <button class="lstep-head" aria-expanded="false" onclick="toggleStep(this)">
+            <span class="lstep-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1z"/><path d="M8 5H6a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2"/><path d="M9 13l2 2 4-4"/></svg></span>
+            <span class="lstep-title">Physician-Led Care</span>
+            <span class="lstep-plus" aria-hidden="true"></span>
+          </button>
+          <div class="lstep-body"><div class="lstep-body-inner">Every patient is evaluated by a board-certified physician, who prescribes only when a treatment is right for you.</div></div>
         </div>
-        <div class="learn-stat-card">
-          <span class="line-icon lg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <h4>50</h4>
-          <p>States Covered</p>
+        <div class="lstep">
+          <button class="lstep-head" aria-expanded="false" onclick="toggleStep(this)">
+            <span class="lstep-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+            <span class="lstep-title">FDA-Regulated Pharmacies</span>
+            <span class="lstep-plus" aria-hidden="true"></span>
+          </button>
+          <div class="lstep-body"><div class="lstep-body-inner">Medications are sourced exclusively from FDA-regulated, state-licensed U.S. compounding pharmacies.</div></div>
         </div>
-        <div class="learn-stat-card">
-          <span class="line-icon lg"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-          <h4>5 min</h4>
-          <p>Assessment Time</p>
+        <div class="lstep">
+          <button class="lstep-head" aria-expanded="false" onclick="toggleStep(this)">
+            <span class="lstep-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v5h-5"/></svg></span>
+            <span class="lstep-title">Ongoing Clinical Support</span>
+            <span class="lstep-plus" aria-hidden="true"></span>
+          </button>
+          <div class="lstep-body"><div class="lstep-body-inner">Your care team monitors your progress and adjusts your dosage as your needs change.</div></div>
         </div>
-        <div class="learn-stat-card">
-          <span class="line-icon lg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8L12 3 3 8l9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg></span>
-          <h4>48hr</h4>
-          <p>Avg. Delivery</p>
+        <div class="lstep">
+          <button class="lstep-head" aria-expanded="false" onclick="toggleStep(this)">
+            <span class="lstep-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16 5.5a3 3 0 0 1 0 5"/><path d="M20.5 20a5.5 5.5 0 0 0-4-5.3"/></svg></span>
+            <span class="lstep-title">A Community Behind You</span>
+            <span class="lstep-plus" aria-hidden="true"></span>
+          </button>
+          <div class="lstep-body"><div class="lstep-body-inner">From day one, you have a dedicated care team and a community that has your back.</div></div>
         </div>
       </div>
     </div>
@@ -3222,6 +3232,10 @@ let formData = {};
 var BASK_ASSESSMENT_URL = 'https://restorlife-med.mybaskhealth.com/start-online-visit/weightloss';
 var PATIENT_PORTAL_URL = 'https://my.restorlifemed.com';
 
+function toggleStep(btn){
+  var open = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+}
 function openFinder() {
   document.getElementById('finderModal').classList.add('active');
   document.body.style.overflow = 'hidden';
