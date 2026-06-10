@@ -1955,7 +1955,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="pdp-tier-price">
-            <div class="pdp-tier-now">$100/mo</div>
+            <div class="pdp-tier-now">$99/mo</div>
             <div class="pdp-tier-was">$199/mo</div>
           </div>
         </div>
@@ -2803,7 +2803,7 @@ function updateDosePricing(){
     var nowEl = tier.querySelector('.pdp-tier-now');
     var wasEl = tier.querySelector('.pdp-tier-was');
     var wasVal, nowVal;
-    if(tierKey === '1') { wasVal = monthlyWas; nowVal = Math.round(monthlyWas * 0.5); }
+    if(tierKey === '1') { wasVal = monthlyWas; nowVal = Math.floor(monthlyWas * 0.5); }
     else if(tierKey === '3') { wasVal = quarterlyWas; nowVal = Math.round(quarterlyWas * 0.5); }
     else return;
     if(nowEl) nowEl.textContent = '$' + nowVal + '/mo';
