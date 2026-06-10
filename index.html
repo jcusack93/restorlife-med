@@ -1935,6 +1935,12 @@ body { padding-top: var(--hbt-h, 0px); }
 .lstep-body-inner { padding: 0 4px 22px 42px; color: rgba(240,239,231,0.75); font-size: 14px; line-height: 1.6; }
 .lstep-head[aria-expanded="true"] + .lstep-body { max-height: 220px; }
 @media (max-width: 860px){ .learn-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+/* LegitScript seal moved into the dark About panel */
+.learn-verify { display: inline-flex; align-items: center; gap: 14px; margin-top: 30px; }
+.learn-verify .legitscript-seal { display: inline-block; line-height: 0; }
+.learn-verify .legitscript-seal img { width: 60px; height: 65px; }
+.learn-verify-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); line-height: 1.6; }
 </style>
 </head>
 <body>
@@ -1996,14 +2002,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ═══════════ LEGITSCRIPT SEAL ═══════════ -->
-<div class="legitscript-strip">
-  <span class="legitscript-label">Verified &amp; Approved</span>
-  <a href="https://www.legitscript.com/websites/?checker_keywords=restorlifemed.com" target="_blank" rel="noopener" title="Verify LegitScript Approval for www.restorlifemed.com" class="legitscript-seal">
-    <img src="https://static.legitscript.com/seals/50400451.png" alt="Verify Approval for www.restorlifemed.com" width="73" height="79" />
-  </a>
-</div>
-
 <!-- ═══════════ LEARN MORE / ABOUT ═══════════ -->
 <section id="learn-more">
   <div class="section-inner">
@@ -2011,12 +2009,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="learn-content animate">
         <div class="section-label">About RestorLife Med</div>
         <h2 class="section-title">Medicine That Meets You Where You Are</h2>
-        <p class="section-subtitle">We make it easy to connect directly with a board-certified physician &mdash; no waiting rooms, no insurance battles.</p>
         <button class="btn-finder" onclick="openFinder()">
           <span class="bf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.4 8.6l-2.1 4.7-4.7 2.1 2.1-4.7z"/></svg></span>
           Find Your Treatment
         </button>
         <p class="finder-microcopy">Takes 30 seconds &middot; no signup &middot; matched in 2 questions</p>
+        <div class="learn-verify">
+          <a href="https://www.legitscript.com/websites/?checker_keywords=restorlifemed.com" target="_blank" rel="noopener" title="Verify LegitScript Approval for www.restorlifemed.com" class="legitscript-seal">
+            <img src="https://static.legitscript.com/seals/50400451.png" alt="Verify Approval for www.restorlifemed.com" width="60" height="65" loading="lazy" decoding="async" />
+          </a>
+          <span class="learn-verify-label">Verified &amp; Approved<br>by LegitScript</span>
+        </div>
       </div>
       <div class="learn-steps animate delay-2">
         <div class="lstep">
