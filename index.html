@@ -1864,6 +1864,42 @@ footer {
 .products-stickyhead .section-title { color: #fff; margin-bottom: 0; }
 .products-stickyhead .section-title em { color: #fff; }
 @media (max-width: 768px) { .products-stickyhead { top: 68px; padding: 12px 0; } }
+
+/* ===== About CTA: special treatment-finder button ===== */
+.btn-finder { display:inline-flex; align-items:center; gap:10px; background:linear-gradient(135deg, var(--moss) 0%, var(--ink) 100%); color:#fff; border:none; cursor:pointer; padding:15px 30px; border-radius:999px; font-family:var(--font-body); font-weight:600; font-size:15px; letter-spacing:0.3px; box-shadow:0 10px 26px rgba(63,74,56,0.22); transition:transform .25s, box-shadow .25s; position:relative; }
+.btn-finder:hover { transform:translateY(-2px); box-shadow:0 14px 34px rgba(63,74,56,0.34); }
+.btn-finder .bf-icon { width:20px; height:20px; display:inline-flex; }
+.btn-finder .bf-icon svg { width:100%; height:100%; }
+.btn-finder::after { content:''; position:absolute; inset:0; border-radius:999px; animation:bfPulse 2.6s ease-out infinite; pointer-events:none; }
+@keyframes bfPulse { 0%{box-shadow:0 0 0 0 rgba(126,140,114,0.5);} 70%{box-shadow:0 0 0 14px rgba(126,140,114,0);} 100%{box-shadow:0 0 0 0 rgba(126,140,114,0);} }
+.finder-microcopy { font-size:12.5px; color:var(--moss); margin-top:11px; letter-spacing:0.2px; }
+@media (prefers-reduced-motion: reduce){ .btn-finder::after{ animation:none; } }
+
+/* ===== product card key fact (compact, keeps cards lean) ===== */
+.product-card .pc-subtitle { margin-bottom:2px; }
+.product-card .pc-media { margin-bottom:10px; }
+.pc-keyinfo { display:flex; align-items:center; gap:7px; font-size:12.5px; font-weight:600; color:var(--moss); letter-spacing:0.2px; margin:0 0 12px; }
+.pc-keyinfo .ki-mark { color:var(--moss); font-size:10px; }
+
+/* ===== Treatment finder modal ===== */
+.finder-step { display:none; }
+.finder-step.active { display:block; animation:modalIn .3s ease; }
+.finder-step h3 { font-family:var(--font-display); font-style:italic; font-weight:400; font-size:23px; color:var(--ink); margin-bottom:18px; letter-spacing:-0.2px; }
+.finder-options { display:flex; flex-direction:column; gap:12px; }
+.finder-opt { text-align:left; background:var(--white); border:1.5px solid var(--border); border-radius:14px; padding:16px 18px; cursor:pointer; transition:all .2s; display:flex; flex-direction:column; gap:3px; width:100%; }
+.finder-opt:hover { border-color:var(--moss); background:var(--cream); transform:translateY(-1px); }
+.finder-opt .fo-label { font-weight:700; font-size:15px; color:var(--ink); }
+.finder-opt .fo-desc { font-size:13px; color:var(--moss); }
+.finder-back { background:none; border:none; color:var(--moss); font-size:13px; cursor:pointer; padding:0; margin-bottom:14px; font-weight:600; }
+.finder-back:hover { color:var(--ink); }
+.finder-result-sub { font-size:14px; color:var(--ink-soft); margin-bottom:16px; }
+.finder-rec { display:flex; align-items:center; justify-content:space-between; gap:14px; text-decoration:none; background:var(--white); border:1.5px solid var(--border); border-radius:14px; padding:14px 18px; margin-bottom:10px; transition:all .2s; }
+.finder-rec:hover { border-color:var(--moss); background:var(--cream); transform:translateY(-1px); }
+.finder-rec .fr-name { display:block; font-weight:700; font-size:15px; color:var(--ink); }
+.finder-rec .fr-note { display:block; font-size:12.5px; color:var(--moss); margin-top:2px; }
+.finder-rec .fr-arrow { color:var(--moss); font-size:18px; flex-shrink:0; }
+.finder-fine { font-size:11.5px; color:var(--moss); margin-top:18px; line-height:1.5; }
+
 </style>
 </head>
 <body>
@@ -1966,14 +2002,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="learn-content animate">
         <div class="section-label">About RestorLife Med</div>
         <h2 class="section-title">Medicine That Meets You Where You Are</h2>
-        <p class="section-subtitle">We believe that advanced, physician-guided therapy shouldn't require waiting rooms or insurance battles. RestorLife Med brings physician-prescribed GLP-1 &amp; Longevity protocols directly to your door.</p>
         <ul class="learn-points">
           <li><span class="check">✓</span> Every patient is evaluated by a board-certified physician</li>
           <li><span class="check">✓</span> Medications sourced exclusively from FDA-regulated, state-licensed compounding pharmacies</li>
           <li><span class="check">✓</span> Ongoing clinical support with dosage adjustments</li>
           <li><span class="check">✓</span> A community that has your back, from day one</li>
         </ul>
-        <button class="btn-sage" onclick="openAssessment()">Find Your Treatment →</button>
+        <button class="btn-finder" onclick="openFinder()">
+          <span class="bf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.4 8.6l-2.1 4.7-4.7 2.1 2.1-4.7z"/></svg></span>
+          Find Your Treatment
+        </button>
+        <p class="finder-microcopy">Takes 30 seconds · no signup · matched in 2 questions</p>
       </div>
       <div class="learn-visual animate delay-2">
         <div class="learn-stat-card">
@@ -2064,6 +2103,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <h3 class="pc-title">Hormone Balancing Therapy Patch</h3>
           <p class="pc-subtitle">Estradiol, transdermal patch</p>
+          <p class="pc-keyinfo"><span class="ki-mark" aria-hidden="true">✓</span>Best for hands-off, twice-weekly dosing</p>
 
           <div class="pc-actions">
             <a href="product-hormone-patch.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
@@ -2100,6 +2140,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="pc-eyebrow">Hormone Therapy</div>
           <h3 class="pc-title">Hormone Balancing Therapy Gel</h3>
           <p class="pc-subtitle">Estradiol, topical gel</p>
+          <p class="pc-keyinfo"><span class="ki-mark" aria-hidden="true">✓</span>Best for flexible daily dosing</p>
 
           <div class="pc-actions">
             <a href="product-hormone-gel.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
@@ -2136,6 +2177,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="pc-eyebrow">Hormone Therapy</div>
           <h3 class="pc-title">Hormone Balancing Therapy Tablet</h3>
           <p class="pc-subtitle">Estradiol, oral tablets</p>
+          <p class="pc-keyinfo"><span class="ki-mark" aria-hidden="true">✓</span>Best for a simple once-daily pill</p>
 
           <div class="pc-actions">
             <a href="product-hormone-tablet.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
@@ -2172,6 +2214,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="pc-eyebrow">Hormone Therapy</div>
           <h3 class="pc-title">Hormone Balancing Therapy Progesterone</h3>
           <p class="pc-subtitle">Progesterone, oral tablets</p>
+          <p class="pc-keyinfo"><span class="ki-mark" aria-hidden="true">✓</span>Best paired with estrogen therapy</p>
 
           <div class="pc-actions">
             <a href="product-hormone-progesterone.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
@@ -2255,6 +2298,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="pc-eyebrow">Anti-Aging</div>
           <h3 class="pc-title">Anti Aging</h3>
           <p class="pc-subtitle">Sermorelin, a natural complement to hormone therapy</p>
+          <p class="pc-keyinfo"><span class="ki-mark" aria-hidden="true">✓</span>Best for recovery, sleep & vitality support</p>
 
           <div class="pc-actions">
             <a href="product-anti-aging.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
@@ -2338,6 +2382,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="pc-eyebrow">GLP-1 Microdose</div>
           <h3 class="pc-title">Weight Loss Micro</h3>
           <p class="pc-subtitle">Semaglutide microdose, a gentle entry point</p>
+          <p class="pc-keyinfo"><span class="ki-mark" aria-hidden="true">✓</span>Best for easing into GLP-1 therapy</p>
 
           <div class="pc-actions">
             <a href="product-weight-loss-micro.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
@@ -2377,6 +2422,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <h3 class="pc-title">Weight Loss + Micro</h3>
           <p class="pc-subtitle">Tirzepatide microdose, dual-pathway entry</p>
+          <p class="pc-keyinfo"><span class="ki-mark" aria-hidden="true">✓</span>Best for a gentle dual-action start</p>
 
           <div class="pc-actions">
             <a href="product-weight-loss-plus-micro.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
@@ -2413,6 +2459,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="pc-eyebrow">GLP-1 Protocol</div>
           <h3 class="pc-title">Weight Loss</h3>
           <p class="pc-subtitle">Semaglutide, the original GLP-1 protocol</p>
+          <p class="pc-keyinfo"><span class="ki-mark" aria-hidden="true">✓</span>Best for a full GLP-1 protocol</p>
 
           <div class="pc-actions">
             <a href="product-weight-loss.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
@@ -2453,6 +2500,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <h3 class="pc-title">Weight Loss +</h3>
           <p class="pc-subtitle">Tirzepatide, dual-pathway therapy</p>
+          <p class="pc-keyinfo"><span class="ki-mark" aria-hidden="true">✓</span>Best for dual-action GIP + GLP-1 therapy</p>
 
           <div class="pc-actions">
             <a href="product-weight-loss-plus.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
@@ -2749,6 +2797,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- ═══════════ ASSESSMENT MODAL ═══════════ -->
+<div class="modal-overlay" id="finderModal">
+  <div class="modal finder-modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeFinder()">✕</button>
+    <div class="modal-header">
+      <h2>Find Your Treatment</h2>
+      <p>Two quick questions · matched in about 30 seconds</p>
+    </div>
+    <div class="modal-body">
+      <div class="finder-step active" id="fStep1">
+        <h3>What's your main goal?</h3>
+        <div class="finder-options">
+          <button class="finder-opt" onclick="finderGoal('weight')"><span class="fo-label">Lose weight</span><span class="fo-desc">GLP-1 therapy for weight management</span></button>
+          <button class="finder-opt" onclick="finderGoal('hormone')"><span class="fo-label">Balance my hormones</span><span class="fo-desc">Estradiol &amp; progesterone therapy</span></button>
+          <button class="finder-opt" onclick="finderGoal('longevity')"><span class="fo-label">Recover &amp; feel my best</span><span class="fo-desc">Sermorelin for recovery &amp; vitality</span></button>
+        </div>
+      </div>
+      <div class="finder-step" id="fStep2">
+        <button class="finder-back" onclick="finderBack()">← Back</button>
+        <h3 id="fStep2Q"></h3>
+        <div class="finder-options" id="fStep2Opts"></div>
+      </div>
+      <div class="finder-step" id="fResult">
+        <button class="finder-back" onclick="finderBack()">← Back</button>
+        <h3>Your match</h3>
+        <p class="finder-result-sub" id="fResultSub"></p>
+        <div id="fResultCards"></div>
+        <p class="finder-fine">A board-certified physician reviews your information and confirms whether a treatment is appropriate for you.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal-overlay" id="assessmentModal">
   <div class="modal" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeAssessment()">✕</button>
@@ -3135,6 +3215,81 @@ let formData = {};
 
 var BASK_ASSESSMENT_URL = 'https://restorlife-med.mybaskhealth.com/start-online-visit/weightloss';
 var PATIENT_PORTAL_URL = 'https://my.restorlifemed.com';
+
+function openFinder() {
+  document.getElementById('finderModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  resetFinder();
+}
+function closeFinder() {
+  document.getElementById('finderModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function resetFinder() { finderState = { goal: null, sub: null }; showFinderStep('fStep1'); }
+function showFinderStep(id) {
+  document.querySelectorAll('#finderModal .finder-step').forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+}
+var finderState = { goal: null, sub: null };
+var FINDER_Q = {
+  weight: { q: "How would you like to begin?", opts: [
+    { label: "Ease in gently", desc: "Start low and let your body adjust", key: "micro" },
+    { label: "Start a full protocol", desc: "Begin at a standard therapeutic dose", key: "full" } ] },
+  hormone: { q: "What are you looking for?", opts: [
+    { label: "Estrogen (estradiol) therapy", desc: "Patch, gel, or daily tablet", key: "estro" },
+    { label: "Progesterone support", desc: "Often paired with estrogen therapy", key: "prog" } ] }
+};
+var FINDER_P = {
+  wlmicro:     { name: "Weight Loss Micro",        note: "Low-dose semaglutide \u2014 a gentle GLP-1 starting point",  url: "product-weight-loss-micro.html" },
+  wlplusmicro: { name: "Weight Loss + Micro",      note: "Low-dose tirzepatide \u2014 a gentle dual-action start",     url: "product-weight-loss-plus-micro.html" },
+  wl:          { name: "Weight Loss",              note: "Semaglutide (GLP-1), full physician-guided protocol",          url: "product-weight-loss.html" },
+  wlplus:      { name: "Weight Loss +",            note: "Tirzepatide \u2014 dual-action GIP / GLP-1 therapy",          url: "product-weight-loss-plus.html" },
+  patch:       { name: "Hormone Therapy Patch",    note: "Estradiol via a twice-weekly transdermal patch",               url: "product-hormone-patch.html" },
+  gel:         { name: "Hormone Therapy Gel",      note: "Estradiol gel, easy to fine-tune day to day",                  url: "product-hormone-gel.html" },
+  tablet:      { name: "Hormone Therapy Tablet",   note: "Estradiol in a simple once-daily tablet",                      url: "product-hormone-tablet.html" },
+  prog:        { name: "Hormone Therapy Progesterone", note: "Oral progesterone, often paired with estrogen",            url: "product-hormone-progesterone.html" },
+  sermorelin:  { name: "Anti Aging (Sermorelin)",  note: "Supports your body's own growth-hormone production",           url: "product-anti-aging.html" }
+};
+function finderGoal(goal) {
+  finderState.goal = goal; finderState.sub = null;
+  if (goal === 'longevity') { renderRec(['sermorelin'], "For recovery, sleep, and everyday vitality:"); return; }
+  var cfg = FINDER_Q[goal];
+  document.getElementById('fStep2Q').textContent = cfg.q;
+  var wrap = document.getElementById('fStep2Opts'); wrap.innerHTML = '';
+  cfg.opts.forEach(function(o){
+    var b = document.createElement('button'); b.className = 'finder-opt';
+    b.onclick = function(){ finderSub(o.key); };
+    b.innerHTML = '<span class="fo-label">' + o.label + '</span><span class="fo-desc">' + o.desc + '</span>';
+    wrap.appendChild(b);
+  });
+  showFinderStep('fStep2');
+}
+function finderSub(key) {
+  finderState.sub = key; var recs = [], sub = '';
+  if (finderState.goal === 'weight') {
+    if (key === 'micro') { recs = ['wlmicro','wlplusmicro']; sub = "Gentle, low-dose starting points:"; }
+    else { recs = ['wl','wlplus']; sub = "Full, physician-guided protocols:"; }
+  } else if (finderState.goal === 'hormone') {
+    if (key === 'estro') { recs = ['patch','gel','tablet']; sub = "Estradiol options \u2014 pick the format that fits your routine:"; }
+    else { recs = ['prog']; sub = "Progesterone support:"; }
+  }
+  renderRec(recs, sub);
+}
+function renderRec(keys, sub) {
+  document.getElementById('fResultSub').textContent = sub;
+  var wrap = document.getElementById('fResultCards'); wrap.innerHTML = '';
+  keys.forEach(function(k){
+    var pr = FINDER_P[k]; var a = document.createElement('a'); a.className = 'finder-rec'; a.href = pr.url;
+    a.innerHTML = '<span class="fr-text"><span class="fr-name">' + pr.name + '</span><span class="fr-note">' + pr.note + '</span></span><span class="fr-arrow">\u2192</span>';
+    wrap.appendChild(a);
+  });
+  showFinderStep('fResult');
+}
+function finderBack() {
+  if (document.getElementById('fResult').classList.contains('active') && finderState.goal !== 'longevity') { showFinderStep('fStep2'); }
+  else { resetFinder(); }
+}
+document.getElementById('finderModal').addEventListener('click', function(e){ if (e.target === this) closeFinder(); });
 
 function openAssessment() {
   // Browse-first flow: send patients to the treatments page to choose a product,
