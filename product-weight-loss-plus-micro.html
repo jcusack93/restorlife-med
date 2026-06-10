@@ -1809,6 +1809,7 @@ footer {
     padding: 14px 22px; font-size: 11px; letter-spacing: 1.2px;
   }
 }
+
 </style>
 
 <style>
@@ -1827,8 +1828,13 @@ footer {
   .pdp-eyebrow { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--moss); margin-bottom: 12px; }
   .pdp-title { font-family: var(--font-display); font-size: 44px; line-height: 1.05; color: var(--ink); margin: 0 0 8px; }
   .pdp-sub { font-family: var(--font-body); font-size: 15px; color: var(--moss-deep); margin: 0 0 24px; }
-  .pdp-cta { display: block; width: 100%; text-align: center; background: var(--moss-deep); color: var(--paper); border: none; border-radius: 999px; padding: 18px; font-family: var(--font-body); font-size: 15px; font-weight: 600; letter-spacing: 0.5px; cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.1s; }
-  .pdp-cta:hover { background: var(--ink); transform: translateY(-1px); }
+  .pdp-cta { position: relative; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-align: center; background: linear-gradient(135deg, var(--moss) 0%, var(--ink) 100%); color: var(--paper); border: none; border-radius: 999px; padding: 18px; font-family: var(--font-body); font-size: 15px; font-weight: 600; letter-spacing: 0.5px; cursor: pointer; text-decoration: none; box-shadow: 0 10px 26px rgba(63,74,56,0.22); transition: transform 0.25s, box-shadow 0.25s; }
+  .pdp-cta:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(63,74,56,0.34); }
+  .pdp-cta .cta-ico { width: 18px; height: 18px; display: inline-flex; flex-shrink: 0; }
+  .pdp-cta .cta-ico svg { width: 100%; height: 100%; display: block; }
+  .pdp-cta::after { content: ''; position: absolute; inset: 0; border-radius: 999px; animation: ctaPulse 2.6s ease-out infinite; pointer-events: none; }
+  @keyframes ctaPulse { 0%{box-shadow:0 0 0 0 rgba(126,140,114,0.5);} 70%{box-shadow:0 0 0 14px rgba(126,140,114,0);} 100%{box-shadow:0 0 0 0 rgba(126,140,114,0);} }
+  @media (prefers-reduced-motion: reduce){ .pdp-cta::after{ animation: none; } }
   .pdp-nocharge { text-align: center; font-family: var(--font-body); font-size: 12.5px; color: var(--moss-deep); margin: 12px 0 22px; line-height: 1.5; }
   .pdp-tier { display: flex; align-items: center; justify-content: space-between; border: 1.25px solid var(--border); border-radius: 10px; padding: 8px 12px; margin-bottom: 7px; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
   .pdp-tier:hover { border-color: var(--sage); }
@@ -1908,7 +1914,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="pdp-eyebrow">Dual GIP / GLP-1 Microdose</div>
       <h1 class="pdp-title">Weight Loss + Micro</h1>
       <p class="pdp-sub">Tirzepatide microdose · dual-pathway entry</p>
-      <a href="https://start.restorlifemed.com/start-online-visit/micro" class="pdp-cta" target="_blank" rel="noopener">Take Your Free Assessment</a>
+      <a href="https://start.restorlifemed.com/start-online-visit/micro" class="pdp-cta" target="_blank" rel="noopener"><span class="cta-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1z"/><path d="M8 5H6a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2"/><path d="M9 13l2 2 4-4"/></svg></span>Take Your Free Assessment</a>
       <p class="pdp-nocharge">A pending charge will appear, but won't process until your prescription is approved.</p>
         <div class="pdp-tier active" data-tier="1" onclick="selectTier(this)">
           <div class="pdp-tier-left"><span class="pdp-radio"></span>
