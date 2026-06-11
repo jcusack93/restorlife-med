@@ -241,7 +241,7 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
 .hero {
   padding: 0;
   position: relative; overflow: hidden;
-  min-height: 95vh;
+  min-height: 58vh;
   display: flex; align-items: flex-end;
   margin: 88px 24px 0; /* clear fixed nav + inset from screen edges */
   border-radius: 24px;
@@ -265,7 +265,7 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
 .hero-inner {
   position: relative; z-index: 1;
   max-width: 1200px; margin: 0 auto;
-  padding: 40px 32px 70px;
+  padding: 40px 32px 52px;
   display: block;
   color: var(--paper);
   width: 100%;
@@ -305,8 +305,8 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
 .hero-text {
   font-family: var(--font-display); font-style: italic; font-weight: 700;
   font-size: 19px; color: var(--paper); line-height: 1.45;
-  margin-bottom: 32px; max-width: none; letter-spacing: 0.1px;
-  white-space: nowrap;
+  margin-bottom: 0; max-width: 620px; letter-spacing: 0.1px;
+  white-space: normal;
   text-shadow: 0 2px 12px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.6);
 }
 .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
@@ -323,6 +323,15 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.06); }
   border-radius: 999px;
 }
 .hero .btn-secondary:hover { border-color: var(--paper); background: rgba(240,239,231,0.1); color: var(--paper); }
+
+/* Find Your Treatment CTA in hero (light treatment on dark photo) */
+.hero-cta { margin-top: 30px; }
+.hero .btn-finder { background: var(--paper); color: var(--ink); box-shadow: 0 10px 26px rgba(0,0,0,0.32); }
+.hero .btn-finder:hover { background: #fff; }
+.hero .finder-microcopy { color: rgba(240,239,231,0.92); text-shadow: 0 1px 6px rgba(0,0,0,0.55); }
+.hero .btn-finder::after { animation: bfPulseHero 2.2s ease-out infinite; }
+@keyframes bfPulseHero { 0%{box-shadow:0 0 0 0 rgba(245,242,232,0.7);} 70%{box-shadow:0 0 0 20px rgba(245,242,232,0);} 100%{box-shadow:0 0 0 0 rgba(245,242,232,0);} }
+@media (prefers-reduced-motion: reduce){ .hero .btn-finder::after { animation: none; } }
 
 .btn-primary {
   background: var(--ink); color: var(--paper);
@@ -1634,7 +1643,7 @@ footer {
   .logo-mark { width: 34px; height: 34px; }
 
   /* Hero */
-  .hero { min-height: 78vh; margin: 76px 12px 0; border-radius: 16px; }
+  .hero { min-height: 56vh; margin: 76px 12px 0; border-radius: 16px; }
   .hero-bg, .hero-bg::after { border-radius: 16px; }
   .hero-inner { padding: 40px 22px 50px; }
   .hero h1 { font-size: 38px; line-height: 1.05; letter-spacing: -0.5px; white-space: normal; }
@@ -1940,10 +1949,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hero-content animate">
       <div class="hero-badge"><span class="dot"></span> Now Accepting Patients</div>
       <h1>BECOME THE <em>strongest</em> VERSION OF YOU.</h1>
-      <p class="hero-text">Physician-guided GLP-1 therapy, built around your biology, not a one-size-fits-all protocol.</p>
-      <div class="hero-actions">
-        <button class="btn-primary" onclick="openAssessment()">Explore Your Options →</button>
-        <a href="#how" class="btn-secondary">How It Works</a>
+      <p class="hero-text">Physician-guided weight loss, hormone therapy, and healthy-aging care — personalized to your biology.</p>
+      <div class="hero-cta">
+        <button class="btn-finder" onclick="openFinder()">
+          <span class="bf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.4 8.6l-2.1 4.7-4.7 2.1 2.1-4.7z"/></svg></span>
+          Find Your Treatment
+        </button>
       </div>
     </div>
   </div>
