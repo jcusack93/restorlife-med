@@ -1574,6 +1574,26 @@ footer {
   color: var(--moss-deep); font-weight: 700;
   background: var(--wash); padding: 3px 9px; border-radius: 999px;
 }
+.pc-bundles {
+  display: flex; flex-direction: column; margin-bottom: 14px;
+}
+.pc-bundle {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding: 7px 0; border-top: 1px solid rgba(63,74,56,0.10);
+}
+.pc-bundle:first-child { border-top: none; padding-top: 2px; }
+.pc-bundle-term {
+  font-family: var(--font-body); font-size: 13px; color: var(--moss);
+  letter-spacing: 0.3px;
+}
+.pc-bundle-price { display: inline-flex; align-items: baseline; gap: 6px; }
+.pc-bundle-now {
+  font-family: var(--font-body); font-size: 19px; font-weight: 600;
+  color: var(--ink); letter-spacing: -0.3px;
+}
+.pc-bundle-was { font-size: 13px; color: var(--ink-mute); text-decoration: line-through; }
+.pc-bundle-unit { font-size: 12px; color: var(--moss); }
+
 .pc-billing {
   font-size: 13px; color: var(--ink); font-weight: 500; margin-bottom: 18px;
   letter-spacing: 0.1px;
@@ -1918,12 +1938,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="product-hormone-patch.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
           </div>
 
-          <div class="pc-price-row">
-            <span class="pc-msrp">$129</span>
-            <span class="pc-now">$65</span>
-            <span class="pc-discount">50% Off</span>
+                    <div class="pc-bundles">
+            <div class="pc-bundle"><span class="pc-bundle-term">1 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$65</span><span class="pc-bundle-was">$129</span><span class="pc-bundle-unit">/mo</span></span></div>
+            <div class="pc-bundle"><span class="pc-bundle-term">3 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$50</span><span class="pc-bundle-was">$100</span><span class="pc-bundle-unit">/mo</span></span></div>
           </div>
-          <p class="pc-billing">Billed every month · Use code HBT-50 at checkout</p>
+          <p class="pc-billing">Per month &middot; use code HBT-50 for 50% off your first order</p>
           <p class="pc-refund">Full refund if a licensed clinician determines this isn't right for you.</p>
 
           <div class="pc-included">
@@ -1956,12 +1975,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="product-hormone-gel.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
           </div>
 
-          <div class="pc-price-row">
-            <span class="pc-msrp">$139</span>
-            <span class="pc-now">$70</span>
-            <span class="pc-discount">50% Off</span>
+                    <div class="pc-bundles">
+            <div class="pc-bundle"><span class="pc-bundle-term">1 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$70</span><span class="pc-bundle-was">$139</span><span class="pc-bundle-unit">/mo</span></span></div>
+            <div class="pc-bundle"><span class="pc-bundle-term">3 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$65</span><span class="pc-bundle-was">$130</span><span class="pc-bundle-unit">/mo</span></span></div>
           </div>
-          <p class="pc-billing">Billed every month · Use code HBT-50 at checkout</p>
+          <p class="pc-billing">Per month &middot; use code HBT-50 for 50% off your first order</p>
           <p class="pc-refund">Full refund if a licensed clinician determines this isn't right for you.</p>
 
           <div class="pc-included">
@@ -1994,12 +2012,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="product-hormone-tablet.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
           </div>
 
-          <div class="pc-price-row">
-            <span class="pc-msrp">$49</span>
-            <span class="pc-now">$25</span>
-            <span class="pc-discount">50% Off</span>
+                    <div class="pc-bundles">
+            <div class="pc-bundle"><span class="pc-bundle-term">1 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$25</span><span class="pc-bundle-was">$49</span><span class="pc-bundle-unit">/mo</span></span></div>
+            <div class="pc-bundle"><span class="pc-bundle-term">3 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$13</span><span class="pc-bundle-was">$26</span><span class="pc-bundle-unit">/mo</span></span></div>
           </div>
-          <p class="pc-billing">Billed every month · Use code HBT-50 at checkout</p>
+          <p class="pc-billing">Per month &middot; use code HBT-50 for 50% off your first order</p>
           <p class="pc-refund">Full refund if a licensed clinician determines this isn't right for you.</p>
 
           <div class="pc-included">
@@ -2032,12 +2049,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="product-hormone-progesterone.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
           </div>
 
-          <div class="pc-price-row">
-            <span class="pc-msrp">$37</span>
-            <span class="pc-now">$19</span>
-            <span class="pc-discount">50% Off</span>
+                    <div class="pc-bundles">
+            <div class="pc-bundle"><span class="pc-bundle-term">1 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$19</span><span class="pc-bundle-was">$37</span><span class="pc-bundle-unit">/mo</span></span></div>
+            <div class="pc-bundle"><span class="pc-bundle-term">3 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$15</span><span class="pc-bundle-was">$29</span><span class="pc-bundle-unit">/mo</span></span></div>
           </div>
-          <p class="pc-billing">Billed every month · Use code HBT-50 at checkout</p>
+          <p class="pc-billing">Per month &middot; use code HBT-50 for 50% off your first order</p>
           <p class="pc-refund">Full refund if a licensed clinician determines this isn't right for you.</p>
 
           <div class="pc-included">
@@ -2081,12 +2097,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="product-anti-aging.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
           </div>
 
-          <div class="pc-price-row">
-            <span class="pc-msrp">$299</span>
-            <span class="pc-now">$149</span>
-            <span class="pc-discount">50% Off</span>
+                    <div class="pc-bundles">
+            <div class="pc-bundle"><span class="pc-bundle-term">1 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$149</span><span class="pc-bundle-was">$299</span><span class="pc-bundle-unit">/mo</span></span></div>
+            <div class="pc-bundle"><span class="pc-bundle-term">3 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$150</span><span class="pc-bundle-was">$180</span><span class="pc-bundle-unit">/mo</span></span></div>
+            <div class="pc-bundle"><span class="pc-bundle-term">6 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$209</span><span class="pc-bundle-was">$299</span><span class="pc-bundle-unit">/mo</span></span></div>
           </div>
-          <p class="pc-billing">Billed every month · First month special</p>
+          <p class="pc-billing">Per month &middot; 50% off your first month</p>
           <p class="pc-refund">Full refund if a licensed clinician determines this isn't right for you.</p>
 
           <div class="pc-included">
@@ -2130,12 +2146,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="product-weight-loss-micro.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
           </div>
 
-          <div class="pc-price-row">
-            <span class="pc-msrp">$219</span>
-            <span class="pc-now">$109</span>
-            <span class="pc-discount">50% Off</span>
+                    <div class="pc-bundles">
+            <div class="pc-bundle"><span class="pc-bundle-term">1 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$109</span><span class="pc-bundle-was">$219</span><span class="pc-bundle-unit">/mo</span></span></div>
+            <div class="pc-bundle"><span class="pc-bundle-term">3 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$93</span><span class="pc-bundle-was">$116</span><span class="pc-bundle-unit">/mo</span></span></div>
           </div>
-          <p class="pc-billing">Billed every month · First month special</p>
+          <p class="pc-billing">Per month &middot; 50% off your first month</p>
           <p class="pc-refund">Full refund if a licensed clinician determines this isn't right for you.</p>
 
           <div class="pc-included">
@@ -2171,12 +2186,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="product-weight-loss-plus-micro.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
           </div>
 
-          <div class="pc-price-row">
-            <span class="pc-msrp">$299</span>
-            <span class="pc-now">$149</span>
-            <span class="pc-discount">50% Off</span>
+                    <div class="pc-bundles">
+            <div class="pc-bundle"><span class="pc-bundle-term">1 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$149</span><span class="pc-bundle-was">$299</span><span class="pc-bundle-unit">/mo</span></span></div>
+            <div class="pc-bundle"><span class="pc-bundle-term">3 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$156</span><span class="pc-bundle-was">$257</span><span class="pc-bundle-unit">/mo</span></span></div>
           </div>
-          <p class="pc-billing">Billed every month · First month special</p>
+          <p class="pc-billing">Per month &middot; 50% off your first month</p>
           <p class="pc-refund">Full refund if a licensed clinician determines this isn't right for you.</p>
 
           <div class="pc-included">
@@ -2209,12 +2223,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="product-weight-loss.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
           </div>
 
-          <div class="pc-price-row">
-            <span class="pc-msrp">$299</span>
-            <span class="pc-now">$149</span>
-            <span class="pc-discount">50% Off</span>
+                    <div class="pc-bundles">
+            <div class="pc-bundle"><span class="pc-bundle-term">1 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$149</span><span class="pc-bundle-was">$299</span><span class="pc-bundle-unit">/mo</span></span></div>
+            <div class="pc-bundle"><span class="pc-bundle-term">3 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$209</span><span class="pc-bundle-was">$299</span><span class="pc-bundle-unit">/mo</span></span></div>
+            <div class="pc-bundle"><span class="pc-bundle-term">6 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$199</span><span class="pc-bundle-was">$299</span><span class="pc-bundle-unit">/mo</span></span></div>
           </div>
-          <p class="pc-billing">Billed every month · First month special</p>
+          <p class="pc-billing">Per month &middot; 50% off your first month</p>
           <p class="pc-refund">Full refund if a licensed clinician determines this isn't right for you.</p>
 
           <div class="pc-included">
@@ -2251,12 +2265,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="product-weight-loss-plus.html" class="pc-btn-primary" style="text-decoration:none;">Continue</a>
           </div>
 
-          <div class="pc-price-row">
-            <span class="pc-msrp">$399</span>
-            <span class="pc-now">$199</span>
-            <span class="pc-discount">50% Off</span>
+                    <div class="pc-bundles">
+            <div class="pc-bundle"><span class="pc-bundle-term">1 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$199</span><span class="pc-bundle-was">$399</span><span class="pc-bundle-unit">/mo</span></span></div>
+            <div class="pc-bundle"><span class="pc-bundle-term">3 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$279</span><span class="pc-bundle-was">$399</span><span class="pc-bundle-unit">/mo</span></span></div>
+            <div class="pc-bundle"><span class="pc-bundle-term">6 month</span><span class="pc-bundle-price"><span class="pc-bundle-now">$265</span><span class="pc-bundle-was">$399</span><span class="pc-bundle-unit">/mo</span></span></div>
           </div>
-          <p class="pc-billing">Billed every month · First month special</p>
+          <p class="pc-billing">Per month &middot; 50% off your first month</p>
           <p class="pc-refund">Full refund if a licensed clinician determines this isn't right for you.</p>
 
           <div class="pc-included">
