@@ -1951,11 +1951,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="pdp-dose-group">
         <label class="pdp-dose-label" for="pdpDose">Select Dose</label>
         <select class="pdp-dose-select" id="pdpDose" onchange="updateDosePricing()">
-          <option value="0.25 mg" data-delta="0" selected>0.25 mg</option>
-          <option value="0.5 mg" data-delta="10">0.5 mg</option>
-          <option value="0.75 mg" data-delta="15">0.75 mg</option>
-          <option value="1 mg" data-delta="20">1 mg</option>
-          <option value="1.25 mg" data-delta="25">1.25 mg</option>
+          <option value="0.25 mg" data-m-was="139" data-q-total="389" selected>0.25 mg</option>
+          <option value="0.5 mg" data-m-was="139" data-q-total="389">0.5 mg</option>
+          <option value="0.75 mg" data-m-was="139" data-q-total="389">0.75 mg</option>
+          <option value="1 mg" data-m-was="139" data-q-total="389">1 mg</option>
+          <option value="1.25 mg" data-m-was="139" data-q-total="389">1.25 mg</option>
         </select>
       </div>
       <div class="pdp-tier active" data-tier="1" data-fraction="0.4975" onclick="selectTier(this)">
@@ -1966,8 +1966,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="pdp-tier-price">
-            <div class="pdp-tier-now">$99/mo</div>
-            <div class="pdp-tier-was">$199/mo</div>
+            <div class="pdp-tier-now">$70/mo</div>
+            <div class="pdp-tier-was">$139/mo</div>
           </div>
         </div>
 
@@ -1979,8 +1979,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="pdp-tier-price">
-            <div class="pdp-tier-now">$80/mo</div>
-            <div class="pdp-tier-was">$159/mo</div>
+            <div class="pdp-tier-now">$65/mo</div>
+            <div class="pdp-tier-was">$130/mo</div>
           </div>
         </div>
 
@@ -2801,25 +2801,28 @@ document.addEventListener('keydown', (e) => {
 </script>
 
 <script>
-var BASE_WAS = 199;
-
 function updateDosePricing(){
   var sel = document.getElementById('pdpDose');
   if(!sel) return;
-  var delta = parseInt(sel.options[sel.selectedIndex].getAttribute('data-delta'),10) || 0;
-  var monthlyWas = BASE_WAS + delta;       // 1-mo anchor scales by dose
-  var quarterlyWas = Math.round(monthlyWas * 0.8);  // 3-mo anchor is monthly × 0.8 (20% subscription discount)
-  document.querySelectorAll('.pdp-tier').forEach(function(tier){
-    var tierKey = tier.getAttribute('data-tier');
-    var nowEl = tier.querySelector('.pdp-tier-now');
-    var wasEl = tier.querySelector('.pdp-tier-was');
-    var wasVal, nowVal;
-    if(tierKey === '1') { wasVal = monthlyWas; nowVal = Math.floor(monthlyWas * 0.5); }
-    else if(tierKey === '3') { wasVal = quarterlyWas; nowVal = Math.round(quarterlyWas * 0.5); }
-    else return;
-    if(nowEl) nowEl.textContent = '$' + nowVal + '/mo';
-    if(wasEl) wasEl.textContent = '$' + wasVal + '/mo';
-  });
+  var opt = sel.options[sel.selectedIndex];
+  var mWas = parseInt(opt.getAttribute('data-m-was'), 10);
+  var qTotal = parseInt(opt.getAttribute('data-q-total'), 10);
+  var qPerMo = Math.round(qTotal / 3);
+
+  // HBT-50 applies 50% to first order only - display reflects post-code price
+  var m1Now = Math.round(mWas * 0.5);
+  var m3Now = Math.round(qPerMo * 0.5);
+
+  var tier1 = document.querySelector('.pdp-tier[data-tier="1"]');
+  var tier3 = document.querySelector('.pdp-tier[data-tier="3"]');
+  if(tier1){
+    tier1.querySelector('.pdp-tier-now').textContent = '$' + m1Now + '/mo';
+    tier1.querySelector('.pdp-tier-was').textContent = '$' + mWas + '/mo';
+  }
+  if(tier3){
+    tier3.querySelector('.pdp-tier-now').textContent = '$' + m3Now + '/mo';
+    tier3.querySelector('.pdp-tier-was').textContent = '$' + qPerMo + '/mo';
+  }
 }
 
 function selectTier(el){

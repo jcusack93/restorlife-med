@@ -1951,11 +1951,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="pdp-dose-group">
         <label class="pdp-dose-label" for="pdpDose">Select Dose</label>
         <select class="pdp-dose-select" id="pdpDose" onchange="updateDosePricing()">
-          <option value="0.025 mg/day" data-delta="0" selected>0.025 mg/day</option>
-          <option value="0.0375 mg/day" data-delta="5">0.0375 mg/day</option>
-          <option value="0.05 mg/day" data-delta="10">0.05 mg/day</option>
-          <option value="0.075 mg/day" data-delta="15">0.075 mg/day</option>
-          <option value="0.1 mg/day" data-delta="20">0.1 mg/day</option>
+          <option value="0.025 mg/day" data-m-was="129" data-q-total="299" selected>0.025 mg/day</option>
+          <option value="0.0375 mg/day" data-m-was="129" data-q-total="299">0.0375 mg/day</option>
+          <option value="0.05 mg/day" data-m-was="129" data-q-total="299">0.05 mg/day</option>
+          <option value="0.075 mg/day" data-m-was="129" data-q-total="299">0.075 mg/day</option>
+          <option value="0.1 mg/day" data-m-was="129" data-q-total="299">0.1 mg/day</option>
         </select>
       </div>
       <div class="pdp-tier active" data-tier="1" data-fraction="0.4975" onclick="selectTier(this)">
@@ -1966,8 +1966,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="pdp-tier-price">
-            <div class="pdp-tier-now">$99/mo</div>
-            <div class="pdp-tier-was">$199/mo</div>
+            <div class="pdp-tier-now">$65/mo</div>
+            <div class="pdp-tier-was">$129/mo</div>
           </div>
         </div>
 
@@ -1979,8 +1979,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="pdp-tier-price">
-            <div class="pdp-tier-now">$80/mo</div>
-            <div class="pdp-tier-was">$159/mo</div>
+            <div class="pdp-tier-now">$50/mo</div>
+            <div class="pdp-tier-was">$100/mo</div>
           </div>
         </div>
 
@@ -2801,25 +2801,28 @@ document.addEventListener('keydown', (e) => {
 </script>
 
 <script>
-var BASE_WAS = 199;
-
 function updateDosePricing(){
   var sel = document.getElementById('pdpDose');
   if(!sel) return;
-  var delta = parseInt(sel.options[sel.selectedIndex].getAttribute('data-delta'),10) || 0;
-  var monthlyWas = BASE_WAS + delta;       // 1-mo anchor scales by dose
-  var quarterlyWas = Math.round(monthlyWas * 0.8);  // 3-mo anchor is monthly × 0.8 (20% subscription discount)
-  document.querySelectorAll('.pdp-tier').forEach(function(tier){
-    var tierKey = tier.getAttribute('data-tier');
-    var nowEl = tier.querySelector('.pdp-tier-now');
-    var wasEl = tier.querySelector('.pdp-tier-was');
-    var wasVal, nowVal;
-    if(tierKey === '1') { wasVal = monthlyWas; nowVal = Math.floor(monthlyWas * 0.5); }
-    else if(tierKey === '3') { wasVal = quarterlyWas; nowVal = Math.round(quarterlyWas * 0.5); }
-    else return;
-    if(nowEl) nowEl.textContent = '$' + nowVal + '/mo';
-    if(wasEl) wasEl.textContent = '$' + wasVal + '/mo';
-  });
+  var opt = sel.options[sel.selectedIndex];
+  var mWas = parseInt(opt.getAttribute('data-m-was'), 10);
+  var qTotal = parseInt(opt.getAttribute('data-q-total'), 10);
+  var qPerMo = Math.round(qTotal / 3);
+
+  // HBT-50 applies 50% to first order only - display reflects post-code price
+  var m1Now = Math.round(mWas * 0.5);
+  var m3Now = Math.round(qPerMo * 0.5);
+
+  var tier1 = document.querySelector('.pdp-tier[data-tier="1"]');
+  var tier3 = document.querySelector('.pdp-tier[data-tier="3"]');
+  if(tier1){
+    tier1.querySelector('.pdp-tier-now').textContent = '$' + m1Now + '/mo';
+    tier1.querySelector('.pdp-tier-was').textContent = '$' + mWas + '/mo';
+  }
+  if(tier3){
+    tier3.querySelector('.pdp-tier-now').textContent = '$' + m3Now + '/mo';
+    tier3.querySelector('.pdp-tier-was').textContent = '$' + qPerMo + '/mo';
+  }
 }
 
 function selectTier(el){
